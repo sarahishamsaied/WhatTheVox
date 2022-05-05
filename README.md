@@ -52,8 +52,9 @@ A user can:
 5 - Pick seats.
 
 
+## UML
 
 
+![Movie Booking System drawio](https://user-images.githubusercontent.com/71923204/167042213-f7dd89b3-d55b-4c20-a983-46c09fc06b8b.png)
 
- 
 
