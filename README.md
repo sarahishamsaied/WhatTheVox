@@ -12,7 +12,7 @@ Every admin has a login ID and password (which are passed to an authentication s
 
 Users are the actual customers where they have the second authority in the system. 
 
-In order for the user to have full access to the ***[User Features](#UserFeatures)***, they must be logged in.
+In order for the user to have full access to the ***[features](#UserFeatures)***, they must be logged in.
 
 Every user has an email, password (which are passed to an authentication system).
 
