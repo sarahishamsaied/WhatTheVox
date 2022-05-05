@@ -1,6 +1,6 @@
-# Movie Booking System 
+# WhatTheVox 
 
-***Movie Booking System*** is a Java system that mainly focuses on dealing with users, managing cinema halls and printing movie tickets. This project handles multi-layered access levels (Admin/User).
+***WhatTheVox*** is a Java system that mainly focuses on dealing with users, managing cinema halls and printing movie tickets. This project handles multi-layered access levels (Admin/User).
 
 ## First off, ***The Admin***
 
