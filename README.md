@@ -4,7 +4,7 @@
 
 ## First off, ***The Admin***
 
-Admins have full control over everything the system where they have access the ***[Dashboard](#dashboard)***. 
+Admins have full control over everything the system where they have access the ***[Dashboard](#the-dashboard)***. 
 
 Every admin has a login ID and password (which are passed to an authentication system).
 
