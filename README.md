@@ -54,7 +54,7 @@ A user can:
 
 ## UML
 
+![Movie Booking System drawio (1)](https://user-images.githubusercontent.com/71923204/167047306-68a43b46-8a8e-47ec-805d-caf87bdc0700.png)
 
-![Movie Booking System drawio](https://user-images.githubusercontent.com/71923204/167042213-f7dd89b3-d55b-4c20-a983-46c09fc06b8b.png)
 
 
