@@ -95,7 +95,7 @@
             </VBox>
          </left>
          <right>
-            <ImageView blendMode="SCREEN" fitHeight="890.0" fitWidth="744.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: .7;" BorderPane.alignment="CENTER">
+            <ImageView fitHeight="769.0" fitWidth="478.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: .7;" BorderPane.alignment="CENTER">
                <image>
                   <Image url="@../../../../../../../../../Desktop/wRnbWt44nKjsFPrqSmwYki5vZtF.jpg" />
                </image>
