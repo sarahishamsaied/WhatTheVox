@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="328.0" prefWidth="600.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <StackPane alignment="TOP_CENTER" prefHeight="401.0" prefWidth="600.0">
+         <children>
+            <ImageView fitHeight="407.0" fitWidth="601.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../../../../Desktop/backImage.png" />
+               </image>
+            </ImageView>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <top>
+                  <Label prefHeight="38.0" prefWidth="98.0" text="Sign In" textAlignment="CENTER" textFill="WHITE" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font name="Bauhaus 93" size="32.0" />
+                     </font>
+                     <BorderPane.margin>
+                        <Insets top="50.0" />
+                     </BorderPane.margin>
+                  </Label>
+               </top>
+               <center>
+                  <VBox alignment="CENTER" prefHeight="251.0" prefWidth="390.0" BorderPane.alignment="CENTER">
+                     <padding>
+                        <Insets bottom="50.0" left="50.0" right="50.0" />
+                     </padding>
+                     <children>
+                        <TextField promptText="Email Address" />
+                        <TextField layoutX="60.0" layoutY="60.0" promptText="Password">
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Button mnemonicParsing="false" style="-fx-background-color: #f67c86; -fx-border-radius: 40;" text="Sign In" textAlignment="CENTER" textFill="WHITE">
+                           <VBox.margin>
+                              <Insets top="30.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </center>
+            </BorderPane>
+         </children>
+      </StackPane>
+   </children>
+</VBox>
