@@ -1,9 +1,8 @@
-package com.example.moviebookingsystem;
-import Classes.User;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
+package Classes;
+
 import java.sql.*;
-public class AuthenticationController {
+
+public class DatabaseConnection {
     Connection testConnection;
     {
         try {
@@ -23,13 +22,5 @@ public class AuthenticationController {
             System.out.println("cannot find class");
             e.printStackTrace();
         }
-    }
-
-    @FXML
-    void onSignUp(ActionEvent actionEvent) {
-
-    }
-    @FXML void onSignIn(ActionEvent actionEvent) {
-
     }
 }
