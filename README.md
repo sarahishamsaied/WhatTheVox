@@ -55,7 +55,7 @@ A user can:
 ## UML
 
 Click on the image for high quality
+![cinemaBookingSystem](https://user-images.githubusercontent.com/71923204/168705203-c038cb3d-fd61-4753-8904-ae60c00c06f1.png)
 
-![Movie Booking System drawio (3)](https://user-images.githubusercontent.com/71923204/167272017-7d1b9fa1-3e75-4adf-b5f1-2de49458c525.png)
 
 
