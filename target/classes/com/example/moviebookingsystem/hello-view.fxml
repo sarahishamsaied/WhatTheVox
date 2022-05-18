@@ -14,7 +14,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="20.0" style="-fx-background-color: #000;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.AuthenticationController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="1184.0" spacing="20.0" style="-fx-background-color: #000;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.HomeController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -71,21 +71,21 @@
       </BorderPane>
       <BorderPane prefHeight="880.0" prefWidth="1880.0">
          <left>
-            <VBox alignment="CENTER_LEFT" prefHeight="828.0" prefWidth="962.0" BorderPane.alignment="CENTER">
+            <VBox alignment="CENTER_LEFT" prefHeight="559.0" prefWidth="766.0" BorderPane.alignment="CENTER">
                <children>
-                  <Label prefHeight="191.0" prefWidth="577.0" text="Movie" textFill="WHITE">
+                  <Label prefHeight="71.0" prefWidth="250.0" text="Movie" textFill="WHITE">
                      <font>
-                        <Font name="Bauhaus 93" size="200.0" />
+                        <Font name="Bauhaus 93" size="81.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="191.0" prefWidth="577.0" text="Ticket" textFill="WHITE">
+                  <Label prefHeight="73.0" prefWidth="254.0" text="Ticket" textFill="WHITE">
                      <font>
-                        <Font name="Bauhaus 93" size="200.0" />
+                        <Font name="Bauhaus 93" size="81.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="254.0" prefWidth="699.0" text="System." textFill="WHITE">
+                  <Label prefHeight="83.0" prefWidth="291.0" text="System." textFill="WHITE">
                      <font>
-                        <Font name="Bauhaus 93" size="200.0" />
+                        <Font name="Bauhaus 93" size="81.0" />
                      </font>
                   </Label>
                </children>
@@ -95,10 +95,13 @@
             </VBox>
          </left>
          <right>
-            <ImageView blendMode="SCREEN" fitHeight="890.0" fitWidth="744.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: .7;" BorderPane.alignment="CENTER">
+            <ImageView blendMode="SCREEN" fitHeight="559.0" fitWidth="619.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: .7;" BorderPane.alignment="CENTER">
                <image>
-                  <Image url="@../../../../../../../../../Desktop/wRnbWt44nKjsFPrqSmwYki5vZtF.jpg" />
+                  <Image url="@../../../../../../../../../Desktop/ملصق_فيلم_الرجل_الشرس.jpg" />
                </image>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
             </ImageView>
          </right>
       </BorderPane>
