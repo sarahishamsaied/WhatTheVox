@@ -56,6 +56,6 @@ A user can:
 
 Click on the image for high quality
 
-![Movie Booking System drawio (3)](https://user-images.githubusercontent.com/71923204/167272017-7d1b9fa1-3e75-4adf-b5f1-2de49458c525.png)
+![cinemaBookingSystem](https://user-images.githubusercontent.com/71923204/168704961-47da7901-82dd-4a27-b135-034319ed0f72.png)
 
 
