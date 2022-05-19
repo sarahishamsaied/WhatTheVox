@@ -14,7 +14,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="1184.0" spacing="20.0" style="-fx-background-color: #000;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.HomeController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="1034.0" spacing="20.0" style="-fx-background-color: #000;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.HomeController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -47,11 +47,11 @@
             <Insets left="30.0" right="30.0" />
          </padding>
          <right>
-            <HBox alignment="CENTER" prefHeight="174.0" prefWidth="406.0" BorderPane.alignment="CENTER">
+            <HBox alignment="CENTER" prefHeight="72.0" prefWidth="189.0" BorderPane.alignment="CENTER">
                <children>
                   <Button mnemonicParsing="false" onAction="#onSignUp" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 5px;" text="Sign Up" textFill="WHITE">
                      <font>
-                        <Font size="28.0" />
+                        <Font size="16.0" />
                      </font>
                      <HBox.margin>
                         <Insets right="20.0" />
@@ -59,7 +59,7 @@
                   </Button>
                   <Button layoutX="126.0" layoutY="59.0" mnemonicParsing="false" onAction="#onSignIn" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 5px;" text="Sign In" textFill="WHITE">
                      <font>
-                        <Font size="28.0" />
+                        <Font size="16.0" />
                      </font>
                   </Button>
                </children>
@@ -95,7 +95,7 @@
             </VBox>
          </left>
          <right>
-            <ImageView blendMode="SCREEN" fitHeight="559.0" fitWidth="619.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: .7;" BorderPane.alignment="CENTER">
+            <ImageView blendMode="SCREEN" fitHeight="371.0" fitWidth="276.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: .7;" BorderPane.alignment="CENTER">
                <image>
                   <Image url="@../../../../../../../../../Desktop/ملصق_فيلم_الرجل_الشرس.jpg" />
                </image>

@@ -4,64 +4,58 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="694.0" prefWidth="957.0" style="-fx-background-color: #000;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="763.0" prefWidth="1385.0" style="-fx-background-color: #000;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.AuthenticationController">
    <children>
-      <StackPane alignment="TOP_CENTER" prefHeight="339.0" prefWidth="561.0" style="-fx-background-color: #000;">
-         <children>
-            <ImageView fitHeight="720.0" fitWidth="1248.0" pickOnBounds="true" preserveRatio="true" />
-            <BorderPane prefHeight="407.0" prefWidth="601.0">
-               <top>
-                  <Label prefHeight="72.0" prefWidth="186.0" text="Sign In" textAlignment="CENTER" textFill="WHITE" BorderPane.alignment="CENTER">
+      <BorderPane layoutX="10.0" layoutY="10.0" prefHeight="744.0" prefWidth="1365.0">
+         <top>
+            <Label prefHeight="72.0" prefWidth="186.0" text="Sign In" textAlignment="CENTER" textFill="WHITE" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Bauhaus 93" size="63.0" />
+               </font>
+               <BorderPane.margin>
+                  <Insets top="50.0" />
+               </BorderPane.margin>
+            </Label>
+         </top>
+         <center>
+            <VBox alignment="CENTER" prefHeight="413.0" prefWidth="1081.0" BorderPane.alignment="CENTER">
+               <padding>
+                  <Insets bottom="50.0" left="50.0" right="50.0" />
+               </padding>
+               <children>
+                  <Label prefHeight="43.0" prefWidth="1268.0" text="Email" textFill="WHITE">
                      <font>
-                        <Font name="Bauhaus 93" size="63.0" />
+                        <Font size="19.0" />
                      </font>
-                     <BorderPane.margin>
-                        <Insets top="50.0" />
-                     </BorderPane.margin>
                   </Label>
-               </top>
-               <center>
-                  <VBox alignment="CENTER" prefHeight="413.0" prefWidth="1081.0" BorderPane.alignment="CENTER">
-                     <padding>
-                        <Insets bottom="50.0" left="50.0" right="50.0" />
-                     </padding>
-                     <children>
-                        <Label prefHeight="43.0" prefWidth="1143.0" text="Email" textFill="WHITE">
-                           <font>
-                              <Font size="19.0" />
-                           </font>
-                        </Label>
-                        <TextField layoutX="60.0" layoutY="60.0" prefHeight="35.0" prefWidth="957.0" promptText="Email Address" />
-                        <Label layoutX="63.0" layoutY="200.0" prefHeight="43.0" prefWidth="1143.0" text="Password" textFill="WHITE">
-                           <font>
-                              <Font size="19.0" />
-                           </font>
-                        </Label>
-                        <TextField layoutX="60.0" layoutY="60.0" prefHeight="35.0" prefWidth="957.0" promptText="Password">
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </TextField>
-                        <Button mnemonicParsing="false" style="-fx-background-color: #f67c86; -fx-border-radius: 40;" text="Sign In" textAlignment="CENTER" textFill="WHITE">
-                           <VBox.margin>
-                              <Insets top="30.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
-                     </children>
-                  </VBox>
-               </center>
-            </BorderPane>
-         </children>
-      </StackPane>
+                  <TextField layoutX="60.0" layoutY="60.0" prefHeight="35.0" prefWidth="957.0" promptText="Email Address" />
+                  <Label layoutX="63.0" layoutY="200.0" prefHeight="43.0" prefWidth="1270.0" text="Password" textFill="WHITE">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="60.0" layoutY="60.0" prefHeight="35.0" prefWidth="957.0" promptText="Password">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </TextField>
+                  <Button mnemonicParsing="false" style="-fx-background-color: #f67c86; -fx-border-radius: 40;" text="Sign In" textAlignment="CENTER" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
    </children>
-</VBox>
+</AnchorPane>

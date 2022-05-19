@@ -28,10 +28,13 @@ public final class UserServices extends DatabaseConnection {
         }
         return allUsers;
     }
-    public static ObservableList<User> searchUsers(String searchQuery) throws SQLException {
+    public static ObservableList<User> searchUsers(String searchQuery,String searchType) throws SQLException {
+
         ObservableList<User> searchResult = FXCollections.observableArrayList();
+        if(searchType!= "email" && searchType!="name")
+            return searchResult;
         Statement sqlStatement = dbConnection.createStatement();
-        ResultSet resultSet = sqlStatement.executeQuery("SELECT * FROM users WHERE name REGEXP '"+searchQuery+"'");
+        ResultSet resultSet = sqlStatement.executeQuery("SELECT * FROM users WHERE "+searchType+" REGEXP '"+searchQuery+"'");
         while(resultSet.next()){
             User user = new User();
             user.setName(resultSet.getString("name"));
@@ -53,7 +56,6 @@ public final class UserServices extends DatabaseConnection {
         statement.setInt(2,age);
         statement.setString(3,email);
         statement.setString(4,password);
-//        statement.setString(6,"fffff");
         statement.executeUpdate();
     }
 

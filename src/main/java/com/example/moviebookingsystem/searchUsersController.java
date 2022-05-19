@@ -1,5 +1,6 @@
 package com.example.moviebookingsystem;
 
+import Classes.DatabaseConnection;
 import Classes.User;
 import DatabaseServices.UserServices;
 import javafx.collections.FXCollections;
@@ -28,7 +29,12 @@ public class searchUsersController implements Initializable {
     ObservableList<String> filterComboBoxItems = FXCollections.observableArrayList("Search By Name","Search By Email");
     @FXML
     public void onSearchClicked() throws SQLException {
-        searchResultsTable.setItems(UserServices.searchUsers(searchField.getText()));
+        DatabaseConnection db = new DatabaseConnection();
+        db.Connect();
+        if(filterComboBox.getValue() == "Search By Name" || filterComboBox.getValue() == null)
+        searchResultsTable.setItems(UserServices.searchUsers(searchField.getText(),"name"));
+        if(filterComboBox.getValue() == "Search By Email")
+            searchResultsTable.setItems(UserServices.searchUsers(searchField.getText(),"email"));
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -36,7 +42,6 @@ public class searchUsersController implements Initializable {
         UserAgeColumn.setCellValueFactory(new PropertyValueFactory<User,String>("age"));
         UserEmailColumn.setCellValueFactory(new PropertyValueFactory<User,String>("email"));
         filterComboBox.setItems(filterComboBoxItems);
-
     }
 
 }

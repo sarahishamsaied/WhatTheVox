@@ -10,7 +10,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="624.0" prefWidth="766.0" style="-fx-background-color: #161616;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.AdminMainMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="624.0" prefWidth="1072.0" style="-fx-background-color: #161616;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.AdminMainMenuController">
    <children>
       <AnchorPane prefHeight="624.0" prefWidth="171.0" style="-fx-background-color: #0f0f0f; -fx-border-color: #000;">
          <children>
@@ -124,7 +124,7 @@
             <Button layoutX="164.0" layoutY="448.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="Delete User" textFill="WHITE" />
             <Button layoutX="164.0" layoutY="321.0" mnemonicParsing="false" onAction="#onSearchUsers" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="Search Users" textFill="WHITE" />
             <Button layoutX="164.0" layoutY="388.0" mnemonicParsing="false" onAction="#onViewAllUsers" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="View All Users" textFill="WHITE" />
-            <Label layoutX="212.0" layoutY="136.0" prefHeight="49.0" prefWidth="94.0" text="Users" textFill="WHITE">
+            <Label layoutX="204.0" layoutY="136.0" prefHeight="49.0" prefWidth="102.0" text="Users" textFill="WHITE">
                <font>
                   <Font name="Bauhaus 93" size="43.0" />
                </font>
