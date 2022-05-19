@@ -57,7 +57,7 @@ public class AuthenticationController implements IValidate {
                     if(!emailExists(email.getText()))
                 {
                     Navigator navigator = new Navigator();
-                    navigator.Navigate("UsersTable.fxml","Users Table");
+                    navigator.Navigate("adminMenu.fxml","Users Table");
                 }
             else
                     {
