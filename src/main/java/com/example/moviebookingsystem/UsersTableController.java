@@ -3,6 +3,7 @@ package com.example.moviebookingsystem;
 import Classes.DatabaseConnection;
 import Classes.User;
 import Classes.Person;
+import DatabaseServices.UserServices;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -35,8 +36,8 @@ public class UsersTableController implements Initializable {
         try{
             DatabaseConnection db = new DatabaseConnection();
             db.Connect();
-            db.getAllUsers();
-            usersTable.setItems(db.getAllUsers());
+            UserServices.getAllUsers();
+            usersTable.setItems(UserServices.getAllUsers());
             IDColumn.setCellValueFactory(new PropertyValueFactory<User,String>("name"));
             UserNameColumn.setCellValueFactory(new PropertyValueFactory<User,String>("name"));
             EmailColumn.setCellValueFactory(new PropertyValueFactory<User,String>("email"));

@@ -1,7 +1,9 @@
 package com.example.moviebookingsystem;
+import Classes.DatabaseConnection;
 import Classes.IValidate;
 import Classes.User;
 import DatabaseServices.AuthServices;
+import DatabaseServices.UserServices;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -12,6 +14,7 @@ import java.sql.*;
 import java.util.regex.Pattern;
 
 public class AuthenticationController implements IValidate {
+    DatabaseConnection connection ;
     private boolean errorFlag = false;
     @FXML
     private TextField email,password,fullName,age;
@@ -40,16 +43,27 @@ public class AuthenticationController implements IValidate {
     @FXML void onSignIn(ActionEvent actionEvent) {
 
     }
+    public boolean emailExists(String email) throws SQLException {
+        connection =  new DatabaseConnection();
+        connection.Connect();
+        return UserServices.checkEmailExists(email);
+    }
     @FXML
-    void onSignUp(ActionEvent actionEvent) throws IOException {
+    void onSignUp(ActionEvent actionEvent) throws IOException, SQLException {
         User user;
         if(validateEmail(email.getText())){
             if(validatePassword(password.getText()))
                 if(checkNumeric(age.getText()))
+                    if(!emailExists(email.getText()))
                 {
                     Navigator navigator = new Navigator();
                     navigator.Navigate("UsersTable.fxml","Users Table");
                 }
+            else
+                    {
+                        errorFlag = true;
+                        errorMessage.setText("Email already exists!");
+                    }
             else
                 {
                     errorFlag = true;
