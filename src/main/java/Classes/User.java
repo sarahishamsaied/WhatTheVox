@@ -46,7 +46,6 @@ public class User extends Person {
         this.password = password;
     }
 
-    // IValidate method implementation
 
 
 }

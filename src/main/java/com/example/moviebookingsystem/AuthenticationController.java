@@ -56,6 +56,7 @@ public class AuthenticationController implements IValidate {
                 if(checkNumeric(age.getText()))
                     if(!emailExists(email.getText()))
                 {
+                    UserServices.addUser(fullName.getText(),Integer.parseInt(age.getText()),email.getText(),password.getText());
                     Navigator navigator = new Navigator();
                     navigator.Navigate("adminMenu.fxml","Users Table");
                 }
