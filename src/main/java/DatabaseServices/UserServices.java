@@ -31,11 +31,10 @@ public final class UserServices extends DatabaseConnection {
     public static ObservableList<User> searchUsers(String searchQuery) throws SQLException {
         ObservableList<User> searchResult = FXCollections.observableArrayList();
         Statement sqlStatement = dbConnection.createStatement();
-        ResultSet resultSet = sqlStatement.executeQuery("SELECT name FROM users WHERE name REGEXP '"+searchQuery+"'");
+        ResultSet resultSet = sqlStatement.executeQuery("SELECT * FROM users WHERE name REGEXP '"+searchQuery+"'");
         while(resultSet.next()){
             User user = new User();
             user.setName(resultSet.getString("name"));
-            user.setPassword(resultSet.getString("password"));
             user.setEmail(resultSet.getString("email"));
             user.setAge(Integer.parseInt(resultSet.getString("age")));
             searchResult.add(user);
