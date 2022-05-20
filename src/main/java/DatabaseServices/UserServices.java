@@ -28,6 +28,15 @@ public final class UserServices extends DatabaseConnection {
         }
         return allUsers;
     }
+    public static boolean checkUserExists(String email,String password) throws SQLException {
+        String pass = "";
+        PreparedStatement statement = dbConnection.prepareStatement("select * from users where email = '"+email+"'") ;
+        ResultSet resultSet = statement.executeQuery();
+       while(resultSet.next()){
+           pass = resultSet.getString(("password"));
+       }
+       return (pass.equals(password));
+    }
     public static ObservableList<User> searchUsers(String searchQuery,String searchType) throws SQLException {
 
         ObservableList<User> searchResult = FXCollections.observableArrayList();

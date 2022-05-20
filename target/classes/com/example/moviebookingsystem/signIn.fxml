@@ -9,7 +9,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="763.0" prefWidth="1385.0" style="-fx-background-color: #000;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.AuthenticationController">
    <children>
       <BorderPane layoutX="10.0" layoutY="10.0" prefHeight="744.0" prefWidth="1365.0">
@@ -34,18 +33,18 @@
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="60.0" layoutY="60.0" prefHeight="35.0" prefWidth="957.0" promptText="Email Address" />
+                  <TextField fx:id="signInEmail" layoutX="60.0" layoutY="60.0" prefHeight="35.0" prefWidth="957.0" promptText="Email Address" />
                   <Label layoutX="63.0" layoutY="200.0" prefHeight="43.0" prefWidth="1270.0" text="Password" textFill="WHITE">
                      <font>
                         <Font size="19.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="60.0" layoutY="60.0" prefHeight="35.0" prefWidth="957.0" promptText="Password">
+                  <TextField fx:id="signInPassword" layoutX="60.0" layoutY="60.0" prefHeight="35.0" prefWidth="957.0" promptText="Password">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
                   </TextField>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #f67c86; -fx-border-radius: 40;" text="Sign In" textAlignment="CENTER" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#onSignIn" style="-fx-background-color: #f67c86; -fx-border-radius: 40;" text="Sign In" textAlignment="CENTER" textFill="WHITE">
                      <VBox.margin>
                         <Insets top="30.0" />
                      </VBox.margin>
@@ -53,6 +52,11 @@
                         <Font size="15.0" />
                      </font>
                   </Button>
+                  <Label fx:id="signInErrorMessage" prefHeight="17.0" prefWidth="1264.0" text=" " textFill="#ff0909">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
                </children>
             </VBox>
          </center>

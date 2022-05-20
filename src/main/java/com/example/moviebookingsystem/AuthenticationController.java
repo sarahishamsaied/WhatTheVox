@@ -14,12 +14,13 @@ import java.sql.*;
 import java.util.regex.Pattern;
 
 public class AuthenticationController implements IValidate {
+    Navigator navigator = new Navigator();
     DatabaseConnection connection ;
     private boolean errorFlag = false;
     @FXML
-    private TextField email,password,fullName,age;
+    private TextField email,password,fullName,age,signInPassword,signInEmail;
     @FXML
-    private Label errorMessage;
+    private Label errorMessage,signInErrorMessage;
     @Override
     public boolean checkNumeric(String numAttempt){
         if (numAttempt.matches("[0-9]+") && numAttempt.length()!=0)
@@ -40,8 +41,16 @@ public class AuthenticationController implements IValidate {
             return true;
         return false;
     }
-    @FXML void onSignIn(ActionEvent actionEvent) {
-
+    @FXML
+    void onSignIn(ActionEvent actionEvent) throws SQLException, IOException {
+        DatabaseConnection db = new DatabaseConnection();
+        db.Connect();
+        if(UserServices.checkUserExists(signInEmail.getText(),signInPassword.getText()))
+        {
+            navigator.Navigate("adminMenu.fxml","Admin Menu");
+        }
+        else
+         signInErrorMessage.setText("Email or password is incorrect");
     }
     public boolean emailExists(String email) throws SQLException {
         connection =  new DatabaseConnection();
@@ -57,7 +66,6 @@ public class AuthenticationController implements IValidate {
                     if(!emailExists(email.getText()))
                 {
                     UserServices.addUser(fullName.getText(),Integer.parseInt(age.getText()),email.getText(),password.getText());
-                    Navigator navigator = new Navigator();
                     navigator.Navigate("adminMenu.fxml","Users Table");
                 }
             else
