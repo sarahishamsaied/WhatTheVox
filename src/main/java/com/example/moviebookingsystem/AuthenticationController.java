@@ -2,12 +2,14 @@ package com.example.moviebookingsystem;
 import Classes.DatabaseConnection;
 import Classes.IValidate;
 import Classes.User;
-import DatabaseServices.AuthServices;
+import DatabaseServices.AdminServices;
 import DatabaseServices.UserServices;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.sql.*;
@@ -18,9 +20,10 @@ public class AuthenticationController implements IValidate {
     DatabaseConnection connection ;
     private boolean errorFlag = false;
     @FXML
-    private TextField email,password,fullName,age,signInPassword,signInEmail;
+    private TextField email,password,fullName,age,signInPassword,signInEmail,adminLoginId,adminLoginPassword;
     @FXML
-    private Label errorMessage,signInErrorMessage;
+    private Label errorMessage,signInErrorMessage,adminErrorMessage;
+    @FXML private Hyperlink signInLink;
     @Override
     public boolean checkNumeric(String numAttempt){
         if (numAttempt.matches("[0-9]+") && numAttempt.length()!=0)
@@ -42,6 +45,14 @@ public class AuthenticationController implements IValidate {
         return false;
     }
     @FXML
+    private void goToSignInPage() throws IOException {
+        navigator.Navigate("signIn.fxml","Sign In");
+    }
+    @FXML
+    private void goToSignUpPage() throws IOException {
+        navigator.Navigate("signUp.fxml","Sign Up");
+    }
+    @FXML
     void onSignIn(ActionEvent actionEvent) throws SQLException, IOException {
         DatabaseConnection db = new DatabaseConnection();
         db.Connect();
@@ -58,6 +69,16 @@ public class AuthenticationController implements IValidate {
         return UserServices.checkEmailExists(email);
     }
     @FXML
+    private void onAdminLogin() throws IOException, SQLException {
+        DatabaseConnection db = new DatabaseConnection();
+        db.Connect();
+        if(AdminServices.checkAdminExists(adminLoginId.getText(),adminLoginPassword.getText()))
+            navigator.Navigate("adminMenu.fxml","Admin Menu");
+        else
+            adminErrorMessage.setText("Login Id or password is incorrect");
+
+    }
+    @FXML
     void onSignUp(ActionEvent actionEvent) throws IOException, SQLException {
         User user;
         if(validateEmail(email.getText())){
@@ -70,6 +91,7 @@ public class AuthenticationController implements IValidate {
                 }
             else
                     {
+
                         errorFlag = true;
                         errorMessage.setText("Email already exists!");
                     }

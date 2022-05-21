@@ -2,80 +2,61 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="619.0" prefWidth="1042.0" style="-fx-background-color: #000;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.AuthenticationController">
+<AnchorPane maxHeight="619.0" maxWidth="1042.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="619.0" prefWidth="1042.0" style="-fx-background-color: #0F0F0F;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.AuthenticationController">
    <children>
-      <BorderPane layoutX="10.0" layoutY="10.0" prefHeight="604.0" prefWidth="1026.0">
-         <top>
-            <Label prefHeight="38.0" prefWidth="107.0" text="Sign Up" textAlignment="CENTER" textFill="WHITE" BorderPane.alignment="CENTER">
-               <font>
-                  <Font name="Bauhaus 93" size="32.0" />
-               </font>
-               <BorderPane.margin>
-                  <Insets top="50.0" />
-               </BorderPane.margin>
-            </Label>
-         </top>
-         <center>
-            <VBox alignment="CENTER" prefHeight="299.0" prefWidth="740.0" BorderPane.alignment="CENTER">
-               <padding>
-                  <Insets bottom="50.0" left="50.0" right="50.0" />
-               </padding>
-               <children>
-                  <Label prefHeight="43.0" prefWidth="1143.0" text="Full Name" textFill="WHITE">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="fullName" prefHeight="35.0" prefWidth="1148.0" promptText="Full Name" />
-                  <Label layoutX="63.0" layoutY="145.0" prefHeight="43.0" prefWidth="1143.0" text="Age" textFill="WHITE">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="age" layoutX="60.0" layoutY="188.0" prefHeight="35.0" prefWidth="1148.0" promptText="Age" />
-                  <Label layoutX="63.0" layoutY="184.0" prefHeight="43.0" prefWidth="1143.0" text="Email" textFill="WHITE">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="email" layoutX="60.0" layoutY="227.0" prefHeight="35.0" prefWidth="1148.0" promptText="Email Address" />
-                  <Label layoutX="63.0" layoutY="200.0" prefHeight="43.0" prefWidth="1143.0" text="Password" textFill="WHITE">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="password" layoutX="60.0" layoutY="60.0" prefHeight="35.0" promptText="Password">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </TextField>
-                  <Label fx:id="errorMessage" prefHeight="42.0" prefWidth="1088.0" textAlignment="CENTER" textFill="RED">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <padding>
-                        <Insets top="10.0" />
-                     </padding>
-                  </Label>
-                  <Button fx:id="signUpButton" mnemonicParsing="false" onAction="#onSignUp" prefHeight="22.0" prefWidth="82.0" style="-fx-background-color: #f67c86; -fx-border-radius: 40;" text="Sign Up" textAlignment="CENTER" textFill="WHITE">
-                     <VBox.margin>
-                        <Insets top="30.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-               </children>
-            </VBox>
-         </center>
-      </BorderPane>
+      <Label layoutX="74.0" layoutY="178.0" prefHeight="43.0" prefWidth="90.0" text="Full Name" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="fullName" layoutX="76.0" layoutY="221.0" prefHeight="35.0" prefWidth="236.0" promptText="Full Name" />
+      <Label layoutX="74.0" layoutY="267.0" prefHeight="43.0" prefWidth="44.0" text="Age" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="age" layoutX="74.0" layoutY="310.0" prefHeight="35.0" prefWidth="232.0" promptText="Age" />
+      <Label layoutX="345.0" layoutY="184.0" prefHeight="31.0" prefWidth="50.0" text="Email" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="email" layoutX="345.0" layoutY="223.0" prefHeight="35.0" prefWidth="233.0" promptText="Email Address" />
+      <Label layoutX="345.0" layoutY="267.0" prefHeight="43.0" prefWidth="84.0" text="Password" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="password" layoutX="343.0" layoutY="307.0" prefHeight="35.0" prefWidth="232.0" promptText="Password" />
+      <Label fx:id="errorMessage" layoutX="71.0" layoutY="486.0" prefHeight="42.0" prefWidth="524.0" textAlignment="CENTER" textFill="RED">
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+      </Label>
+      <Button fx:id="signUpButton" layoutX="71.0" layoutY="391.0" mnemonicParsing="false" onAction="#onSignUp" prefHeight="31.0" prefWidth="510.0" style="-fx-background-color: #ff4fa7; -fx-border-radius: 40;" text="Sign Up" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="72.0" layoutY="63.0" text="Sign Up" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="60.0" />
+         </font>
+      </Label>
+      <Hyperlink fx:id="signInLink" layoutX="214.0" layoutY="463.0" onAction="#goToSignInPage" text="Sign in!" textFill="#ff007d" underline="true" />
+      <Label layoutX="71.0" layoutY="466.0" text="Already have an account?" textFill="WHITE" />
+      <Line endX="100.0" layoutX="164.0" layoutY="142.0" startX="-100.0" stroke="WHITE" />
+      <Hyperlink layoutX="306.0" layoutY="75.0" onAction="#goToSignInPage" prefHeight="68.0" prefWidth="160.0" text="Sign In" textFill="#ffffff22">
+         <font>
+            <Font name="Bauhaus 93" size="44.0" />
+         </font>
+      </Hyperlink>
    </children>
 </AnchorPane>

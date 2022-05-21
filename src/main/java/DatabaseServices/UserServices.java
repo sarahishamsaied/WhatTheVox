@@ -4,8 +4,6 @@ import Classes.DatabaseConnection;
 import Classes.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Alert;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -66,6 +64,21 @@ public final class UserServices extends DatabaseConnection {
         statement.setString(3,email);
         statement.setString(4,password);
         statement.executeUpdate();
+    }
+    public static boolean deleteUser(String id) {
+        try{
+            Statement st = dbConnection.createStatement();
+            int rowsAffected = st.executeUpdate("delete from users where userId = '"+id+"'");
+            System.out.println(rowsAffected);
+            if(rowsAffected !=1)
+                return false;
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+            System.out.println("cannot find id");
+        }
+
+        return true;
     }
 
 }

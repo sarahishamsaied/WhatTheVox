@@ -37,5 +37,10 @@ public class AdminMainMenuController {
         Navigator navigator = new Navigator();
         navigator.Navigate("SearchUsers.fxml","Search Users");
     }
+    @FXML
+    private void onDeleteUser() throws IOException {
+        Navigator navigator = new Navigator();
+        navigator.Navigate("deleteUserForm.fxml","Delete User");
+    }
 
 }

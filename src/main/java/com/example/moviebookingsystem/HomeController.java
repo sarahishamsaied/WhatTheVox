@@ -19,6 +19,11 @@ public class HomeController {
         navigator.Navigate("signUp.fxml","Sign Up");
     }
     @FXML
+    private void goToAdminLoginPage() throws IOException {
+        Navigator navigator = new Navigator();
+        navigator.Navigate("adminLogin.fxml","Admin Login");
+    }
+    @FXML
     public void onSignIn() throws IOException {
         Navigator navigator = new Navigator();
         navigator.Navigate("signIn.fxml","Sign In");

@@ -121,7 +121,7 @@
       <Pane fx:id="usersMenuPane" layoutX="219.0" layoutY="-1.0" prefHeight="624.0" prefWidth="548.0" style="-fx-background-color: #171717;">
          <children>
             <Button layoutX="164.0" layoutY="260.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="Add User" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="448.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="Delete User" textFill="WHITE" />
+            <Button layoutX="164.0" layoutY="448.0" mnemonicParsing="false" onAction="#onDeleteUser" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="Delete User" textFill="WHITE" />
             <Button layoutX="164.0" layoutY="321.0" mnemonicParsing="false" onAction="#onSearchUsers" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="Search Users" textFill="WHITE" />
             <Button layoutX="164.0" layoutY="388.0" mnemonicParsing="false" onAction="#onViewAllUsers" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="View All Users" textFill="WHITE" />
             <Label layoutX="204.0" layoutY="136.0" prefHeight="49.0" prefWidth="102.0" text="Users" textFill="WHITE">

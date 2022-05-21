@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="1146.0" style="-fx-background-color: #0F0F0F;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.DeleteUserController">
+   <children>
+      <Label layoutX="52.0" layoutY="66.0" text="Delete User" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="58.0" />
+         </font>
+      </Label>
+      <TextField fx:id="deletedUserId" layoutX="127.0" layoutY="167.0" prefHeight="34.0" prefWidth="305.0" promptText="Enter a valid ID" />
+      <Label layoutX="52.0" layoutY="170.0" text="User ID" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="466.0" layoutY="169.0" mnemonicParsing="false" onAction="#onDeleteUser" prefHeight="34.0" prefWidth="114.0" style="-fx-background-color: #ff4fa7;" text="Delete User" textFill="WHITE" />
+      <Label fx:id="statusMessage" layoutX="52.0" layoutY="255.0" prefHeight="17.0" prefWidth="528.0" text=" " />
+   </children>
+</AnchorPane>

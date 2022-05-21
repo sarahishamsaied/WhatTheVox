@@ -1,65 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="763.0" prefWidth="1385.0" style="-fx-background-color: #000;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.AuthenticationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="763.0" prefWidth="1385.0" style="-fx-background-color: #0F0F0F;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.AuthenticationController">
    <children>
-      <BorderPane layoutX="10.0" layoutY="10.0" prefHeight="744.0" prefWidth="1365.0">
-         <top>
-            <Label prefHeight="72.0" prefWidth="186.0" text="Sign In" textAlignment="CENTER" textFill="WHITE" BorderPane.alignment="CENTER">
-               <font>
-                  <Font name="Bauhaus 93" size="63.0" />
-               </font>
-               <BorderPane.margin>
-                  <Insets top="50.0" />
-               </BorderPane.margin>
-            </Label>
-         </top>
-         <center>
-            <VBox alignment="CENTER" prefHeight="413.0" prefWidth="1081.0" BorderPane.alignment="CENTER">
-               <padding>
-                  <Insets bottom="50.0" left="50.0" right="50.0" />
-               </padding>
-               <children>
-                  <Label prefHeight="43.0" prefWidth="1268.0" text="Email" textFill="WHITE">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="signInEmail" layoutX="60.0" layoutY="60.0" prefHeight="35.0" prefWidth="957.0" promptText="Email Address" />
-                  <Label layoutX="63.0" layoutY="200.0" prefHeight="43.0" prefWidth="1270.0" text="Password" textFill="WHITE">
-                     <font>
-                        <Font size="19.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="signInPassword" layoutX="60.0" layoutY="60.0" prefHeight="35.0" prefWidth="957.0" promptText="Password">
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                  </TextField>
-                  <Button mnemonicParsing="false" onAction="#onSignIn" style="-fx-background-color: #f67c86; -fx-border-radius: 40;" text="Sign In" textAlignment="CENTER" textFill="WHITE">
-                     <VBox.margin>
-                        <Insets top="30.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Button>
-                  <Label fx:id="signInErrorMessage" prefHeight="17.0" prefWidth="1264.0" text=" " textFill="#ff0909">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-               </children>
-            </VBox>
-         </center>
-      </BorderPane>
+      <Label layoutX="88.0" layoutY="250.0" prefHeight="43.0" prefWidth="75.0" text="Email" textFill="WHITE">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <TextField fx:id="signInEmail" layoutX="87.0" layoutY="300.0" prefHeight="35.0" prefWidth="651.0" promptText="Email Address" />
+      <Label layoutX="83.0" layoutY="358.0" prefHeight="43.0" prefWidth="98.0" text="Password" textFill="WHITE">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <TextField fx:id="signInPassword" layoutX="83.0" layoutY="408.0" prefHeight="35.0" prefWidth="657.0" promptText="Password" />
+      <Button layoutX="79.0" layoutY="483.0" mnemonicParsing="false" onAction="#onSignIn" prefHeight="31.0" prefWidth="664.0" style="-fx-background-color: #ff4fa7; -fx-border-radius: 40;" text="Sign In" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Label fx:id="signInErrorMessage" layoutX="77.0" layoutY="625.0" prefHeight="42.0" prefWidth="599.0" text=" " textFill="#ff0909">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="98.0" layoutY="146.0" text="Sign In" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="69.0" />
+         </font>
+      </Label>
+      <Label layoutX="84.0" layoutY="560.0" text="Don't have an account?" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Hyperlink layoutX="273.0" layoutY="556.0" onAction="#goToSignUpPage" text="Sign Up!" textFill="#ff4fa7" underline="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Hyperlink>
+      <Hyperlink layoutX="342.0" layoutY="160.0" onAction="#goToSignUpPage" prefHeight="68.0" prefWidth="177.0" text="Sign Up" textFill="#ffffff22">
+         <font>
+            <Font name="Bauhaus 93" size="44.0" />
+         </font>
+      </Hyperlink>
+      <Line endX="92.0" layoutX="212.0" layoutY="233.0" startX="-115.33333587646484" stroke="WHITE" />
+      <ImageView fitHeight="682.0" fitWidth="442.0" layoutX="864.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\ملصق_فيلم_الرجل_الشرس.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
