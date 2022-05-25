@@ -1,6 +1,6 @@
 package Classes;
 
-public class Admin extends Person{
+public class Admin extends Classes.Person{
     String adminLoginId;
     String adminPassword;
 

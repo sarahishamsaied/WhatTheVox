@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -58,7 +61,7 @@
                   <Font size="17.0" />
                </font>
             </Button>
-            <Button fx:id="foodNavLink" layoutX="7.0" layoutY="472.0" mnemonicParsing="false" onAction="#handleNavLinkClick" prefHeight="38.0" prefWidth="210.0" style="-fx-background-color: transparent;" text="Food" textFill="#b9b9b9">
+            <Button fx:id="foodNavLink" layoutX="7.0" layoutY="472.0" mnemonicParsing="false" onAction="#handleNavLinkClick" prefHeight="38.0" prefWidth="210.0" style="-fx-background-color: transparent;" text="Meals" textFill="#b9b9b9">
                <font>
                   <Font size="17.0" />
                </font>
@@ -105,6 +108,19 @@
             </Label>
          </children>
       </Pane>
+      <Pane fx:id="usersMenuPane" layoutX="219.0" layoutY="-1.0" prefHeight="624.0" prefWidth="548.0" style="-fx-background-color: #171717;">
+         <children>
+            <Button layoutX="164.0" layoutY="260.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="Add User" textFill="WHITE" />
+            <Button layoutX="164.0" layoutY="448.0" mnemonicParsing="false" onAction="#onDeleteUser" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="Delete User" textFill="WHITE" />
+            <Button layoutX="164.0" layoutY="321.0" mnemonicParsing="false" onAction="#onSearchUsers" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="Search Users" textFill="WHITE" />
+            <Button layoutX="164.0" layoutY="388.0" mnemonicParsing="false" onAction="#onViewAllUsers" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="View All Users" textFill="WHITE" />
+            <Label layoutX="204.0" layoutY="136.0" prefHeight="49.0" prefWidth="102.0" text="Users" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="43.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
       <Pane fx:id="foodMenuPane" layoutX="230.0" layoutY="10.0" prefHeight="605.0" prefWidth="538.0" style="-fx-background-color: #171717;">
          <children>
             <Button layoutX="164.0" layoutY="251.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Add Snack" textFill="WHITE" />
@@ -118,15 +134,36 @@
             </Label>
          </children>
       </Pane>
-      <Pane fx:id="usersMenuPane" layoutX="219.0" layoutY="-1.0" prefHeight="624.0" prefWidth="548.0" style="-fx-background-color: #171717;">
+      <Pane layoutX="221.0" layoutY="2.0" prefHeight="624.0" prefWidth="849.0" style="-fx-background-color: #171717;">
          <children>
-            <Button layoutX="164.0" layoutY="260.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="Add User" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="448.0" mnemonicParsing="false" onAction="#onDeleteUser" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="Delete User" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="321.0" mnemonicParsing="false" onAction="#onSearchUsers" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="Search Users" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="388.0" mnemonicParsing="false" onAction="#onViewAllUsers" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="View All Users" textFill="WHITE" />
-            <Label layoutX="204.0" layoutY="136.0" prefHeight="49.0" prefWidth="102.0" text="Users" textFill="WHITE">
+            <Label layoutX="47.0" layoutY="150.0" text="Add Meal" textFill="WHITE">
                <font>
-                  <Font name="Bauhaus 93" size="43.0" />
+                  <Font name="Bauhaus 93" size="52.0" />
+               </font>
+            </Label>
+            <Label layoutX="53.0" layoutY="249.0" prefHeight="30.0" prefWidth="67.0" text="Title" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="mealTitle" layoutX="220.0" layoutY="245.0" prefHeight="38.0" prefWidth="529.0" promptText="Add food or drinks" />
+            <TextArea fx:id="mealDescription" layoutX="220.0" layoutY="388.0" prefHeight="139.0" prefWidth="410.0" promptText="Description" />
+            <Label layoutX="53.0" layoutY="385.0" text="Description" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button layoutX="600.0" layoutY="314.0" mnemonicParsing="false" onAction="#onInsertImage" prefHeight="30.0" prefWidth="149.0" text="Upload Image" />
+            <Label layoutX="433.0" layoutY="312.0" prefHeight="30.0" prefWidth="116.0" text="Insert Image" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button layoutX="645.0" layoutY="552.0" mnemonicParsing="false" onAction="#onSubmitMealForm" prefHeight="38.0" prefWidth="174.0" text="Submit" />
+            <ComboBox fx:id="categoryComboBox" layoutX="220.0" layoutY="314.0" prefHeight="30.0" prefWidth="150.0" promptText="pick category" />
+            <Label layoutX="53.0" layoutY="312.0" text="Category" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
                </font>
             </Label>
          </children>
