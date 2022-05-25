@@ -1,5 +1,8 @@
 package com.example.moviebookingsystem;
 
+import Classes.DatabaseConnection;
+import Classes.Meal;
+import Classes.User;
 import DatabaseServices.MealServices;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -7,14 +10,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AdminMainMenuController implements Initializable {
@@ -22,15 +25,23 @@ public class AdminMainMenuController implements Initializable {
     @FXML
     ComboBox <String> categoryComboBox;
     @FXML
-    TextField mealTitle;
+    TextField mealTitle,mealPrice,mealQuantity;
+    @FXML
+    Pane dashboardPane,adminsMenuPane,usersMenuPane,ticketsMenuPane,foodMenuPane,addMealPane,mealsTable;
     @FXML
     TextArea mealDescription;
     @FXML
-    Button usersNavLink,dashboardNavLink,adminsNavLink,ticketsNavLink,foodNavLink;
+    TableColumn<Meal,String> MealTitleColumn,MealCategoryColumn,MealDescColumn;
     @FXML
-    Pane dashboardPane,adminsMenuPane,usersMenuPane,ticketsMenuPane,foodMenuPane;
-    ObservableList <String> categoryComboBoxItems = FXCollections.observableArrayList("Food","Drink");
+    TableColumn<Meal,Double>MealPriceColumn;
+    @FXML
+    TableColumn<Meal,Integer>MealQuantityColumn;
+    @FXML
+    Button usersNavLink,dashboardNavLink,adminsNavLink,ticketsNavLink,foodNavLink,addMeal,viewAllMealsButton;
 
+    ObservableList <String> categoryComboBoxItems = FXCollections.observableArrayList("Food","Drink");
+    @FXML
+    TableView<Meal> allMealsTable;
     @FXML
     public void handleNavLinkClick(ActionEvent e){
         if(e.getSource() == usersNavLink)
@@ -46,21 +57,27 @@ public class AdminMainMenuController implements Initializable {
 
     }
     @FXML
-    private void onInsertImage(ActionEvent e){
-        mealImage.setTitle("Image");
-        File file = mealImage.showOpenDialog(null);
-        if(file == null){
-            return;
-        }
-        mealImage.getExtensionFilters().add(new FileChooser.ExtensionFilter(".png",".jpeg",".jpg"));
-        System.out.println(file.getAbsolutePath());
-
+    public void onViewAllMeals() throws SQLException {
+        mealsTable.toFront();
+        allMealsTable.setItems(MealServices.viewAllMeals());
+        MealTitleColumn.setCellValueFactory(new PropertyValueFactory<Meal,String>("mealTitle"));
+        MealCategoryColumn.setCellValueFactory(new PropertyValueFactory<Meal,String>("category"));
+        MealPriceColumn.setCellValueFactory(new PropertyValueFactory<Meal,Double>("price"));
+        MealQuantityColumn.setCellValueFactory(new PropertyValueFactory<Meal,Integer>("quantity"));
+        MealDescColumn.setCellValueFactory(new PropertyValueFactory<Meal,String>("description"));
 
     }
     @FXML
-    private void onSubmitMealForm(){
-        FileChooser chooser = new FileChooser();
-//        MealServices.addMeal(mealTitle.getText(),mealDescription.getText(),categoryComboBox.getValue(),);
+    public void handleAdminMenuClick(ActionEvent e){
+        if(e.getSource() == addMeal)
+            addMealPane.toFront();
+    }
+
+    @FXML
+    private void onSubmitMealForm() throws SQLException, FileNotFoundException {
+        DatabaseConnection db = new DatabaseConnection();
+        db.Connect();
+        MealServices.addMeal(mealTitle.getText(),mealDescription.getText(),categoryComboBox.getValue(),Double.parseDouble(mealPrice.getText()),Integer.parseInt(mealQuantity.getText()));
     }
     @FXML
     public void onViewAllUsers() throws IOException {

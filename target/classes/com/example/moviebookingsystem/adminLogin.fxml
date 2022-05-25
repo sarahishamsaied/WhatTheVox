@@ -6,26 +6,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="1106.0" style="-fx-background-color: #0F0F0F;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.AuthenticationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="521.0" prefWidth="1030.0" style="-fx-background-color: #0F0F0F;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.AuthenticationController">
    <children>
-      <Label layoutX="48.0" layoutY="44.0" text="Admin Login" textFill="WHITE">
+      <Label layoutX="48.0" layoutY="69.0" text="Admin Login" textFill="WHITE">
          <font>
             <Font name="Bauhaus 93" size="61.0" />
          </font>
       </Label>
-      <TextField fx:id="adminLoginId" layoutX="42.0" layoutY="230.0" prefHeight="26.0" prefWidth="386.0" promptText="example@example.com" style="-fx-opacity: .5;" />
-      <Label layoutX="42.0" layoutY="182.0" text="Login ID" textFill="#ef0b74">
+      <Label layoutX="47.0" layoutY="191.0" text="Login ID" textFill="#ef0b74">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="adminLoginPassword" layoutX="42.0" layoutY="329.0" prefHeight="26.0" prefWidth="386.0" promptText="8 characters at least " style="-fx-opacity: .5;" />
       <Label layoutX="42.0" layoutY="292.0" text="Password" textFill="#ef0b74">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Button layoutX="48.0" layoutY="406.0" mnemonicParsing="false" onAction="#onAdminLogin" prefHeight="30.0" prefWidth="386.0" style="-fx-background-color: #ef0b74;" text="Login" />
+      <Button layoutX="48.0" layoutY="406.0" mnemonicParsing="false" onAction="#onAdminLogin" prefHeight="43.0" prefWidth="386.0" style="-fx-background-color: #ef0b74;" text="Login" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
       <Label fx:id="adminErrorMessage" layoutX="48.0" layoutY="478.0" prefHeight="18.0" prefWidth="990.0" text=" " textFill="#f80909" />
+      <TextField fx:id="adminLoginId" layoutX="46.0" layoutY="240.0" prefHeight="41.0" prefWidth="383.0" promptText="Login ID" />
+      <TextField fx:id="adminLoginPassword" layoutX="47.0" layoutY="336.0" prefHeight="45.0" prefWidth="388.0" promptText="Login Password" />
    </children>
 </AnchorPane>

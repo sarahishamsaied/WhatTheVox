@@ -3,6 +3,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
@@ -68,7 +70,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <Pane fx:id="dashboardPane" layoutX="230.0" layoutY="10.0" prefHeight="615.0" prefWidth="538.0" style="-fx-background-color: #171717;">
+      <Pane fx:id="dashboardPane" layoutX="230.0" prefHeight="625.0" prefWidth="838.0" style="-fx-background-color: #171717;">
          <children>
             <Label layoutX="14.0" layoutY="19.0" text="Dashboard" textFill="WHITE">
                <font>
@@ -82,7 +84,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane fx:id="adminsMenuPane" layoutX="220.0" prefHeight="624.0" prefWidth="548.0" style="-fx-background-color: #171717;">
+      <Pane fx:id="adminsMenuPane" layoutX="220.0" prefHeight="624.0" prefWidth="852.0" style="-fx-background-color: #171717;">
          <children>
             <Button layoutX="164.0" layoutY="251.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Add Admin" textFill="WHITE" />
             <Button layoutX="164.0" layoutY="425.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Delete Admin" textFill="WHITE" />
@@ -95,7 +97,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane fx:id="ticketsMenuPane" layoutX="230.0" layoutY="1.0" prefHeight="624.0" prefWidth="538.0" style="-fx-background-color: #171717;">
+      <Pane fx:id="ticketsMenuPane" layoutX="230.0" layoutY="1.0" prefHeight="624.0" prefWidth="841.0" style="-fx-background-color: #171717;">
          <children>
             <Button layoutX="164.0" layoutY="251.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Sell Ticket" textFill="WHITE" />
             <Button layoutX="164.0" layoutY="425.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Delete Ticket" textFill="WHITE" />
@@ -108,7 +110,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane fx:id="usersMenuPane" layoutX="219.0" layoutY="-1.0" prefHeight="624.0" prefWidth="548.0" style="-fx-background-color: #171717;">
+      <Pane fx:id="usersMenuPane" layoutX="219.0" layoutY="-1.0" prefHeight="624.0" prefWidth="853.0" style="-fx-background-color: #171717;">
          <children>
             <Button layoutX="164.0" layoutY="260.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="Add User" textFill="WHITE" />
             <Button layoutX="164.0" layoutY="448.0" mnemonicParsing="false" onAction="#onDeleteUser" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="Delete User" textFill="WHITE" />
@@ -121,12 +123,24 @@
             </Label>
          </children>
       </Pane>
-      <Pane fx:id="foodMenuPane" layoutX="230.0" layoutY="10.0" prefHeight="605.0" prefWidth="538.0" style="-fx-background-color: #171717;">
+      <Pane fx:id="mealsTable" layoutX="231.0" layoutY="12.0" prefHeight="607.0" prefWidth="850.0" style="-fx-background-color: #171717;">
          <children>
-            <Button layoutX="164.0" layoutY="251.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Add Snack" textFill="WHITE" />
+            <TableView fx:id="allMealsTable" layoutX="46.0" layoutY="178.0" prefHeight="413.0" prefWidth="688.0">
+              <columns>
+                <TableColumn fx:id="MealTitleColumn" prefWidth="75.0" text="Title" />
+                <TableColumn fx:id="MealCategoryColumn" prefWidth="75.0" text="Category" />
+                  <TableColumn fx:id="MealPriceColumn" prefWidth="75.0" text="Price" />
+                  <TableColumn fx:id="MealQuantityColumn" prefWidth="75.0" text="Quantity" />
+                  <TableColumn fx:id="MealDescColumn" prefWidth="373.5999755859375" text="Description" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+      <Pane fx:id="foodMenuPane" layoutX="230.0" layoutY="10.0" prefHeight="606.0" prefWidth="839.0" style="-fx-background-color: #171717;">
+         <children>
+            <Button fx:id="addMeal" layoutX="166.0" layoutY="309.0" mnemonicParsing="false" onAction="#handleAdminMenuClick" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Add Meal" textFill="WHITE" />
             <Button layoutX="164.0" layoutY="425.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Delete Food" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="311.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Add Drink" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="366.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="View Food" textFill="WHITE" />
+            <Button layoutX="164.0" layoutY="366.0" mnemonicParsing="false" onAction="#onViewAllMeals" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="View All Meals" textFill="WHITE" />
             <Label layoutX="206.0" layoutY="115.0" text="Food" textFill="WHITE">
                <font>
                   <Font name="Bauhaus 93" size="43.0" />
@@ -134,7 +148,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane layoutX="221.0" layoutY="2.0" prefHeight="624.0" prefWidth="849.0" style="-fx-background-color: #171717;">
+      <Pane fx:id="addMealPane" layoutX="221.0" layoutY="2.0" prefHeight="624.0" prefWidth="849.0" style="-fx-background-color: #171717;">
          <children>
             <Label layoutX="47.0" layoutY="150.0" text="Add Meal" textFill="WHITE">
                <font>
@@ -147,14 +161,8 @@
                </font>
             </Label>
             <TextField fx:id="mealTitle" layoutX="220.0" layoutY="245.0" prefHeight="38.0" prefWidth="529.0" promptText="Add food or drinks" />
-            <TextArea fx:id="mealDescription" layoutX="220.0" layoutY="388.0" prefHeight="139.0" prefWidth="410.0" promptText="Description" />
-            <Label layoutX="53.0" layoutY="385.0" text="Description" textFill="WHITE">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <Button layoutX="600.0" layoutY="314.0" mnemonicParsing="false" onAction="#onInsertImage" prefHeight="30.0" prefWidth="149.0" text="Upload Image" />
-            <Label layoutX="433.0" layoutY="312.0" prefHeight="30.0" prefWidth="116.0" text="Insert Image" textFill="WHITE">
+            <TextArea fx:id="mealDescription" layoutX="222.0" layoutY="517.0" prefHeight="73.0" prefWidth="390.0" promptText="Description" />
+            <Label layoutX="58.0" layoutY="514.0" text="Description" textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
@@ -166,6 +174,18 @@
                   <Font size="20.0" />
                </font>
             </Label>
+            <Label layoutX="57.0" layoutY="372.0" prefHeight="30.0" prefWidth="102.0" text="Price" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="mealPrice" layoutX="223.0" layoutY="367.0" prefHeight="38.0" prefWidth="149.0" promptText="Price" />
+            <Label layoutX="59.0" layoutY="429.0" prefHeight="30.0" prefWidth="102.0" text="Quantity" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="mealQuantity" layoutX="223.0" layoutY="425.0" prefHeight="38.0" prefWidth="149.0" promptText="Quantity" />
          </children>
       </Pane>
    </children>

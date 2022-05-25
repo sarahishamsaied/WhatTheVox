@@ -153,7 +153,6 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Button layoutX="600.0" layoutY="314.0" mnemonicParsing="false" onAction="#onInsertImage" prefHeight="30.0" prefWidth="149.0" text="Upload Image" />
             <Label layoutX="433.0" layoutY="312.0" prefHeight="30.0" prefWidth="116.0" text="Insert Image" textFill="WHITE">
                <font>
                   <Font size="20.0" />

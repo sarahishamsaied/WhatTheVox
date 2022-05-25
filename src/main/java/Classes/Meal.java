@@ -6,7 +6,8 @@ public class Meal {
     String mealTitle;
     String description;
     String category;
-    FileInputStream mealImg = null;
+    Double price;
+    int quantity;
     public String getCategory() {
         return category;
     }
@@ -35,18 +36,29 @@ public class Meal {
         return description;
     }
 
-    public FileInputStream getMealImg() {
-        return mealImg;
+
+    public Double getPrice() {
+        return price;
     }
 
-    public void setMealImg(FileInputStream mealImg) {
-        this.mealImg = mealImg;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
-    public Meal(String mealTitle, String description, String category, FileInputStream mealImg) {
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public Meal(String mealTitle, String description, String category, Double price, int quantity) {
         this.mealTitle = mealTitle;
         this.description = description;
         this.category = category;
-        this.mealImg = mealImg;
+        this.price = price;
+        this.quantity = quantity;
+
     }
 }

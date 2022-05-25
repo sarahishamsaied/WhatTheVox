@@ -13,20 +13,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class MealServices extends DatabaseConnection {
-    public static void addMeal(String title,String description,String category,File image) throws SQLException, FileNotFoundException {
-        PreparedStatement sqlStatement = dbConnection.prepareStatement("insert into meals (title,description,category,imageUrl)values(?,?,?,?)");
+    public static void addMeal(String title,String description,String category,Double price,int quantity) throws SQLException, FileNotFoundException {
+        PreparedStatement sqlStatement = dbConnection.prepareStatement("insert into meals (title,description,category,price,quantity)values(?,?,?,?,?)");
         sqlStatement.setString(1,title);
         sqlStatement.setString(2,description);
-        FileInputStream imageFile = new FileInputStream(image);
         sqlStatement.setString(3,category);
-        sqlStatement.setBinaryStream(4,imageFile,image.length());
+        sqlStatement.setDouble(4,price);
+        sqlStatement.setInt(5,quantity);
+        sqlStatement.executeUpdate();
     }
     public static ObservableList<Meal> viewAllMeals() throws SQLException {
         ObservableList<Meal> allMeals = FXCollections.observableArrayList();
         PreparedStatement sqlStatement = dbConnection.prepareStatement("select * from meals");
         ResultSet resultSet = sqlStatement.executeQuery();
         while(resultSet.next()){
-            Meal meal = new Meal(resultSet.getString("title"),resultSet.getString("description"),resultSet.getString("category"), (FileInputStream) resultSet.getBinaryStream("image"));
+            Meal meal = new Meal(resultSet.getString("title"),resultSet.getString("description"),resultSet.getString("category"),resultSet.getDouble("price"),resultSet.getInt("quantity"));
             allMeals.add(meal);
         }
         return allMeals;
