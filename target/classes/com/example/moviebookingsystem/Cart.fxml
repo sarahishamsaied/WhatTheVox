@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #0F0F0F;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="42.0" layoutY="37.0" prefHeight="52.0" prefWidth="99.0" text="Cart" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="45.0" />
+         </font>
+      </Label>
+      <ScrollPane fx:id="cartContainer" layoutX="42.0" layoutY="105.0" prefHeight="272.0" prefWidth="539.0" style="-fx-background-color: #0F0F0F;">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="266.0" prefWidth="544.0" style="-fx-background-color: #0F0F0F;" />
+        </content>
+      </ScrollPane>
+      <Label layoutX="378.0" layoutY="24.0" prefHeight="52.0" prefWidth="99.0" text="Total Balance" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="totalBalance" layoutX="495.0" layoutY="24.0" prefHeight="52.0" prefWidth="81.0" text=" " textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

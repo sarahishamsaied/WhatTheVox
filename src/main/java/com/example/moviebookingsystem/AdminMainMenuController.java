@@ -2,7 +2,6 @@ package com.example.moviebookingsystem;
 
 import Classes.DatabaseConnection;
 import Classes.Meal;
-import Classes.User;
 import DatabaseServices.MealServices;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,15 +20,17 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class AdminMainMenuController implements Initializable {
-    FileChooser mealImage = new FileChooser();
+    Meal selectedMeal;
     @FXML
     ComboBox <String> categoryComboBox;
     @FXML
-    TextField mealTitle,mealPrice,mealQuantity;
+    TextField mealTitle,mealPrice,mealQuantity,soldMealQuantity;
     @FXML
-    Pane dashboardPane,adminsMenuPane,usersMenuPane,ticketsMenuPane,foodMenuPane,addMealPane,mealsTable;
+    Pane dashboardPane,adminsMenuPane,usersMenuPane,ticketsMenuPane,foodMenuPane,addMealPane,mealsTable,sellMealPane;
     @FXML
     TextArea mealDescription;
+    @FXML
+    ListView<String> mealsList;
     @FXML
     TableColumn<Meal,String> MealTitleColumn,MealCategoryColumn,MealDescColumn;
     @FXML
@@ -37,11 +38,27 @@ public class AdminMainMenuController implements Initializable {
     @FXML
     TableColumn<Meal,Integer>MealQuantityColumn;
     @FXML
-    Button usersNavLink,dashboardNavLink,adminsNavLink,ticketsNavLink,foodNavLink,addMeal,viewAllMealsButton;
-
+    Button usersNavLink,dashboardNavLink,adminsNavLink,ticketsNavLink,foodNavLink,addMeal,viewAllMealsButton,sellMeal;
+    @FXML
+    Label errorMessage;
     ObservableList <String> categoryComboBoxItems = FXCollections.observableArrayList("Food","Drink");
     @FXML
     TableView<Meal> allMealsTable;
+    @FXML
+    public  void onAddToCart() throws IOException {
+        if(selectedMeal.getQuantity()<Integer.parseInt(soldMealQuantity.getText()))
+        {
+            errorMessage.setText("Quantity not available in storage!");
+            return;
+        }
+        else if(Integer.parseInt(soldMealQuantity.getText())<=0)
+        {
+            errorMessage.setText("Please enter a number greater than 0!");
+            return;
+        }
+        Navigator navigator = new Navigator();
+        navigator.Navigate("Cart.fxml","Cart");
+    }
     @FXML
     public void handleNavLinkClick(ActionEvent e){
         if(e.getSource() == usersNavLink)
@@ -67,10 +84,36 @@ public class AdminMainMenuController implements Initializable {
         MealDescColumn.setCellValueFactory(new PropertyValueFactory<Meal,String>("description"));
 
     }
+//    @FXML
+//    public void handleListClick(ActionEvent event){
+////        System.out.println(mealsList.getSelectionModel().getSelectedItem());
+//        System.out.println("hi");
+//    }
     @FXML
-    public void handleAdminMenuClick(ActionEvent e){
+    public void handleAdminMenuClick(ActionEvent e) throws SQLException {
+        ObservableList<String> mealsListObsv = FXCollections.observableArrayList();
         if(e.getSource() == addMeal)
             addMealPane.toFront();
+        if(e.getSource() == sellMeal)
+        {
+            sellMealPane.toFront();
+            for(Meal element : MealServices.viewAllMeals()){
+                mealsListObsv.add(element.getMealTitle());
+            }
+            mealsList.setItems(mealsListObsv);
+            mealsList.setOnMouseClicked(event->{
+                try {
+                    for(Meal element:MealServices.viewAllMeals())
+                    {
+                        if(element.getMealTitle().equals(mealsList.getSelectionModel().getSelectedItem()))
+                            selectedMeal = element;
+                    }
+
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            });
+        }
     }
 
     @FXML
