@@ -61,4 +61,8 @@ public class Meal {
         this.quantity = quantity;
 
     }
+    @Override
+    public String toString(){
+        return this.mealTitle+"\n"+this.category+"\n"+this.description+"\n"+this.price+"\n"+this.quantity;
+    }
 }

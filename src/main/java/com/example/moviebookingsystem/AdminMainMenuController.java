@@ -1,5 +1,6 @@
 package com.example.moviebookingsystem;
 
+import Classes.Cart;
 import Classes.DatabaseConnection;
 import Classes.Meal;
 import DatabaseServices.MealServices;
@@ -10,16 +11,23 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class AdminMainMenuController implements Initializable {
+    @FXML
+    AnchorPane checkOutPane;
     Meal selectedMeal;
     @FXML
     ComboBox <String> categoryComboBox;
@@ -40,10 +48,27 @@ public class AdminMainMenuController implements Initializable {
     @FXML
     Button usersNavLink,dashboardNavLink,adminsNavLink,ticketsNavLink,foodNavLink,addMeal,viewAllMealsButton,sellMeal;
     @FXML
-    Label errorMessage;
+    Label errorMessage,totalBalance;
     ObservableList <String> categoryComboBoxItems = FXCollections.observableArrayList("Food","Drink");
     @FXML
     TableView<Meal> allMealsTable;
+    @FXML
+    VBox cartItems;
+    @FXML
+    public void onGoToCheckout(){
+        Double totalBalanceSum = 0.0;
+        for(Meal element : Cart.getCartItems()){
+            double num = element.getPrice()*Integer.parseInt(soldMealQuantity.getText());
+            totalBalanceSum+=num;
+            Label label = new Label(element.getMealTitle() + "  x"+soldMealQuantity.getText()+" "+num+"$");
+            label.setTextFill(Color.WHITE);
+            label.setFont(new Font(30));
+            totalBalance.setText(String.valueOf(totalBalanceSum)+"$");
+            cartItems.getChildren().add(label);
+        }
+        checkOutPane.toFront();
+
+    }
     @FXML
     public  void onAddToCart() throws IOException {
         if(selectedMeal.getQuantity()<Integer.parseInt(soldMealQuantity.getText()))
@@ -56,8 +81,9 @@ public class AdminMainMenuController implements Initializable {
             errorMessage.setText("Please enter a number greater than 0!");
             return;
         }
-        Navigator navigator = new Navigator();
-        navigator.Navigate("Cart.fxml","Cart");
+        Cart cart = new Cart();
+        Cart.addToCart(selectedMeal);
+        System.out.println(Cart.getCartItems().size());
     }
     @FXML
     public void handleNavLinkClick(ActionEvent e){
