@@ -4,6 +4,7 @@ import Classes.Cart;
 import Classes.DatabaseConnection;
 import Classes.Meal;
 import DatabaseServices.MealServices;
+import DatabaseServices.PurchaseServices;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -55,9 +56,11 @@ public class AdminMainMenuController implements Initializable {
     @FXML
     VBox cartItems;
     @FXML
-    public void onGoToCheckout(){
+    public void onGoToCheckout() throws SQLException {
         Double totalBalanceSum = 0.0;
+        String soldItemsStr = null;
         for(Meal element : Cart.getCartItems()){
+            soldItemsStr+= element.getMealTitle()+" ";
             double num = element.getPrice()*Integer.parseInt(soldMealQuantity.getText());
             totalBalanceSum+=num;
             Label label = new Label(element.getMealTitle() + "  x"+soldMealQuantity.getText()+" "+num+"$");
@@ -66,6 +69,7 @@ public class AdminMainMenuController implements Initializable {
             totalBalance.setText(String.valueOf(totalBalanceSum)+"$");
             cartItems.getChildren().add(label);
         }
+        PurchaseServices.sell(soldItemsStr,totalBalanceSum);
         checkOutPane.toFront();
 
     }
