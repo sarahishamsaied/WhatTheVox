@@ -3,9 +3,9 @@ module com.example.moviebookingsystem {
     requires javafx.fxml;
 
     requires org.kordamp.bootstrapfx.core;
-    requires java.sql;
+//    requires java.sql;
     requires javafx.graphics;
-    requires jasperreports;
+//    requires jasperreports;
 //    requires jasperreports.javaflow;
 //    requires jasperreports.javaflow;
 //    requires firebase.client.android;
