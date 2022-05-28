@@ -232,8 +232,8 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Button fx:id="mealsReportButton" layoutX="69.0" layoutY="243.0" mnemonicParsing="false" onAction="#onSellItems" prefHeight="44.0" prefWidth="143.0" style="-fx-background-color: #de438b;" text="Meals Report" textFill="WHITE" />
-            <Button layoutX="67.0" layoutY="308.0" mnemonicParsing="false" onAction="#onUsersReport" prefHeight="44.0" prefWidth="143.0" style="-fx-background-color: #de438b;" text="Meals Report" textFill="WHITE" />
+            <Button fx:id="mealsReportButton" layoutX="119.0" layoutY="255.0" mnemonicParsing="false" onAction="#onSellItems" prefHeight="44.0" prefWidth="143.0" style="-fx-background-color: #de438b;" text="Meals Report" textFill="WHITE" />
+            <Button layoutX="547.0" layoutY="254.0" mnemonicParsing="false" onAction="#onUsersReport" prefHeight="44.0" prefWidth="143.0" style="-fx-background-color: #de438b;" text="Users Report" textFill="WHITE" />
          </children>
       </Pane>
    </children>
