@@ -3,19 +3,127 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="624.0" prefWidth="1072.0" style="-fx-background-color: #161616;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.AdminMainMenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="661.0" prefWidth="1240.0" style="-fx-background-color: #161616;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.AdminMainMenuController">
    <children>
-      <AnchorPane prefHeight="624.0" prefWidth="171.0" style="-fx-background-color: #0f0f0f; -fx-border-color: #000;">
+      <Pane fx:id="adminsMenuPane" layoutX="220.0" prefHeight="624.0" prefWidth="852.0" style="-fx-background-color: #171717;">
+         <children>
+            <Button layoutX="164.0" layoutY="251.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Add Admin" textFill="WHITE" />
+            <Button layoutX="164.0" layoutY="425.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Delete Admin" textFill="WHITE" />
+            <Button layoutX="164.0" layoutY="311.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Search Admins" textFill="WHITE" />
+            <Button layoutX="164.0" layoutY="366.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="View All Admins" textFill="WHITE" />
+            <Label layoutX="133.0" layoutY="102.0" text="Admins Menu" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="43.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="ticketsMenuPane" layoutX="230.0" layoutY="1.0" prefHeight="624.0" prefWidth="841.0" style="-fx-background-color: #171717;">
+         <children>
+            <Button layoutX="164.0" layoutY="251.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Sell Ticket" textFill="WHITE" />
+            <Button layoutX="164.0" layoutY="425.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Delete Ticket" textFill="WHITE" />
+            <Button layoutX="164.0" layoutY="311.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Sold Tickets History" textFill="WHITE" />
+            <Button layoutX="164.0" layoutY="366.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Search Ticket" textFill="WHITE" />
+            <Label layoutX="191.0" layoutY="126.0" text="Tickets" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="43.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="usersMenuPane" layoutX="219.0" layoutY="-1.0" prefHeight="624.0" prefWidth="853.0" style="-fx-background-color: #171717;">
+         <children>
+            <Button layoutX="164.0" layoutY="260.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="Add User" textFill="WHITE" />
+            <Button layoutX="164.0" layoutY="448.0" mnemonicParsing="false" onAction="#onDeleteUser" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="Delete User" textFill="WHITE" />
+            <Button layoutX="164.0" layoutY="321.0" mnemonicParsing="false" onAction="#onSearchUsers" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="Search Users" textFill="WHITE" />
+            <Button layoutX="164.0" layoutY="388.0" mnemonicParsing="false" onAction="#onViewAllUsers" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="View All Users" textFill="WHITE" />
+            <Label layoutX="204.0" layoutY="136.0" prefHeight="49.0" prefWidth="102.0" text="Users" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="43.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="mealsTable" layoutX="231.0" layoutY="12.0" prefHeight="607.0" prefWidth="850.0" style="-fx-background-color: #171717;">
+         <children>
+            <TableView fx:id="allMealsTable" layoutX="46.0" layoutY="178.0" prefHeight="413.0" prefWidth="688.0">
+               <columns>
+                  <TableColumn fx:id="MealTitleColumn" prefWidth="75.0" text="Title" />
+                  <TableColumn fx:id="MealCategoryColumn" prefWidth="75.0" text="Category" />
+                  <TableColumn fx:id="MealPriceColumn" prefWidth="75.0" text="Price" />
+                  <TableColumn fx:id="MealQuantityColumn" prefWidth="75.0" text="Quantity" />
+                  <TableColumn fx:id="MealDescColumn" prefWidth="373.5999755859375" text="Description" />
+               </columns>
+            </TableView>
+         </children>
+      </Pane>
+      <Pane fx:id="addMealPane" layoutX="221.0" layoutY="2.0" prefHeight="613.0" prefWidth="850.0" style="-fx-background-color: #171717;">
+         <children>
+            <Label layoutX="47.0" layoutY="150.0" text="Add Meal" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="52.0" />
+               </font>
+            </Label>
+            <Label layoutX="53.0" layoutY="249.0" prefHeight="30.0" prefWidth="67.0" text="Title" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="mealTitle" layoutX="220.0" layoutY="245.0" prefHeight="38.0" prefWidth="529.0" promptText="Add food or drinks" />
+            <TextArea fx:id="mealDescription" layoutX="222.0" layoutY="517.0" prefHeight="73.0" prefWidth="390.0" promptText="Description" />
+            <Label layoutX="58.0" layoutY="514.0" text="Description" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button layoutX="645.0" layoutY="552.0" mnemonicParsing="false" onAction="#onSubmitMealForm" prefHeight="38.0" prefWidth="174.0" text="Submit" />
+            <ComboBox fx:id="categoryComboBox" layoutX="220.0" layoutY="314.0" prefHeight="30.0" prefWidth="150.0" promptText="pick category" />
+            <Label layoutX="53.0" layoutY="312.0" text="Category" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="57.0" layoutY="372.0" prefHeight="30.0" prefWidth="102.0" text="Price" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="mealPrice" layoutX="223.0" layoutY="367.0" prefHeight="38.0" prefWidth="149.0" promptText="Price" />
+            <Label layoutX="59.0" layoutY="429.0" prefHeight="30.0" prefWidth="102.0" text="Quantity" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="mealQuantity" layoutX="223.0" layoutY="425.0" prefHeight="38.0" prefWidth="149.0" promptText="Quantity" />
+         </children>
+      </Pane>
+      <Pane fx:id="foodMenuPane" layoutX="230.0" layoutY="10.0" prefHeight="606.0" prefWidth="839.0" style="-fx-background-color: #171717;">
+         <children>
+            <Button fx:id="addMeal" layoutX="166.0" layoutY="309.0" mnemonicParsing="false" onAction="#handleAdminMenuClick" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Add Meal" textFill="WHITE" />
+            <Button fx:id="sellMeal" layoutX="164.0" layoutY="425.0" mnemonicParsing="false" onAction="#handleAdminMenuClick" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Sell" textFill="WHITE" />
+            <Button layoutX="164.0" layoutY="366.0" mnemonicParsing="false" onAction="#onViewAllMeals" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="View All Meals" textFill="WHITE" />
+            <Label layoutX="206.0" layoutY="115.0" text="Food" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="43.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <AnchorPane prefHeight="667.0" prefWidth="224.0" style="-fx-background-color: #0f0f0f; -fx-border-color: #000;">
          <children>
             <Label layoutX="45.0" layoutY="162.0" prefHeight="55.0" prefWidth="135.0" text="WhatTheVox!" textAlignment="CENTER">
                <font>
@@ -68,103 +176,64 @@
             </Button>
          </children>
       </AnchorPane>
-      <Pane fx:id="dashboardPane" layoutX="230.0" layoutY="10.0" prefHeight="615.0" prefWidth="538.0" style="-fx-background-color: #171717;">
+      <Pane fx:id="sellMealPane" layoutX="240.0" prefHeight="666.0" prefWidth="1000.0" style="-fx-background-color: #171717;">
          <children>
-            <Label layoutX="14.0" layoutY="19.0" text="Dashboard" textFill="WHITE">
+            <Label layoutX="53.0" layoutY="146.0" text="Sell Meal" textFill="WHITE">
                <font>
                   <Font name="Bauhaus 93" size="43.0" />
                </font>
             </Label>
-            <Label layoutX="336.0" layoutY="28.0" text="Total balance: " textFill="WHITE">
+            <ListView fx:id="mealsList" layoutX="53.0" layoutY="213.0" prefHeight="227.0" prefWidth="722.0" />
+            <TextField fx:id="soldMealQuantity" layoutX="185.0" layoutY="507.0" prefHeight="44.0" prefWidth="188.0" promptText="quantity" />
+            <Label layoutX="56.0" layoutY="517.0" prefHeight="28.0" prefWidth="86.0" text="Quantity" textFill="WHITE">
                <font>
-                  <Font size="20.0" />
+                  <Font size="19.0" />
                </font>
             </Label>
+            <Button fx:id="onGoToCheckout" layoutX="435.0" layoutY="507.0" mnemonicParsing="false" onAction="#onAddToCart" prefHeight="44.0" prefWidth="143.0" style="-fx-background-color: #de438b;" text="Add to cart" textFill="WHITE" />
+            <Label fx:id="errorMessage" layoutX="411.0" layoutY="163.0" prefHeight="28.0" prefWidth="333.0" text=" " textFill="RED">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button layoutX="632.0" layoutY="507.0" mnemonicParsing="false" onAction="#onGoToCheckout" prefHeight="44.0" prefWidth="143.0" style="-fx-background-color: #de438b;" text="Checkout" textFill="WHITE" />
          </children>
       </Pane>
-      <Pane fx:id="adminsMenuPane" layoutX="220.0" prefHeight="624.0" prefWidth="548.0" style="-fx-background-color: #171717;">
+      <AnchorPane fx:id="checkOutPane" layoutX="223.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="661.0" prefWidth="1017.0" style="-fx-background-color: #0F0F0F;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="223.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button layoutX="164.0" layoutY="251.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Add Admin" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="425.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Delete Admin" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="311.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Search Admins" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="366.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="View All Admins" textFill="WHITE" />
-            <Label layoutX="133.0" layoutY="102.0" text="Admins Menu" textFill="WHITE">
+            <Label layoutX="75.0" layoutY="37.0" prefHeight="52.0" prefWidth="115.0" text="Cart" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="45.0" />
+               </font>
+            </Label>
+            <Label layoutX="751.0" layoutY="45.0" prefHeight="32.0" prefWidth="108.0" text="Total Balance: " textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="totalBalance" layoutX="856.0" layoutY="46.0" prefHeight="33.0" prefWidth="102.0" text=" " textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button layoutX="741.0" layoutY="576.0" mnemonicParsing="false" onAction="#onSellItems" prefHeight="52.0" prefWidth="175.0" text="Sell Items" />
+            <VBox fx:id="cartItems" layoutX="104.0" layoutY="143.0" prefHeight="378.0" prefWidth="819.0" />
+         </children>
+      </AnchorPane>
+      <Pane fx:id="dashboardPane" layoutX="230.0" prefHeight="658.0" prefWidth="1010.0" style="-fx-background-color: #171717;">
+         <children>
+            <Label layoutX="68.0" layoutY="149.0" prefHeight="49.0" prefWidth="220.0" text="Dashboard" textFill="WHITE">
                <font>
                   <Font name="Bauhaus 93" size="43.0" />
                </font>
             </Label>
-         </children>
-      </Pane>
-      <Pane fx:id="ticketsMenuPane" layoutX="230.0" layoutY="1.0" prefHeight="624.0" prefWidth="538.0" style="-fx-background-color: #171717;">
-         <children>
-            <Button layoutX="164.0" layoutY="251.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Sell Ticket" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="425.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Delete Ticket" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="311.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Sold Tickets History" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="366.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Search Ticket" textFill="WHITE" />
-            <Label layoutX="191.0" layoutY="126.0" text="Tickets" textFill="WHITE">
-               <font>
-                  <Font name="Bauhaus 93" size="43.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <Pane fx:id="usersMenuPane" layoutX="219.0" layoutY="-1.0" prefHeight="624.0" prefWidth="548.0" style="-fx-background-color: #171717;">
-         <children>
-            <Button layoutX="164.0" layoutY="260.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="Add User" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="448.0" mnemonicParsing="false" onAction="#onDeleteUser" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="Delete User" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="321.0" mnemonicParsing="false" onAction="#onSearchUsers" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="Search Users" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="388.0" mnemonicParsing="false" onAction="#onViewAllUsers" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="View All Users" textFill="WHITE" />
-            <Label layoutX="204.0" layoutY="136.0" prefHeight="49.0" prefWidth="102.0" text="Users" textFill="WHITE">
-               <font>
-                  <Font name="Bauhaus 93" size="43.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <Pane fx:id="foodMenuPane" layoutX="230.0" layoutY="10.0" prefHeight="605.0" prefWidth="538.0" style="-fx-background-color: #171717;">
-         <children>
-            <Button layoutX="164.0" layoutY="251.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Add Snack" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="425.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Delete Food" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="311.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Add Drink" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="366.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="View Food" textFill="WHITE" />
-            <Label layoutX="206.0" layoutY="115.0" text="Food" textFill="WHITE">
-               <font>
-                  <Font name="Bauhaus 93" size="43.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <Pane layoutX="221.0" layoutY="2.0" prefHeight="624.0" prefWidth="849.0" style="-fx-background-color: #171717;">
-         <children>
-            <Label layoutX="47.0" layoutY="150.0" text="Add Meal" textFill="WHITE">
-               <font>
-                  <Font name="Bauhaus 93" size="52.0" />
-               </font>
-            </Label>
-            <Label layoutX="53.0" layoutY="249.0" prefHeight="30.0" prefWidth="67.0" text="Title" textFill="WHITE">
+            <Label layoutX="764.0" layoutY="49.0" text="Total balance: " textFill="WHITE">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="mealTitle" layoutX="220.0" layoutY="245.0" prefHeight="38.0" prefWidth="529.0" promptText="Add food or drinks" />
-            <TextArea fx:id="mealDescription" layoutX="220.0" layoutY="388.0" prefHeight="139.0" prefWidth="410.0" promptText="Description" />
-            <Label layoutX="53.0" layoutY="385.0" text="Description" textFill="WHITE">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <Label layoutX="433.0" layoutY="312.0" prefHeight="30.0" prefWidth="116.0" text="Insert Image" textFill="WHITE">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <Button layoutX="645.0" layoutY="552.0" mnemonicParsing="false" onAction="#onSubmitMealForm" prefHeight="38.0" prefWidth="174.0" text="Submit" />
-            <ComboBox fx:id="categoryComboBox" layoutX="220.0" layoutY="314.0" prefHeight="30.0" prefWidth="150.0" promptText="pick category" />
-            <Label layoutX="53.0" layoutY="312.0" text="Category" textFill="WHITE">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
+            <Button fx:id="mealsReportButton" layoutX="69.0" layoutY="243.0" mnemonicParsing="false" onAction="#onSellItems" prefHeight="44.0" prefWidth="143.0" style="-fx-background-color: #de438b;" text="Meals Report" textFill="WHITE" />
+            <Button layoutX="67.0" layoutY="308.0" mnemonicParsing="false" onAction="#onUsersReport" prefHeight="44.0" prefWidth="143.0" style="-fx-background-color: #de438b;" text="Meals Report" textFill="WHITE" />
          </children>
       </Pane>
    </children>

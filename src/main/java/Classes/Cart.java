@@ -12,6 +12,7 @@ public class Cart {
 
     public static Double getTotalBalance() {
         return totalBalance;
+
     }
 
     public static void setTotalBalance(Double totalBalance) {

@@ -32,5 +32,9 @@ public class MealServices extends DatabaseConnection {
         }
         return allMeals;
     }
+    public static void decrementMealQuantity(String mealTitle,Double decrementValue) throws SQLException {
+        PreparedStatement sqlStatement = dbConnection.prepareStatement("update meals set quantity = quantity - "+ decrementValue+" where title = '"+mealTitle+"'");
+        sqlStatement.executeUpdate();
+    }
 
 }

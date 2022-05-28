@@ -1,10 +1,11 @@
 package com.example.moviebookingsystem;
-
 import Classes.Cart;
 import Classes.DatabaseConnection;
 import Classes.Meal;
+import Classes.Purchase;
 import DatabaseServices.MealServices;
 import DatabaseServices.PurchaseServices;
+import DatabaseServices.ReportServices;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -26,6 +27,9 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.*;
 public class AdminMainMenuController implements Initializable {
     @FXML
     AnchorPane checkOutPane;
@@ -56,6 +60,18 @@ public class AdminMainMenuController implements Initializable {
     @FXML
     VBox cartItems;
     @FXML
+    public void onSellItems() throws IOException, JRException, SQLException {
+        DatabaseConnection db = new DatabaseConnection();
+        db.Connect();
+        ReportServices.ConnectReport("Invoice.jrxml");
+    }
+    @FXML
+    public void onUsersReport() throws JRException, SQLException {
+        DatabaseConnection db = new DatabaseConnection();
+        db.Connect();
+        ReportServices.ConnectReport("Invoice_4.jrxml");
+    }
+    @FXML
     public void onGoToCheckout() throws SQLException {
         Double totalBalanceSum = 0.0;
         String soldItemsStr = null;
@@ -63,13 +79,15 @@ public class AdminMainMenuController implements Initializable {
             soldItemsStr+= element.getMealTitle()+" ";
             double num = element.getPrice()*Integer.parseInt(soldMealQuantity.getText());
             totalBalanceSum+=num;
+            MealServices.decrementMealQuantity(element.getMealTitle(),Double.parseDouble(soldMealQuantity.getText()));
             Label label = new Label(element.getMealTitle() + "  x"+soldMealQuantity.getText()+" "+num+"$");
             label.setTextFill(Color.WHITE);
             label.setFont(new Font(30));
             totalBalance.setText(String.valueOf(totalBalanceSum)+"$");
             cartItems.getChildren().add(label);
         }
-        PurchaseServices.sell(soldItemsStr,totalBalanceSum);
+
+        PurchaseServices.sell(new Purchase(soldItemsStr,totalBalanceSum));
         checkOutPane.toFront();
 
     }
