@@ -72,7 +72,7 @@ public class AuthenticationController implements IValidate {
     private void onAdminLogin() throws IOException, SQLException {
         DatabaseConnection db = new DatabaseConnection();
         db.Connect();
-        if(AdminServices.checkAdminExists(adminLoginId.getText(),adminLoginPassword.getText()))
+        if(AdminServices.authenticateAdmin(adminLoginId.getText(),adminLoginPassword.getText()))
             navigator.Navigate("adminMenu.fxml","Admin Menu");
         else
             adminErrorMessage.setText("Login Id or password is incorrect");
