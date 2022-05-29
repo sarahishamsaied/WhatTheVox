@@ -4,6 +4,16 @@ public class Purchase {
     String itemName;
     Double amountPaid;
 
+    public String getPurchaseId() {
+        return purchaseId;
+    }
+
+    public void setPurchaseId(String purchaseId) {
+        this.purchaseId = purchaseId;
+    }
+
+    String purchaseId;
+
     public Purchase() {
         this.amountPaid = 0.0;
         this.itemName = "";
@@ -25,8 +35,9 @@ public class Purchase {
         this.amountPaid = amountPaid;
     }
 
-    public Purchase(String itemName, Double amountPaid) {
+    public Purchase(String itemName, Double amountPaid,String ID) {
         this.itemName = itemName;
         this.amountPaid = amountPaid;
+        this.purchaseId = ID;
     }
 }

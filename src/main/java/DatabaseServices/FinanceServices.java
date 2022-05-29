@@ -12,6 +12,6 @@ public class FinanceServices extends DatabaseConnection {
         ResultSet resultSet = statement.executeQuery();
         if(resultSet.next())
             return resultSet.getString("totalSum");
-        return "";
+        return "null";
     }
 }

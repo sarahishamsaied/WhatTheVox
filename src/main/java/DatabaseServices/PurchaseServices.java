@@ -11,9 +11,10 @@ import java.sql.SQLException;
 
 public class PurchaseServices extends DatabaseConnection {
     public static void sell(Purchase purchase) throws SQLException {
-        PreparedStatement sqlStatement = dbConnection.prepareStatement("insert into purchaseHistory(itemName,amountPaid) values(?,?)");
+        PreparedStatement sqlStatement = dbConnection.prepareStatement("insert into purchaseHistory(itemName,amountPaid,purchaseId) values(?,?,?)");
         sqlStatement.setString(1,purchase.getItemName());
         sqlStatement.setDouble(2,purchase.getAmountPaid());
+        sqlStatement.setString(3,purchase.getPurchaseId());
         sqlStatement.executeUpdate();
     }
     public static ObservableList<Purchase> getPurchaseHistory() throws SQLException {
@@ -21,7 +22,7 @@ public class PurchaseServices extends DatabaseConnection {
         PreparedStatement sqlStatement = dbConnection.prepareStatement("select * form purchaseHistory");
         ResultSet resultSet = sqlStatement.executeQuery();
         while(resultSet.next()){
-            Purchase purchase = new Purchase(resultSet.getString("itemName"),resultSet.getDouble("amountPaid"));
+            Purchase purchase = new Purchase(resultSet.getString("itemName"),resultSet.getDouble("amountPaid"),resultSet.getString("purchaseId"));
         }
         return history;
     }

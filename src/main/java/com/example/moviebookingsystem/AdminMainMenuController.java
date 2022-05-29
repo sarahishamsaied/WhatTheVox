@@ -1,8 +1,6 @@
 package com.example.moviebookingsystem;
-import Classes.Cart;
-import Classes.DatabaseConnection;
-import Classes.Meal;
-import Classes.Purchase;
+import Classes.*;
+import DatabaseServices.FinanceServices;
 import DatabaseServices.MealServices;
 import DatabaseServices.PurchaseServices;
 import DatabaseServices.ReportServices;
@@ -22,8 +20,11 @@ import javafx.stage.FileChooser;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.URL;
 import java.sql.SQLException;
+import java.sql.Time;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -31,6 +32,8 @@ import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.xml.*;
 public class AdminMainMenuController implements Initializable {
+    Double totalBalanceSum = 0.0;
+    String soldItemsStr = "";
     @FXML
     AnchorPane checkOutPane;
     Meal selectedMeal;
@@ -53,7 +56,7 @@ public class AdminMainMenuController implements Initializable {
     @FXML
     Button usersNavLink,dashboardNavLink,adminsNavLink,ticketsNavLink,foodNavLink,addMeal,viewAllMealsButton,sellMeal;
     @FXML
-    Label errorMessage,totalBalance;
+    Label errorMessage,totalBalance,availableBalance;
     ObservableList <String> categoryComboBoxItems = FXCollections.observableArrayList("Food","Drink");
     @FXML
     TableView<Meal> allMealsTable;
@@ -63,7 +66,13 @@ public class AdminMainMenuController implements Initializable {
     public void onSellItems() throws IOException, JRException, SQLException {
         DatabaseConnection db = new DatabaseConnection();
         db.Connect();
-        ReportServices.ConnectReport("Invoice.jrxml");
+        Date date = new Date();
+        PurchaseID ID = new PurchaseID();
+        Purchase purchase = new Purchase(soldItemsStr,totalBalanceSum, ID.generateUniqueId());
+        PurchaseServices.sell(purchase);
+        ReportServices.printInvoice("Blank_Letter.jrxml",purchase.getPurchaseId());
+        FinanceServices.getTotalBalance();
+        System.out.println(purchase.getPurchaseId());
     }
     @FXML
     public void onUsersReport() throws JRException, SQLException {
@@ -73,8 +82,7 @@ public class AdminMainMenuController implements Initializable {
     }
     @FXML
     public void onGoToCheckout() throws SQLException {
-        Double totalBalanceSum = 0.0;
-        String soldItemsStr = null;
+
         for(Meal element : Cart.getCartItems()){
             soldItemsStr+= element.getMealTitle()+" ";
             double num = element.getPrice()*Integer.parseInt(soldMealQuantity.getText());
@@ -87,7 +95,6 @@ public class AdminMainMenuController implements Initializable {
             cartItems.getChildren().add(label);
         }
 
-        PurchaseServices.sell(new Purchase(soldItemsStr,totalBalanceSum));
         checkOutPane.toFront();
 
     }
@@ -185,9 +192,31 @@ public class AdminMainMenuController implements Initializable {
         Navigator navigator = new Navigator();
         navigator.Navigate("deleteUserForm.fxml","Delete User");
     }
+    @FXML
+    public void onAddAdmin(){
 
+    }
+    @FXML
+    public void onDeleteAdmin(){
+
+    }
+    @FXML
+    public void onViewAllAdmins(){
+
+    }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        try {
+            System.out.println(FinanceServices.getTotalBalance());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         categoryComboBox.setItems(categoryComboBoxItems);
+        try {
+            availableBalance.setText(FinanceServices.getTotalBalance());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_Letter" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5fcf97e1-7e6b-4a85-900a-ae3f36febd3a">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (10)"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT `purchaseId`, `amountPaid`, `timeOfPurchase`, `itemName` FROM `purchasehistory`]]>
+	</queryString>
+	<field name="purchaseId" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="purchaseId"/>
+		<property name="com.jaspersoft.studio.field.label" value="purchaseId"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="purchasehistory"/>
+	</field>
+	<field name="amountPaid" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="amountPaid"/>
+		<property name="com.jaspersoft.studio.field.label" value="amountPaid"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="purchasehistory"/>
+	</field>
+	<field name="timeOfPurchase" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="timeOfPurchase"/>
+		<property name="com.jaspersoft.studio.field.label" value="timeOfPurchase"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="purchasehistory"/>
+	</field>
+	<field name="itemName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="itemName"/>
+		<property name="com.jaspersoft.studio.field.label" value="itemName"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="purchasehistory"/>
+	</field>
+	<group name="purchaseId">
+		<groupExpression><![CDATA[$F{purchaseId}]]></groupExpression>
+	</group>
+	<group name="amountPaid">
+		<groupExpression><![CDATA[$F{amountPaid}]]></groupExpression>
+	</group>
+	<group name="timeOfPurchase">
+		<groupExpression><![CDATA[$F{timeOfPurchase}]]></groupExpression>
+	</group>
+	<group name="itemName">
+		<groupExpression><![CDATA[$F{itemName}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="240" splitType="Stretch">
+			<image>
+				<reportElement x="200" y="10" width="197" height="191" uuid="78b7428d-f40d-429a-b252-24502802f9c1"/>
+				<imageExpression><![CDATA["C:/Users/Sarah/Desktop/wvlogo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="213" y="190" width="190" height="48" uuid="54700f37-7942-4120-824c-c766f1aa8fca"/>
+				<textElement>
+					<font size="30"/>
+				</textElement>
+				<text><![CDATA[WhatTheVox!]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="93" y="-10" width="407" height="30" uuid="3718dd1f-d256-447e-87f2-18da65f7b0b6"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[************************************************************************************************************************************************]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="45" splitType="Stretch">
+			<staticText>
+				<reportElement x="90" y="10" width="407" height="30" uuid="802d9d2a-6ea0-4517-9707-9131322129bb"/>
+				<textElement>
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[************************************************************************************************************************************************]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="80" y="10" width="130" height="41" uuid="83f338c8-4b80-475b-87ff-7b5e6b395803"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Items Bought]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="260" y="10" width="300" height="41" uuid="336658e8-a71e-4ec1-a3f8-655fe08282a4"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{itemName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<staticText>
+				<reportElement x="80" y="9" width="60" height="41" uuid="445dfdfe-946d-4f3f-998c-56c7741ad545"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="250" y="9" width="190" height="41" uuid="43f11a71-e521-4307-9be2-c11bea7c86bf"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{timeOfPurchase}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="80" y="70" width="130" height="41" uuid="76ee3ea7-acac-43f8-89d5-9dc2c81050ce"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[Total Amount]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="250" y="70" width="90" height="41" uuid="79fc85e6-5b27-4753-9502-3534509a3943"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{amountPaid}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="350" y="70" width="100" height="41" uuid="9abdd283-f260-4ace-b11a-f879ceb4e3fc"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[$]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="51" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="220" y="-11" width="130" height="41" uuid="ccc78712-131b-48e7-98cb-0007d9bddad3"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[THANK YOU!]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

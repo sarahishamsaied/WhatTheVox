@@ -39,6 +39,7 @@ public class Cart {
     }
 
     public Cart() {
+        cartItems =  new ArrayList<Meal>(100);
         ticketsCart = new ArrayList<Ticket>(100);
         totalBalance = 0.0;
     }
