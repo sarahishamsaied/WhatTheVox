@@ -29,7 +29,7 @@ public class searchUsersController implements Initializable {
     ObservableList<String> filterComboBoxItems = FXCollections.observableArrayList("Search By Name","Search By Email");
     @FXML
     public void onSearchClicked() throws SQLException {
-        DatabaseConnection db = new DatabaseConnection();
+        DatabaseConnection db = DatabaseConnection.getInstance();
         db.Connect();
         if(filterComboBox.getValue() == "Search By Name" || filterComboBox.getValue() == null)
         searchResultsTable.setItems(UserServices.searchUsers(searchField.getText(),"name"));

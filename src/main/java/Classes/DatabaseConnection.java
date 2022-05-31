@@ -8,8 +8,17 @@ import java.sql.*;
 
 public  class DatabaseConnection {
    protected static Connection dbConnection;
+   static DatabaseConnection db;
     final String getAllUsersStatement = "select * from users";
     final String searchStatement = "select * from users where ";
+    private  DatabaseConnection(){
+
+    }
+    public static DatabaseConnection getInstance(){
+        if (db == null)
+            db = new DatabaseConnection();
+        return db;
+    }
     public void Connect(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");

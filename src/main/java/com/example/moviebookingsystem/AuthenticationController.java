@@ -1,7 +1,5 @@
 package com.example.moviebookingsystem;
-import Classes.DatabaseConnection;
-import Classes.IValidate;
-import Classes.User;
+import Classes.*;
 import DatabaseServices.AdminServices;
 import DatabaseServices.UserServices;
 import javafx.event.ActionEvent;
@@ -54,7 +52,7 @@ public class AuthenticationController implements IValidate {
     }
     @FXML
     void onSignIn(ActionEvent actionEvent) throws SQLException, IOException {
-        DatabaseConnection db = new DatabaseConnection();
+        DatabaseConnection db = DatabaseConnection.getInstance();
         db.Connect();
         if(UserServices.checkUserExists(signInEmail.getText(),signInPassword.getText()))
         {
@@ -64,16 +62,21 @@ public class AuthenticationController implements IValidate {
          signInErrorMessage.setText("Email or password is incorrect");
     }
     public boolean emailExists(String email) throws SQLException {
-        connection =  new DatabaseConnection();
+        connection =  DatabaseConnection.getInstance();
         connection.Connect();
         return UserServices.checkEmailExists(email);
     }
     @FXML
     private void onAdminLogin() throws IOException, SQLException {
-        DatabaseConnection db = new DatabaseConnection();
+        DatabaseConnection db = DatabaseConnection.getInstance();
         db.Connect();
         if(AdminServices.authenticateAdmin(adminLoginId.getText(),adminLoginPassword.getText()))
+        {
+            Context ctx = Context.getInstance();
+            ctx.setCurrentAdmin(AdminServices.getAdmin(adminLoginId.getText()));
             navigator.Navigate("adminMenu.fxml","Admin Menu");
+        }
+
         else
             adminErrorMessage.setText("Login Id or password is incorrect");
 

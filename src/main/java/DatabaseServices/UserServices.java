@@ -4,13 +4,16 @@ import Classes.DatabaseConnection;
 import Classes.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 
-public final class UserServices extends DatabaseConnection {
+import java.sql.*;
+
+public final class UserServices  {
+
+    static Connection dbConnection = DatabaseConnection.getInstance().getDbConnection();
+
     public static ObservableList<User> getAllUsers() throws SQLException{
+        dbConnection = DatabaseConnection.getInstance().getDbConnection();
+//        Connection connection = dbConnection.getDbConnection();
         ObservableList<User> allUsers = FXCollections.observableArrayList();
         String x = "";
         Statement sqlStatement = dbConnection.createStatement();
@@ -36,7 +39,6 @@ public final class UserServices extends DatabaseConnection {
        return (pass.equals(password));
     }
     public static ObservableList<User> searchUsers(String searchQuery,String searchType) throws SQLException {
-
         ObservableList<User> searchResult = FXCollections.observableArrayList();
         if(searchType!= "email" && searchType!="name")
             return searchResult;

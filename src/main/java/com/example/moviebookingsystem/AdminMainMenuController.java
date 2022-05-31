@@ -7,14 +7,18 @@ import DatabaseServices.ReportServices;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 
@@ -42,7 +46,7 @@ public class AdminMainMenuController implements Initializable {
     @FXML
     TextField mealTitle,mealPrice,mealQuantity,soldMealQuantity;
     @FXML
-    Pane dashboardPane,adminsMenuPane,usersMenuPane,ticketsMenuPane,foodMenuPane,addMealPane,mealsTable,sellMealPane;
+    Pane dashboardPane,adminsMenuPane,usersMenuPane,ticketsMenuPane,foodMenuPane,addMealPane,mealsTable,sellMealPane,viewUsersReport,totalBalancePane,viewMealsPane;
     @FXML
     TextArea mealDescription;
     @FXML
@@ -56,7 +60,7 @@ public class AdminMainMenuController implements Initializable {
     @FXML
     Button usersNavLink,dashboardNavLink,adminsNavLink,ticketsNavLink,foodNavLink,addMeal,viewAllMealsButton,sellMeal;
     @FXML
-    Label errorMessage,totalBalance,availableBalance;
+    Label errorMessage,totalBalance,availableBalance,welcomeMessage;
     ObservableList <String> categoryComboBoxItems = FXCollections.observableArrayList("Food","Drink");
     @FXML
     TableView<Meal> allMealsTable;
@@ -64,7 +68,7 @@ public class AdminMainMenuController implements Initializable {
     VBox cartItems;
     @FXML
     public void onSellItems() throws IOException, JRException, SQLException {
-        DatabaseConnection db = new DatabaseConnection();
+        DatabaseConnection db = DatabaseConnection.getInstance();
         db.Connect();
         Date date = new Date();
         PurchaseID ID = new PurchaseID();
@@ -75,11 +79,16 @@ public class AdminMainMenuController implements Initializable {
         System.out.println(purchase.getPurchaseId());
     }
     @FXML
+    public void onViewMealsReport() throws JRException, SQLException {
+        ReportServices.ConnectReport("Invoice.jrxml");
+    }
+    @FXML
     public void onUsersReport() throws JRException, SQLException {
-        DatabaseConnection db = new DatabaseConnection();
+        DatabaseConnection db = DatabaseConnection.getInstance();
         db.Connect();
         ReportServices.ConnectReport("Invoice_4.jrxml");
     }
+
     @FXML
     public void onGoToCheckout() throws SQLException {
 
@@ -173,7 +182,7 @@ public class AdminMainMenuController implements Initializable {
 
     @FXML
     private void onSubmitMealForm() throws SQLException, FileNotFoundException {
-        DatabaseConnection db = new DatabaseConnection();
+        DatabaseConnection db = DatabaseConnection.getInstance();
         db.Connect();
         MealServices.addMeal(mealTitle.getText(),mealDescription.getText(),categoryComboBox.getValue(),Double.parseDouble(mealPrice.getText()),Integer.parseInt(mealQuantity.getText()));
     }
@@ -204,8 +213,37 @@ public class AdminMainMenuController implements Initializable {
     public void onViewAllAdmins(){
 
     }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Context ctx  = Context.getInstance();
+        System.out.println(ctx.getCurrentAdmin().getName()+"sdf");
+        welcomeMessage.setText("Hello, "+ctx.getInstance().getCurrentAdmin().getName());
+        Style.transition(viewUsersReport,2000.0);
+        Style.transition(totalBalancePane,2000.0);
+        Style.transition(viewMealsPane,2000.0);
+        Style.changePaneColorOnHover(viewUsersReport,"#000","#1e1e1e");
+        Style.changePaneColorOnHover(totalBalancePane,"#000","#1e1e1e");
+        Style.changePaneColorOnHover(viewMealsPane,"#000","#1e1e1e");
+        viewMealsPane.setOnMouseClicked(e->{
+            try {
+                onViewMealsReport();
+            } catch (JRException ex) {
+                ex.printStackTrace();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        });
+        viewUsersReport.setOnMouseClicked(event->{
+            try {
+                onUsersReport();
+            } catch (JRException e) {
+                e.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        });
+
 
         try {
             System.out.println(FinanceServices.getTotalBalance());
@@ -214,7 +252,7 @@ public class AdminMainMenuController implements Initializable {
         }
         categoryComboBox.setItems(categoryComboBoxItems);
         try {
-            availableBalance.setText(FinanceServices.getTotalBalance());
+            availableBalance.setText("$"+FinanceServices.getTotalBalance());
         } catch (SQLException e) {
             e.printStackTrace();
         }

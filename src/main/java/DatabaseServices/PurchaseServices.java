@@ -5,11 +5,13 @@ import Classes.Purchase;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class PurchaseServices extends DatabaseConnection {
+public class PurchaseServices  {
+    static Connection dbConnection  = DatabaseConnection.getInstance().getDbConnection();
     public static void sell(Purchase purchase) throws SQLException {
         PreparedStatement sqlStatement = dbConnection.prepareStatement("insert into purchaseHistory(itemName,amountPaid,purchaseId) values(?,?,?)");
         sqlStatement.setString(1,purchase.getItemName());

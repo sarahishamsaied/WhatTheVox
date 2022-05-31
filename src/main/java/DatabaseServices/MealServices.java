@@ -8,11 +8,13 @@ import javafx.collections.ObservableList;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class MealServices extends DatabaseConnection {
+public class MealServices  {
+    static Connection dbConnection = DatabaseConnection.getInstance().getDbConnection();
     public static void addMeal(String title,String description,String category,Double price,int quantity) throws SQLException, FileNotFoundException {
         PreparedStatement sqlStatement = dbConnection.prepareStatement("insert into meals (title,description,category,price,quantity)values(?,?,?,?,?)");
         sqlStatement.setString(1,title);

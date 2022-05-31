@@ -1,6 +1,6 @@
 package Classes;
 
-public class Admin extends Classes.Person{
+public class Admin extends Person{
     String adminLoginId;
     String adminPassword;
 
@@ -18,5 +18,9 @@ public class Admin extends Classes.Person{
         super(name, age);
         this.adminLoginId = adminLoginId;
         this.adminPassword = adminPassword;
+    }
+    public Admin(String name, int age, String adminLoginId) {
+        super(name, age);
+        this.adminLoginId = adminLoginId;
     }
 }

@@ -1,13 +1,12 @@
 package DatabaseServices;
 
+import Classes.Admin;
 import Classes.DatabaseConnection;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
-public class AdminServices extends DatabaseConnection {
+public class AdminServices {
+    static Connection dbConnection  = DatabaseConnection.getInstance().getDbConnection();
     /**
      * Adds an admin to the database
      * @param name Admin Name
@@ -42,6 +41,24 @@ public class AdminServices extends DatabaseConnection {
         }
         return password.equals(pass);
     }
+    public static Admin getAdmin(String loginId) throws SQLException {
+        String id = "",name = "";
+        int age = 0;
+        if (checkLoginIdExists(loginId))
+        {
+            PreparedStatement statement = dbConnection.prepareStatement("select * from admins where adminLoginId = ?");
+            statement.setString(1,loginId);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()){
+                id =  resultSet.getString("adminLoginId");
+                name =  resultSet.getString("name");
+                age =  resultSet.getInt("age");
+            }
+            return new Admin(name,age,loginId);
+        }
+       return new Admin();
+    }
+
     /**
      * Checks whether the attempted login Id exists in the database or not
      * @param loginId The attempted Login Id

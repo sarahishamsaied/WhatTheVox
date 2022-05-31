@@ -34,7 +34,7 @@ public class UsersTableController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try{
-            DatabaseConnection db = new DatabaseConnection();
+            DatabaseConnection db = DatabaseConnection.getInstance();
             db.Connect();
             UserServices.getAllUsers();
             usersTable.setItems(UserServices.getAllUsers());

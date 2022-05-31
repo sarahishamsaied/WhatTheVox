@@ -16,7 +16,7 @@ public class DeleteUserController {
     private Label statusMessage;
     @FXML
     public void onDeleteUser() throws SQLException {
-        DatabaseConnection db = new DatabaseConnection();
+        DatabaseConnection db = DatabaseConnection.getInstance();
         db.Connect();
         if(!UserServices.deleteUser(deletedUserId.getText())){
             statusMessage.setText("cannot find user");
