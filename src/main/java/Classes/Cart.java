@@ -12,9 +12,10 @@ public class Cart {
 
     public static Double getTotalBalance() {
         return totalBalance;
-
     }
-
+    public static void clearCart(){
+        cartItems.clear();
+    }
     public static void setTotalBalance(Double totalBalance) {
         Cart.totalBalance = totalBalance;
     }
@@ -45,8 +46,6 @@ public class Cart {
     }
     public static void addToCart(Meal meal){
         Cart.cartItems.add(meal);
-        for (Meal element : cartItems)
-            totalBalance+=element.getPrice();
     }
     public static void removeFromCart(String mealTitle){
     if (cartItems.isEmpty())

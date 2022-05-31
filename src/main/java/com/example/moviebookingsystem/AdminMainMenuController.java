@@ -1,9 +1,6 @@
 package com.example.moviebookingsystem;
 import Classes.*;
-import DatabaseServices.FinanceServices;
-import DatabaseServices.MealServices;
-import DatabaseServices.PurchaseServices;
-import DatabaseServices.ReportServices;
+import DatabaseServices.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -44,7 +41,7 @@ public class AdminMainMenuController implements Initializable {
     @FXML
     ComboBox <String> categoryComboBox;
     @FXML
-    TextField mealTitle,mealPrice,mealQuantity,soldMealQuantity;
+    TextField mealTitle,mealPrice,mealQuantity,soldMealQuantity,loginIdTF,adminPassTF,adminNameTF,adminAgeTF,confirmPassTF;
     @FXML
     Pane dashboardPane,adminsMenuPane,usersMenuPane,ticketsMenuPane,foodMenuPane,addMealPane,mealsTable,sellMealPane,viewUsersReport,totalBalancePane,viewMealsPane;
     @FXML
@@ -77,6 +74,7 @@ public class AdminMainMenuController implements Initializable {
         ReportServices.printInvoice("Blank_Letter.jrxml",purchase.getPurchaseId());
         FinanceServices.getTotalBalance();
         System.out.println(purchase.getPurchaseId());
+        Cart.clearCart();
     }
     @FXML
     public void onViewMealsReport() throws JRException, SQLException {
@@ -119,7 +117,6 @@ public class AdminMainMenuController implements Initializable {
             errorMessage.setText("Please enter a number greater than 0!");
             return;
         }
-        Cart cart = new Cart();
         Cart.addToCart(selectedMeal);
         System.out.println(Cart.getCartItems().size());
     }
@@ -202,8 +199,16 @@ public class AdminMainMenuController implements Initializable {
         navigator.Navigate("deleteUserForm.fxml","Delete User");
     }
     @FXML
-    public void onAddAdmin(){
+    public void onGenerateAutoID(){
 
+    }
+    @FXML
+    public void onAddAdminButton(){
+
+    }
+    @FXML
+    public void onAddAdmin(){
+//        AdminServices.addAdmin();
     }
     @FXML
     public void onDeleteAdmin(){

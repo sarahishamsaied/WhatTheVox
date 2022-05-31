@@ -257,27 +257,19 @@
       </Pane>
       <Pane fx:id="dashboardPane" layoutX="230.0" prefHeight="658.0" prefWidth="1010.0" style="-fx-background-color: #171717;">
          <children>
-            <Button fx:id="mealsReportButton" graphicTextGap="5.0" layoutX="643.0" layoutY="498.0" mnemonicParsing="false" onAction="#onViewMealsReport" prefHeight="55.0" prefWidth="188.0" style="-fx-background-color: linear-gradient(to right, #ff7f50,  #de438b);" text="Print Meals Report" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font></Button>
-            <Button layoutX="647.0" layoutY="565.0" mnemonicParsing="false" onAction="#onUsersReport" prefHeight="55.0" prefWidth="188.0" style="-fx-background-color: linear-gradient(to right, #ff7f50,  #de438b);" text="Print Users Report" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font></Button>
             <Label layoutX="99.0" layoutY="248.0" prefHeight="38.0" prefWidth="188.0" text="Dashboard" textFill="#fcfcfc">
                <font>
                   <Font name="Bauhaus 93" size="33.0" />
                </font>
             </Label>
-            <Pane fx:id="totalBalancePane" layoutX="99.0" layoutY="81.0" prefHeight="101.0" prefWidth="250.0" style="-fx-border-width: 0 0 0 1; -fx-background-color: #1e1e1e; -fx-border-color: #fff;">
+            <Pane fx:id="totalBalancePane" layoutX="103.0" layoutY="92.0" prefHeight="79.0" prefWidth="217.0" style="-fx-border-width: 0 0 0 1; -fx-background-color: #1e1e1e; -fx-border-color: #fff;">
                <children>
                   <Label layoutX="21.0" layoutY="24.0" prefHeight="30.0" prefWidth="131.0" style="-fx-opacity: .6;" text="Total balance " textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="availableBalance" layoutX="25.0" layoutY="45.0" prefHeight="39.0" prefWidth="250.0" text="500$" textFill="WHITE">
+                  <Label fx:id="availableBalance" layoutX="25.0" layoutY="45.0" prefHeight="39.0" prefWidth="174.0" text=" " textFill="WHITE">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -287,39 +279,44 @@
                   </Label>
                </children>
             </Pane>
-            <Pane fx:id="viewUsersReport" layoutX="73.0" layoutY="377.0" prefHeight="105.0" prefWidth="362.0" style="-fx-background-color: #1e1e1e; -fx-border-width: 0 0 0 1; -fx-border-color: #fff;">
+            <Pane fx:id="viewUsersReport" layoutX="105.0" layoutY="324.0" prefHeight="79.0" prefWidth="334.0" style="-fx-background-color: #1e1e1e; -fx-border-width: 0 0 0 1; -fx-border-color: #fff;">
                <children>
-                  <ImageView fitHeight="55.0" fitWidth="50.0" layoutX="37.0" layoutY="24.0">
+                  <ImageView fitHeight="35.0" fitWidth="33.0" layoutX="39.0" layoutY="23.0">
                      <image>
                         <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\paper - Copy.png" />
                      </image>
                   </ImageView>
-                  <Label layoutX="106.0" layoutY="31.0" prefHeight="40.0" prefWidth="203.0" text="Users Report" textFill="WHITE">
+                  <Label layoutX="82.0" layoutY="19.0" prefHeight="40.0" prefWidth="203.0" text="Users Report" textFill="WHITE">
                      <font>
                         <Font size="28.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Pane fx:id="viewMealsPane" layoutX="484.0" layoutY="375.0" prefHeight="105.0" prefWidth="362.0" style="-fx-background-color: #1e1e1e; -fx-border-width: 0 0 0 1; -fx-border-color: #fff;">
+            <Pane fx:id="viewMealsPane" layoutX="516.0" layoutY="323.0" prefHeight="78.0" prefWidth="362.0" style="-fx-background-color: #1e1e1e; -fx-border-width: 0 0 0 1; -fx-border-color: #fff;">
                <children>
-                  <ImageView fitHeight="55.0" fitWidth="50.0" layoutX="37.0" layoutY="24.0">
-                     <image>
-                        <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\paper - Copy.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="106.0" layoutY="31.0" prefHeight="40.0" prefWidth="203.0" text="Meals Report" textFill="WHITE">
+                  <Label layoutX="79.0" layoutY="18.0" prefHeight="40.0" prefWidth="203.0" text="Meals Report" textFill="WHITE">
                      <font>
                         <Font size="28.0" />
                      </font>
                   </Label>
+                  <ImageView fitHeight="35.0" fitWidth="33.0" layoutX="36.0" layoutY="21.0">
+                     <image>
+                        <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\paper - Copy.png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
-            <Label fx:id="welcomeMessage" layoutX="451.0" layoutY="68.0" prefHeight="39.0" prefWidth="500.0" text=" " textFill="WHITE">
+            <Label fx:id="welcomeMessage" layoutX="594.0" layoutY="21.0" prefHeight="39.0" prefWidth="366.0" text="hello, test" textFill="WHITE">
                <font>
-                  <Font name="Bauhaus 93" size="27.0" />
+                  <Font size="27.0" />
                </font>
             </Label>
+            <ImageView fitHeight="44.0" fitWidth="50.0" layoutX="530.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\user.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>

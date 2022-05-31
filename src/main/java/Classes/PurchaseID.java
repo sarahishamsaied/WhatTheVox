@@ -7,7 +7,6 @@ import java.util.Random;
 public class PurchaseID implements IdFactory{
     public final String hostName;
     public final long creationTimeMillis;
-    private long lastTimeMillis;
 
 
     public PurchaseID() throws UnknownHostException {
@@ -15,9 +14,6 @@ public class PurchaseID implements IdFactory{
         System.out.println(hostName+" ");
         this.creationTimeMillis = System.currentTimeMillis();
         System.out.println(creationTimeMillis+" ");
-        this.lastTimeMillis = creationTimeMillis;
-
-
     }
 
     @Override
