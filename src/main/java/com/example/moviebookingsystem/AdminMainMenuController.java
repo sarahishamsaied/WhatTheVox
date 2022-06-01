@@ -4,35 +4,28 @@ import DatabaseServices.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
-import javafx.stage.FileChooser;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.InetAddress;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.sql.SQLException;
-import java.sql.Time;
 import java.util.Date;
-import java.util.List;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.xml.*;
-public class AdminMainMenuController implements Initializable {
+
+public class AdminMainMenuController implements Initializable,IValidate{
     Double totalBalanceSum = 0.0;
     String soldItemsStr = "";
     @FXML
@@ -43,7 +36,7 @@ public class AdminMainMenuController implements Initializable {
     @FXML
     TextField mealTitle,mealPrice,mealQuantity,soldMealQuantity,loginIdTF,adminPassTF,adminNameTF,adminAgeTF,confirmPassTF;
     @FXML
-    Pane dashboardPane,adminsMenuPane,usersMenuPane,ticketsMenuPane,foodMenuPane,addMealPane,mealsTable,sellMealPane,viewUsersReport,totalBalancePane,viewMealsPane;
+    Pane dashboardPane,adminsMenuPane,usersMenuPane,ticketsMenuPane,foodMenuPane,addMealPane,mealsTable,sellMealPane,viewUsersReport,totalBalancePane,viewMealsPane,addAdminPane,viewAllAdminsPane;
     @FXML
     TextArea mealDescription;
     @FXML
@@ -55,12 +48,20 @@ public class AdminMainMenuController implements Initializable {
     @FXML
     TableColumn<Meal,Integer>MealQuantityColumn;
     @FXML
+    TableColumn<Admin, String> AdminNameColumn;
+    @FXML
+    TableColumn<Admin, Integer> AdminAgeColumn;
+    @FXML
+    TableColumn<Admin, Double> AdminLoginIDColumn;
+    @FXML
     Button usersNavLink,dashboardNavLink,adminsNavLink,ticketsNavLink,foodNavLink,addMeal,viewAllMealsButton,sellMeal;
     @FXML
-    Label errorMessage,totalBalance,availableBalance,welcomeMessage;
+    Label errorMessage,totalBalance,availableBalance,welcomeMessage,adminStatusMessage;
     ObservableList <String> categoryComboBoxItems = FXCollections.observableArrayList("Food","Drink");
     @FXML
     TableView<Meal> allMealsTable;
+    @FXML
+    TableView<Admin> allAdminsTable;
     @FXML
     VBox cartItems;
     @FXML
@@ -199,23 +200,43 @@ public class AdminMainMenuController implements Initializable {
         navigator.Navigate("deleteUserForm.fxml","Delete User");
     }
     @FXML
-    public void onGenerateAutoID(){
-
+    public void onGenerateAutoID() throws UnknownHostException {
+        AdminID adminID = new AdminID();
+        loginIdTF.setText(adminID.generateUniqueId());
+    }
+    public boolean comparePasswords(String firstPassword,String secondPassword){
+        if(!firstPassword.equals(secondPassword))
+        {
+            adminStatusMessage.setText("Passwords must match!");
+            return false;
+        }
+        return true;
     }
     @FXML
-    public void onAddAdminButton(){
-
+    public void onAddAdminButton() throws SQLException {
+        System.out.println(validatePassword(adminPassTF.getText()));
+        System.out.println(adminPassTF.getText());
+        if(comparePasswords(adminPassTF.getText(),confirmPassTF.getText()) && validatePassword(adminPassTF.getText()))
+        {
+            adminStatusMessage.setText("");
+            AdminServices.addAdmin(adminNameTF.getText(),Integer.parseInt(adminAgeTF.getText()),loginIdTF.getText(),adminPassTF.getText());
+        }
     }
     @FXML
     public void onAddAdmin(){
-//        AdminServices.addAdmin();
+        addAdminPane.toFront();
     }
     @FXML
     public void onDeleteAdmin(){
 
     }
     @FXML
-    public void onViewAllAdmins(){
+    public void onViewAllAdmins() throws SQLException {
+        allAdminsTable.setItems(AdminServices.viewAllAdmins());
+        AdminNameColumn.setCellValueFactory(new PropertyValueFactory<Admin,String>("name"));
+        AdminAgeColumn.setCellValueFactory(new PropertyValueFactory<Admin,Integer>("age"));
+        AdminLoginIDColumn.setCellValueFactory(new PropertyValueFactory<Admin,Double>("adminLoginId"));
+        viewAllAdminsPane.toFront();
 
     }
 
@@ -261,5 +282,26 @@ public class AdminMainMenuController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public boolean checkNumeric(String numAttempt) {
+        return numAttempt.matches("[0-9]");
+    }
+
+    @Override
+    public boolean validatePassword(String passwordAttempt) {
+        System.out.println("pass attempt = "+passwordAttempt);
+        Pattern pattern = Pattern.compile(".*[A-Z].*");
+
+            if (pattern.matcher(passwordAttempt).matches())
+            return true;
+            else adminStatusMessage.setText("Password must contain at least 1 uppercase letter");
+        return false;
+    }
+
+    @Override
+    public boolean validateEmail(String emailAttempt) {
+        return false;
     }
 }

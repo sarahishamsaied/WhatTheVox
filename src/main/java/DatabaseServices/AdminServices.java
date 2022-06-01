@@ -2,6 +2,8 @@ package DatabaseServices;
 
 import Classes.Admin;
 import Classes.DatabaseConnection;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.sql.*;
 
@@ -16,10 +18,10 @@ public class AdminServices {
      * @return void
      * @throws SQLException*/
     public static void addAdmin(String name,int age,String loginId,String loginPassword) throws SQLException {
-        PreparedStatement statement = dbConnection.prepareStatement("insert into admins(name,age,loginId,loginPassword)values(?,?,?,?)");
+        PreparedStatement statement = dbConnection.prepareStatement("insert into admins(name,age,adminLoginId,adminPassword)values(?,?,?,?)");
         statement.setString(1,name);
         statement.setInt(2,age);
-        statement.setString(4,loginId);
+        statement.setString(3,loginId);
         statement.setString(4,loginPassword);
         statement.executeUpdate();
     }
@@ -58,7 +60,17 @@ public class AdminServices {
         }
        return new Admin();
     }
-
+    public static ObservableList<Admin> viewAllAdmins() throws SQLException {
+        Admin admin;
+        ObservableList<Admin> admins = FXCollections.observableArrayList();
+        PreparedStatement statement = dbConnection.prepareStatement("select * from admins");
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()){
+            admin = new Admin(resultSet.getString("name"),resultSet.getInt("age"),resultSet.getString("adminLoginId"));
+            admins.add(admin);
+        }
+        return admins;
+    }
     /**
      * Checks whether the attempted login Id exists in the database or not
      * @param loginId The attempted Login Id

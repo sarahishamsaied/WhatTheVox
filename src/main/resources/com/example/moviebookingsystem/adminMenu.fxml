@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -13,7 +14,10 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
@@ -154,18 +158,6 @@
             </Button>
          </children>
       </AnchorPane>
-      <Pane fx:id="adminsMenuPane" layoutX="220.0" prefHeight="624.0" prefWidth="1010.0" style="-fx-background-color: #171717;">
-         <children>
-            <Button layoutX="161.0" layoutY="305.0" mnemonicParsing="false" onAction="#onAddAdmin" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Add Admin" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="425.0" mnemonicParsing="false" onAction="#onDeleteAdmin" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Delete Admin" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="366.0" mnemonicParsing="false" onAction="#onViewAllAdmins" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="View All Admins" textFill="WHITE" />
-            <Label layoutX="133.0" layoutY="102.0" text="Admins Menu" textFill="WHITE">
-               <font>
-                  <Font name="Bauhaus 93" size="43.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
       <Pane fx:id="addAdminPane" layoutX="222.0" prefHeight="656.0" prefWidth="1010.0" style="-fx-background-color: #171717;">
          <children>
             <Label layoutX="77.0" layoutY="161.0" text="Add Admin" textFill="WHITE">
@@ -317,6 +309,133 @@
                   <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\user.png" />
                </image>
             </ImageView>
+         </children>
+      </Pane>
+      <Label layoutX="277.0" layoutY="-98.0" text="Add Admin" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="43.0" />
+         </font>
+      </Label>
+      <Pane fx:id="addAdminPane" layoutX="230.0" layoutY="10.0" prefHeight="624.0" prefWidth="1010.0" style="-fx-background-color: #171717;">
+         <children>
+            <GridPane layoutX="79.0" layoutY="220.0" prefHeight="284.0" prefWidth="904.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="243.46673583984375" minWidth="10.0" prefWidth="199.73330688476562" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="416.8000122070313" minWidth="10.0" prefWidth="251.46669311523436" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="418.3999877929688" minWidth="10.0" prefWidth="235.46668701171876" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="418.3999877929688" minWidth="10.0" prefWidth="54.133312988281205" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="418.3999877929688" minWidth="10.0" prefWidth="180.53334960937502" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label prefHeight="35.0" prefWidth="170.0" text="Admin Name" textFill="WHITE">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="adminNameTF" prefHeight="35.0" prefWidth="284.0" promptText="Name" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;" GridPane.columnIndex="1" />
+                  <Label prefHeight="35.0" prefWidth="168.0" text="Admin Age" textFill="WHITE" GridPane.columnIndex="2">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <TextField fx:id="adminAgeTF" prefHeight="35.0" prefWidth="178.0" promptText="Age" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;" GridPane.columnIndex="3" GridPane.columnSpan="2">
+                     <GridPane.margin>
+                        <Insets left="20.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <Label text="Password" textFill="WHITE" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="adminPassTF" prefHeight="35.0" prefWidth="205.0" promptText="at least 8 characters" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label prefHeight="35.0" prefWidth="242.0" text="Confirm Password" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets left="20.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <TextField fx:id="confirmPassTF" prefHeight="35.0" prefWidth="282.0" promptText="at least 8 characters" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="20.0" />
+                     </GridPane.margin>
+                  </TextField>
+                  <Label text="Login ID" textFill="WHITE" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets left="20.0" />
+                     </padding>
+                  </Label>
+                  <TextField fx:id="loginIdTF" prefHeight="35.0" prefWidth="262.0" promptText="Login ID" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button mnemonicParsing="false" onAction="#onGenerateAutoID" prefHeight="42.0" prefWidth="238.0" style="-fx-background-color: #cc065f;" text="Generate Auto-ID" textFill="WHITE" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </GridPane>
+            <Label layoutX="106.0" layoutY="95.0" prefHeight="59.0" prefWidth="272.0" text="Add Admin" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="41.0" />
+               </font>
+            </Label>
+            <Button layoutX="84.0" layoutY="539.0" mnemonicParsing="false" onAction="#onAddAdminButton" prefHeight="42.0" prefWidth="826.0" style="-fx-background-color: #de438b;" text="Add Admin" textFill="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Label fx:id="adminStatusMessage" layoutX="452.0" layoutY="116.0" prefHeight="26.0" prefWidth="507.0" text=" " textFill="RED">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="adminsMenuPane" layoutX="230.0" prefHeight="661.0" prefWidth="1010.0" style="-fx-background-color: #171717;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button layoutX="161.0" layoutY="305.0" mnemonicParsing="false" onAction="#onAddAdmin" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Add Admin" textFill="WHITE" />
+            <Button layoutX="164.0" layoutY="425.0" mnemonicParsing="false" onAction="#onDeleteAdmin" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Delete Admin" textFill="WHITE" />
+            <Button layoutX="164.0" layoutY="366.0" mnemonicParsing="false" onAction="#onViewAllAdmins" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="View All Admins" textFill="WHITE" />
+            <Label layoutX="133.0" layoutY="102.0" text="Admins Menu" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="43.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="viewAllAdminsPane" layoutX="240.0" prefHeight="664.0" prefWidth="1010.0" style="-fx-background-color: #171717;">
+         <children>
+            <Label layoutX="77.0" layoutY="124.0" text="View All Admins" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="43.0" />
+               </font>
+            </Label>
+            <TableView fx:id="allAdminsTable" layoutX="79.0" layoutY="206.0" prefHeight="429.0" prefWidth="882.0" style="-fx-background-color: #171717;">
+              <columns>
+                <TableColumn fx:id="AdminNameColumn" prefWidth="344.0" text="Name" />
+                <TableColumn fx:id="AdminAgeColumn" prefWidth="100.0" text="Age" />
+                  <TableColumn fx:id="AdminLoginIDColumn" prefWidth="433.33343505859375" text="LoginID" />
+              </columns>
+            </TableView>
          </children>
       </Pane>
    </children>
