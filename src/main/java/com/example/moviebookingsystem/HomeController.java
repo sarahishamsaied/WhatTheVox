@@ -1,14 +1,23 @@
 package com.example.moviebookingsystem;
 
+import Classes.Style;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 import java.io.IOException;
 
-public class HomeController {
+public class HomeController  {
+    @FXML
+    Button adminButton,signInButton,signUpButton;
     @FXML
     private Label welcomeText;
-
+    @FXML
+    public void onHover(){
+        Style.changeColorOnHover(adminButton,"#fff","#000","#000","fff");
+        Style.changeColorOnHover(signInButton,"#fff","#000","#000","fff");
+        Style.changeColorOnHover(signUpButton,"#fff","#000","#000","fff");
+    }
     @FXML
     protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");

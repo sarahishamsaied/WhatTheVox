@@ -1,8 +1,32 @@
 package Classes;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+
 public class Purchase {
     String itemName;
     Double amountPaid;
+    String dateOfPurchase;
+    String purchaseId;
+
+    public String getDateOfPurchase() {
+        return dateOfPurchase;
+    }
+
+    public void setDateOfPurchase(String dateOfPurchase) {
+        this.dateOfPurchase = dateOfPurchase;
+    }
+
+    public Purchase(String itemName, Double amountPaid, String purchaseId) {
+        this.itemName = itemName;
+        this.amountPaid = amountPaid;
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("\"yyyy/MM/dd HH:mm:ss\"");
+        LocalDateTime now = LocalDateTime.now();
+        this.dateOfPurchase = dtf.format(now);
+        this.purchaseId = purchaseId;
+    }
+
 
     public String getPurchaseId() {
         return purchaseId;
@@ -12,7 +36,6 @@ public class Purchase {
         this.purchaseId = purchaseId;
     }
 
-    String purchaseId;
 
     public Purchase() {
         this.amountPaid = 0.0;
@@ -35,9 +58,4 @@ public class Purchase {
         this.amountPaid = amountPaid;
     }
 
-    public Purchase(String itemName, Double amountPaid,String ID) {
-        this.itemName = itemName;
-        this.amountPaid = amountPaid;
-        this.purchaseId = ID;
-    }
 }

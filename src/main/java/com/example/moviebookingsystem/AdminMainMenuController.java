@@ -36,7 +36,7 @@ public class AdminMainMenuController implements Initializable,IValidate{
     @FXML
     TextField mealTitle,mealPrice,mealQuantity,soldMealQuantity,loginIdTF,adminPassTF,adminNameTF,adminAgeTF,confirmPassTF;
     @FXML
-    Pane dashboardPane,adminsMenuPane,usersMenuPane,ticketsMenuPane,foodMenuPane,addMealPane,mealsTable,sellMealPane,viewUsersReport,totalBalancePane,viewMealsPane,addAdminPane,viewAllAdminsPane;
+    Pane dashboardPane,adminsMenuPane,usersMenuPane,ticketsMenuPane,foodMenuPane,addMealPane,mealsTable,sellMealPane,viewUsersReport,totalBalancePane,viewMealsPane,addAdminPane,viewAllAdminsPane,purchaseHistoryPane,purchaseHistoryPage;
     @FXML
     TextArea mealDescription;
     @FXML
@@ -54,9 +54,15 @@ public class AdminMainMenuController implements Initializable,IValidate{
     @FXML
     TableColumn<Admin, Double> AdminLoginIDColumn;
     @FXML
+    TableView<Purchase> purchaseHistoryTable;
+    @FXML
+    TableColumn <Purchase,String> ItemsBoughtColumn,DateOfPurchaseColumn;
+    @FXML
+    TableColumn<Purchase,Double> AmntPaidColumn;
+    @FXML
     Button usersNavLink,dashboardNavLink,adminsNavLink,ticketsNavLink,foodNavLink,addMeal,viewAllMealsButton,sellMeal;
     @FXML
-    Label errorMessage,totalBalance,availableBalance,welcomeMessage,adminStatusMessage;
+    Label errorMessage,totalBalance,availableBalance,welcomeMessage,adminStatusMessage,noOfAdmins,noOfUsers;
     ObservableList <String> categoryComboBoxItems = FXCollections.observableArrayList("Food","Drink");
     @FXML
     TableView<Meal> allMealsTable;
@@ -73,9 +79,14 @@ public class AdminMainMenuController implements Initializable,IValidate{
         Purchase purchase = new Purchase(soldItemsStr,totalBalanceSum, ID.generateUniqueId());
         PurchaseServices.sell(purchase);
         ReportServices.printInvoice("Blank_Letter.jrxml",purchase.getPurchaseId());
-        FinanceServices.getTotalBalance();
+        Counter.getTotalBalance();
         System.out.println(purchase.getPurchaseId());
         Cart.clearCart();
+    }
+    @FXML
+    public void onAnalyzeData() throws JRException, SQLException {
+        ReportServices.ConnectReport("purchaseHistoryData.jrxml");
+
     }
     @FXML
     public void onViewMealsReport() throws JRException, SQLException {
@@ -87,7 +98,14 @@ public class AdminMainMenuController implements Initializable,IValidate{
         db.Connect();
         ReportServices.ConnectReport("Invoice_4.jrxml");
     }
-
+    @FXML
+    public void onHover(){
+        Style.changeColorOnHover(dashboardNavLink,"#171717","#0f0f0f","#fff","b9b9b9");
+        Style.changeColorOnHover(usersNavLink,"#171717","#0f0f0f","#fff","b9b9b9");
+        Style.changeColorOnHover(adminsNavLink,"#171717","#0f0f0f","#fff","b9b9b9");
+        Style.changeColorOnHover(ticketsNavLink,"#171717","#0f0f0f","#fff","b9b9b9");
+        Style.changeColorOnHover(foodNavLink,"#171717","#0f0f0f","#fff","b9b9b9");
+    }
     @FXML
     public void onGoToCheckout() throws SQLException {
 
@@ -99,15 +117,16 @@ public class AdminMainMenuController implements Initializable,IValidate{
             Label label = new Label(element.getMealTitle() + "  x"+soldMealQuantity.getText()+" "+num+"$");
             label.setTextFill(Color.WHITE);
             label.setFont(new Font(30));
-            totalBalance.setText(String.valueOf(totalBalanceSum)+"$");
+            totalBalance.setText(totalBalanceSum+"$");
             cartItems.getChildren().add(label);
         }
 
         checkOutPane.toFront();
+        welcomeMessage.toFront();
 
     }
     @FXML
-    public  void onAddToCart() throws IOException {
+    public  void onAddToCart()  {
         if(selectedMeal.getQuantity()<Integer.parseInt(soldMealQuantity.getText()))
         {
             errorMessage.setText("Quantity not available in storage!");
@@ -138,6 +157,7 @@ public class AdminMainMenuController implements Initializable,IValidate{
     @FXML
     public void onViewAllMeals() throws SQLException {
         mealsTable.toFront();
+        welcomeMessage.toFront();
         allMealsTable.setItems(MealServices.viewAllMeals());
         MealTitleColumn.setCellValueFactory(new PropertyValueFactory<Meal,String>("mealTitle"));
         MealCategoryColumn.setCellValueFactory(new PropertyValueFactory<Meal,String>("category"));
@@ -225,6 +245,7 @@ public class AdminMainMenuController implements Initializable,IValidate{
     @FXML
     public void onAddAdmin(){
         addAdminPane.toFront();
+        welcomeMessage.toFront();
     }
     @FXML
     public void onDeleteAdmin(){
@@ -237,20 +258,28 @@ public class AdminMainMenuController implements Initializable,IValidate{
         AdminAgeColumn.setCellValueFactory(new PropertyValueFactory<Admin,Integer>("age"));
         AdminLoginIDColumn.setCellValueFactory(new PropertyValueFactory<Admin,Double>("adminLoginId"));
         viewAllAdminsPane.toFront();
-
+        welcomeMessage.toFront();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            noOfAdmins.setText(String.valueOf(Counter.noOfAdmins()));
+            noOfUsers.setText(String.valueOf(Counter.noOfUsers()));
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         Context ctx  = Context.getInstance();
-        System.out.println(ctx.getCurrentAdmin().getName()+"sdf");
         welcomeMessage.setText("Hello, "+ctx.getInstance().getCurrentAdmin().getName());
         Style.transition(viewUsersReport,2000.0);
         Style.transition(totalBalancePane,2000.0);
         Style.transition(viewMealsPane,2000.0);
-        Style.changePaneColorOnHover(viewUsersReport,"#000","#1e1e1e");
-        Style.changePaneColorOnHover(totalBalancePane,"#000","#1e1e1e");
-        Style.changePaneColorOnHover(viewMealsPane,"#000","#1e1e1e");
+        Style.transition(purchaseHistoryPane,2000.0);
+        Style.changeColorOnHover(viewUsersReport,"#000","#1e1e1e");
+        Style.changeColorOnHover(totalBalancePane,"#000","#1e1e1e");
+        Style.changeColorOnHover(viewMealsPane,"#000","#1e1e1e");
+        Style.changeColorOnHover(purchaseHistoryPane,"#000","#1e1e1e");
         viewMealsPane.setOnMouseClicked(e->{
             try {
                 onViewMealsReport();
@@ -269,16 +298,31 @@ public class AdminMainMenuController implements Initializable,IValidate{
                 e.printStackTrace();
             }
         });
-
+        purchaseHistoryPane.setOnMouseClicked(event->{
+            try {
+                System.out.println(PurchaseServices.getPurchaseHistory().size());
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try {
+                purchaseHistoryTable.setItems(PurchaseServices.getPurchaseHistory());
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            ItemsBoughtColumn.setCellValueFactory(new PropertyValueFactory<Purchase,String>("itemName"));
+            AmntPaidColumn.setCellValueFactory(new PropertyValueFactory<Purchase,Double>("amountPaid"));
+            DateOfPurchaseColumn.setCellValueFactory(new PropertyValueFactory<Purchase,String>("dateOfPurchase"));
+            purchaseHistoryPage.toFront();
+        });
 
         try {
-            System.out.println(FinanceServices.getTotalBalance());
+            System.out.println(Counter.getTotalBalance());
         } catch (SQLException e) {
             e.printStackTrace();
         }
         categoryComboBox.setItems(categoryComboBoxItems);
         try {
-            availableBalance.setText("$"+FinanceServices.getTotalBalance());
+            availableBalance.setText("$"+Counter.getTotalBalance());
         } catch (SQLException e) {
             e.printStackTrace();
         }

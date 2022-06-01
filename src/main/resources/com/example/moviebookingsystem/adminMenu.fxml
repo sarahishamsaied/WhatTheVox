@@ -20,38 +20,10 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="661.0" prefWidth="1240.0" style="-fx-background-color: #161616;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.AdminMainMenuController">
    <children>
-      <Pane fx:id="ticketsMenuPane" layoutX="230.0" layoutY="1.0" prefHeight="624.0" prefWidth="841.0" style="-fx-background-color: #171717;">
-         <children>
-            <Button layoutX="164.0" layoutY="251.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Sell Ticket" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="425.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Delete Ticket" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="311.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Sold Tickets History" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="366.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Search Ticket" textFill="WHITE" />
-            <Label layoutX="191.0" layoutY="126.0" text="Tickets" textFill="WHITE">
-               <font>
-                  <Font name="Bauhaus 93" size="43.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <Pane fx:id="usersMenuPane" layoutX="219.0" layoutY="-1.0" prefHeight="624.0" prefWidth="853.0" style="-fx-background-color: #171717;">
-         <children>
-            <Button layoutX="164.0" layoutY="260.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="Add User" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="448.0" mnemonicParsing="false" onAction="#onDeleteUser" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="Delete User" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="321.0" mnemonicParsing="false" onAction="#onSearchUsers" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="Search Users" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="388.0" mnemonicParsing="false" onAction="#onViewAllUsers" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="View All Users" textFill="WHITE" />
-            <Label layoutX="204.0" layoutY="136.0" prefHeight="49.0" prefWidth="102.0" text="Users" textFill="WHITE">
-               <font>
-                  <Font name="Bauhaus 93" size="43.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
       <Pane fx:id="mealsTable" layoutX="231.0" layoutY="12.0" prefHeight="607.0" prefWidth="850.0" style="-fx-background-color: #171717;">
          <children>
             <TableView fx:id="allMealsTable" layoutX="46.0" layoutY="178.0" prefHeight="413.0" prefWidth="688.0">
@@ -107,58 +79,39 @@
       </Pane>
       <AnchorPane prefHeight="667.0" prefWidth="224.0" style="-fx-background-color: #0f0f0f; -fx-border-color: #000;">
          <children>
-            <Label layoutX="45.0" layoutY="162.0" prefHeight="55.0" prefWidth="135.0" text="WhatTheVox!" textAlignment="CENTER">
-               <font>
-                  <Font name="Bauhaus 93" size="22.0" />
-               </font>
-               <textFill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="1.0" green="0.501960813999176" blue="0.501960813999176" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="0.8705882430076599" green="0.26274511218070984" blue="0.545098066329956" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </textFill>
-               <effect>
-                  <DropShadow />
-               </effect>
-            </Label>
-            <Button fx:id="usersNavLink" layoutX="1.0" layoutY="305.0" mnemonicParsing="false" onAction="#handleNavLinkClick" prefHeight="38.0" prefWidth="221.0" style="-fx-background-color: transparent;" text="Users" textFill="#b9b9b9">
+            <Button fx:id="usersNavLink" layoutX="1.0" layoutY="305.0" mnemonicParsing="false" onAction="#handleNavLinkClick" onMouseEntered="#onHover" onMouseExited="#onHover" prefHeight="38.0" prefWidth="221.0" style="-fx-background-color: transparent;" text="Users" textFill="#b9b9b9">
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
-            <Button fx:id="adminsNavLink" layoutX="14.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleNavLinkClick" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent;" text="Admin" textFill="#b9b9b9">
+            <Button fx:id="adminsNavLink" layoutX="14.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleNavLinkClick" onMouseEntered="#onHover" onMouseExited="#onHover" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent;" text="Admin" textFill="#b9b9b9">
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
-            <Button fx:id="ticketsNavLink" layoutX="16.0" layoutY="421.0" mnemonicParsing="false" onAction="#handleNavLinkClick" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent;" text="Tickets" textFill="#b9b9b9">
+            <Button fx:id="ticketsNavLink" layoutX="16.0" layoutY="421.0" mnemonicParsing="false" onAction="#handleNavLinkClick" onMouseEntered="#onHover" onMouseExited="#onHover" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent;" text="Tickets" textFill="#b9b9b9">
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
-            <Button fx:id="dashboardNavLink" layoutX="14.0" layoutY="253.0" mnemonicParsing="false" onAction="#handleNavLinkClick" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent;" text="Dashboard" textFill="#b9b9b9">
+            <Button fx:id="dashboardNavLink" layoutX="14.0" layoutY="253.0" mnemonicParsing="false" onAction="#handleNavLinkClick" onMouseEntered="#onHover" onMouseExited="#onHover" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent;" text="Dashboard" textFill="#b9b9b9">
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
-            <Button fx:id="foodNavLink" layoutX="7.0" layoutY="472.0" mnemonicParsing="false" onAction="#handleNavLinkClick" prefHeight="38.0" prefWidth="210.0" style="-fx-background-color: transparent;" text="Meals" textFill="#b9b9b9">
+            <Button fx:id="foodNavLink" layoutX="7.0" layoutY="472.0" mnemonicParsing="false" onAction="#handleNavLinkClick" onMouseEntered="#onHover" onMouseExited="#onHover" prefHeight="38.0" prefWidth="210.0" style="-fx-background-color: transparent;" text="Meals" textFill="#b9b9b9">
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
+            <ImageView fitHeight="120.0" fitWidth="158.0" layoutX="54.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\wvlogo.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
-      <Pane fx:id="addAdminPane" layoutX="222.0" prefHeight="656.0" prefWidth="1010.0" style="-fx-background-color: #171717;">
+      <Pane layoutX="222.0" prefHeight="656.0" prefWidth="1010.0" style="-fx-background-color: #171717;">
          <children>
             <Label layoutX="77.0" layoutY="161.0" text="Add Admin" textFill="WHITE">
                <font>
@@ -212,18 +165,6 @@
             <VBox fx:id="cartItems" layoutX="104.0" layoutY="143.0" prefHeight="378.0" prefWidth="819.0" />
          </children>
       </AnchorPane>
-      <Pane fx:id="foodMenuPane" layoutX="230.0" layoutY="10.0" prefHeight="606.0" prefWidth="839.0" style="-fx-background-color: #171717;">
-         <children>
-            <Button fx:id="addMeal" layoutX="166.0" layoutY="309.0" mnemonicParsing="false" onAction="#handleAdminMenuClick" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Add Meal" textFill="WHITE" />
-            <Button fx:id="sellMeal" layoutX="164.0" layoutY="425.0" mnemonicParsing="false" onAction="#handleAdminMenuClick" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Sell" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="366.0" mnemonicParsing="false" onAction="#onViewAllMeals" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="View All Meals" textFill="WHITE" />
-            <Label layoutX="206.0" layoutY="115.0" text="Food" textFill="WHITE">
-               <font>
-                  <Font name="Bauhaus 93" size="43.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
       <Pane fx:id="sellMealPane" layoutX="240.0" prefHeight="666.0" prefWidth="1000.0" style="-fx-background-color: #171717;">
          <children>
             <Label layoutX="53.0" layoutY="146.0" text="Sell Meal" textFill="WHITE">
@@ -245,70 +186,6 @@
                </font>
             </Label>
             <Button layoutX="632.0" layoutY="507.0" mnemonicParsing="false" onAction="#onGoToCheckout" prefHeight="44.0" prefWidth="143.0" style="-fx-background-color: #de438b;" text="Checkout" textFill="WHITE" />
-         </children>
-      </Pane>
-      <Pane fx:id="dashboardPane" layoutX="230.0" prefHeight="658.0" prefWidth="1010.0" style="-fx-background-color: #171717;">
-         <children>
-            <Label layoutX="99.0" layoutY="248.0" prefHeight="38.0" prefWidth="188.0" text="Dashboard" textFill="#fcfcfc">
-               <font>
-                  <Font name="Bauhaus 93" size="33.0" />
-               </font>
-            </Label>
-            <Pane fx:id="totalBalancePane" layoutX="103.0" layoutY="92.0" prefHeight="79.0" prefWidth="217.0" style="-fx-border-width: 0 0 0 1; -fx-background-color: #1e1e1e; -fx-border-color: #fff;">
-               <children>
-                  <Label layoutX="21.0" layoutY="24.0" prefHeight="30.0" prefWidth="131.0" style="-fx-opacity: .6;" text="Total balance " textFill="WHITE">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="availableBalance" layoutX="25.0" layoutY="45.0" prefHeight="39.0" prefWidth="174.0" text=" " textFill="WHITE">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                     <effect>
-                        <Glow />
-                     </effect>
-                  </Label>
-               </children>
-            </Pane>
-            <Pane fx:id="viewUsersReport" layoutX="105.0" layoutY="324.0" prefHeight="79.0" prefWidth="334.0" style="-fx-background-color: #1e1e1e; -fx-border-width: 0 0 0 1; -fx-border-color: #fff;">
-               <children>
-                  <ImageView fitHeight="35.0" fitWidth="33.0" layoutX="39.0" layoutY="23.0">
-                     <image>
-                        <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\paper - Copy.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="82.0" layoutY="19.0" prefHeight="40.0" prefWidth="203.0" text="Users Report" textFill="WHITE">
-                     <font>
-                        <Font size="28.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <Pane fx:id="viewMealsPane" layoutX="516.0" layoutY="323.0" prefHeight="78.0" prefWidth="362.0" style="-fx-background-color: #1e1e1e; -fx-border-width: 0 0 0 1; -fx-border-color: #fff;">
-               <children>
-                  <Label layoutX="79.0" layoutY="18.0" prefHeight="40.0" prefWidth="203.0" text="Meals Report" textFill="WHITE">
-                     <font>
-                        <Font size="28.0" />
-                     </font>
-                  </Label>
-                  <ImageView fitHeight="35.0" fitWidth="33.0" layoutX="36.0" layoutY="21.0">
-                     <image>
-                        <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\paper - Copy.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-            <Label fx:id="welcomeMessage" layoutX="594.0" layoutY="21.0" prefHeight="39.0" prefWidth="366.0" text="hello, test" textFill="WHITE">
-               <font>
-                  <Font size="27.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="44.0" fitWidth="50.0" layoutX="530.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\user.png" />
-               </image>
-            </ImageView>
          </children>
       </Pane>
       <Label layoutX="277.0" layoutY="-98.0" text="Add Admin" textFill="WHITE">
@@ -410,19 +287,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane fx:id="adminsMenuPane" layoutX="230.0" prefHeight="661.0" prefWidth="1010.0" style="-fx-background-color: #171717;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Button layoutX="161.0" layoutY="305.0" mnemonicParsing="false" onAction="#onAddAdmin" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Add Admin" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="425.0" mnemonicParsing="false" onAction="#onDeleteAdmin" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Delete Admin" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="366.0" mnemonicParsing="false" onAction="#onViewAllAdmins" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="View All Admins" textFill="WHITE" />
-            <Label layoutX="133.0" layoutY="102.0" text="Admins Menu" textFill="WHITE">
-               <font>
-                  <Font name="Bauhaus 93" size="43.0" />
-               </font>
-            </Label>
-         </children>
-      </Pane>
-      <Pane fx:id="viewAllAdminsPane" layoutX="240.0" prefHeight="664.0" prefWidth="1010.0" style="-fx-background-color: #171717;">
+      <Pane fx:id="viewAllAdminsPane" layoutX="240.0" prefHeight="650.0" prefWidth="1010.0" style="-fx-background-color: #171717;">
          <children>
             <Label layoutX="77.0" layoutY="124.0" text="View All Admins" textFill="WHITE">
                <font>
@@ -436,6 +301,243 @@
                   <TableColumn fx:id="AdminLoginIDColumn" prefWidth="433.33343505859375" text="LoginID" />
               </columns>
             </TableView>
+         </children>
+      </Pane>
+      <Pane fx:id="purchaseHistoryPage" layoutX="240.0" layoutY="10.0" prefHeight="650.0" prefWidth="1010.0" style="-fx-background-color: #171717;">
+         <children>
+            <ImageView fitHeight="650.0" fitWidth="367.0" layoutX="342.0" layoutY="-79.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: .4;">
+               <image>
+                  <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\wvlogo.png" />
+               </image>
+               <effect>
+                  <DropShadow height="243.25" radius="124.0625" spread="0.66" width="255.0">
+                     <color>
+                        <Color red="0.1473684161901474" green="0.1473684161901474" blue="0.1473684161901474" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </ImageView>
+            <Label layoutX="133.0" layoutY="102.0" text="Purchase History" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="43.0" />
+               </font>
+            </Label>
+            <TableView fx:id="purchaseHistoryTable" layoutX="135.0" layoutY="178.0" prefHeight="419.0" prefWidth="823.0" style="-fx-background-color: #171717; -fx-border-radius: 10;">
+              <columns>
+                <TableColumn fx:id="ItemsBoughtColumn" prefWidth="541.066650390625" text="Items Bought" />
+                <TableColumn fx:id="AmntPaidColumn" minWidth="0.0" prefWidth="82.13330078125" text="Amnt Paid" />
+                  <TableColumn fx:id="DateOfPurchaseColumn" minWidth="0.0" prefWidth="189.8668212890625" text="Date of Prchase" />
+              </columns>
+            </TableView>
+            <Button layoutX="782.0" layoutY="107.0" mnemonicParsing="false" onAction="#onAnalyzeData" prefHeight="39.0" prefWidth="152.0" style="-fx-background-color: #cc065f;" text="Analyze Data" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane fx:id="foodMenuPane" layoutX="230.0" layoutY="10.0" prefHeight="656.0" prefWidth="1007.0" style="-fx-background-color: #171717;">
+         <children>
+            <Button fx:id="addMeal" layoutX="166.0" layoutY="309.0" mnemonicParsing="false" onAction="#handleAdminMenuClick" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Add Meal" textFill="WHITE" />
+            <Button fx:id="sellMeal" layoutX="164.0" layoutY="425.0" mnemonicParsing="false" onAction="#handleAdminMenuClick" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Sell" textFill="WHITE" />
+            <Button layoutX="164.0" layoutY="366.0" mnemonicParsing="false" onAction="#onViewAllMeals" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="View All Meals" textFill="WHITE" />
+            <Label layoutX="206.0" layoutY="115.0" text="Meals" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="43.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="650.0" fitWidth="650.0" layoutX="520.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: .4;">
+               <image>
+                  <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\wvlogo.png" />
+               </image>
+               <effect>
+                  <DropShadow height="243.25" radius="124.0625" spread="0.66" width="255.0">
+                     <color>
+                        <Color red="0.1473684161901474" green="0.1473684161901474" blue="0.1473684161901474" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="adminsMenuPane" layoutX="230.0" prefHeight="661.0" prefWidth="1010.0" style="-fx-background-color: #171717;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button layoutX="161.0" layoutY="305.0" mnemonicParsing="false" onAction="#onAddAdmin" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Add Admin" textFill="WHITE" />
+            <Button layoutX="164.0" layoutY="425.0" mnemonicParsing="false" onAction="#onDeleteAdmin" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Delete Admin" textFill="WHITE" />
+            <Button layoutX="164.0" layoutY="366.0" mnemonicParsing="false" onAction="#onViewAllAdmins" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="View All Admins" textFill="WHITE" />
+            <Label layoutX="133.0" layoutY="102.0" text="Admins Menu" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="43.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="650.0" fitWidth="650.0" layoutX="439.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: .2;">
+               <image>
+                  <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\wvlogo.png" />
+               </image>
+               <effect>
+                  <DropShadow height="243.25" radius="124.0625" spread="0.66" width="255.0">
+                     <color>
+                        <Color red="0.1473684161901474" green="0.1473684161901474" blue="0.1473684161901474" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="usersMenuPane" layoutX="219.0" layoutY="-1.0" prefHeight="662.0" prefWidth="1022.0" style="-fx-background-color: #171717;">
+         <children>
+            <Button layoutX="164.0" layoutY="260.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="Add User" textFill="WHITE" />
+            <Button layoutX="164.0" layoutY="448.0" mnemonicParsing="false" onAction="#onDeleteUser" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="Delete User" textFill="WHITE" />
+            <Button layoutX="164.0" layoutY="321.0" mnemonicParsing="false" onAction="#onSearchUsers" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="Search Users" textFill="WHITE" />
+            <Button layoutX="164.0" layoutY="388.0" mnemonicParsing="false" onAction="#onViewAllUsers" prefHeight="38.0" prefWidth="190.0" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-radius: 10;" text="View All Users" textFill="WHITE" />
+            <Label layoutX="204.0" layoutY="136.0" prefHeight="49.0" prefWidth="102.0" text="Users" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="43.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="650.0" fitWidth="650.0" layoutX="423.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0" style="-fx-opacity: .4;">
+               <image>
+                  <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\wvlogo.png" />
+               </image>
+               <effect>
+                  <DropShadow height="243.25" radius="124.0625" spread="0.66" width="255.0">
+                     <color>
+                        <Color red="0.1473684161901474" green="0.1473684161901474" blue="0.1473684161901474" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="ticketsMenuPane" layoutX="230.0" layoutY="1.0" prefHeight="660.0" prefWidth="1010.0" style="-fx-background-color: #171717;">
+         <children>
+            <Button layoutX="164.0" layoutY="251.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Sell Ticket" textFill="WHITE" />
+            <Button layoutX="164.0" layoutY="425.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Delete Ticket" textFill="WHITE" />
+            <Button layoutX="164.0" layoutY="311.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Sold Tickets History" textFill="WHITE" />
+            <Button layoutX="164.0" layoutY="366.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Search Ticket" textFill="WHITE" />
+            <Label layoutX="191.0" layoutY="126.0" text="Tickets" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="43.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="510.0" fitWidth="510.0" layoutX="587.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true" rotate="-141.0">
+               <image>
+                  <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\ticket.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="dashboardPane" layoutX="230.0" prefHeight="646.0" prefWidth="1010.0" style="-fx-background-color: #171717;">
+         <children>
+            <Label layoutX="99.0" layoutY="248.0" prefHeight="38.0" prefWidth="188.0" text="Dashboard" textFill="#fcfcfc">
+               <font>
+                  <Font name="Bauhaus 93" size="33.0" />
+               </font>
+            </Label>
+            <Pane fx:id="totalBalancePane" layoutX="103.0" layoutY="92.0" prefHeight="96.0" prefWidth="217.0" style="-fx-border-width: 0 0 0 1; -fx-background-color: #1e1e1e; -fx-border-color: #fff;">
+               <children>
+                  <Label layoutX="21.0" layoutY="24.0" prefHeight="30.0" prefWidth="131.0" style="-fx-opacity: .6;" text="Total balance " textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="availableBalance" layoutX="25.0" layoutY="45.0" prefHeight="39.0" prefWidth="174.0" text="600" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="viewUsersReport" layoutX="105.0" layoutY="324.0" prefHeight="79.0" prefWidth="334.0" style="-fx-background-color: #1e1e1e; -fx-border-width: 0 0 0 1; -fx-border-color: #fff;">
+               <children>
+                  <ImageView fitHeight="35.0" fitWidth="33.0" layoutX="39.0" layoutY="23.0">
+                     <image>
+                        <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\paper - Copy.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="82.0" layoutY="19.0" prefHeight="40.0" prefWidth="203.0" text="Users Report" textFill="WHITE">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="viewMealsPane" layoutX="516.0" layoutY="319.0" prefHeight="82.0" prefWidth="362.0" style="-fx-background-color: #1e1e1e; -fx-border-width: 0 0 0 1; -fx-border-color: #fff;">
+               <children>
+                  <Label layoutX="79.0" layoutY="18.0" prefHeight="40.0" prefWidth="203.0" text="Meals Report" textFill="WHITE">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="35.0" fitWidth="33.0" layoutX="36.0" layoutY="21.0">
+                     <image>
+                        <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\paper - Copy.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Label fx:id="welcomeMessage" layoutX="623.0" layoutY="19.0" prefHeight="39.0" prefWidth="366.0" text="hello, test" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="29.0" fitWidth="25.0" layoutX="583.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\user.png" />
+               </image>
+            </ImageView>
+            <Pane fx:id="purchaseHistoryPane" layoutX="102.0" layoutY="437.0" prefHeight="87.0" prefWidth="338.0" style="-fx-background-color: #1e1e1e; -fx-border-width: 0 0 0 1; -fx-border-color: #fff;">
+               <children>
+                  <Label layoutX="89.0" layoutY="24.0" prefHeight="40.0" prefWidth="235.0" text="Purchase History" textFill="WHITE">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="55.0" fitWidth="50.0" layoutX="23.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\money-bag.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane fx:id="totalBalancePane1" layoutX="378.0" layoutY="97.0" prefHeight="96.0" prefWidth="217.0" style="-fx-border-width: 0 0 0 1; -fx-background-color: #1e1e1e; -fx-border-color: #fff;">
+               <children>
+                  <Label layoutX="21.0" layoutY="24.0" prefHeight="30.0" prefWidth="131.0" style="-fx-opacity: .6;" text="No. of Users" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="noOfUsers" layoutX="25.0" layoutY="45.0" prefHeight="39.0" prefWidth="174.0" text=" " textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane fx:id="totalBalancePane11" layoutX="638.0" layoutY="95.0" prefHeight="96.0" prefWidth="217.0" style="-fx-border-width: 0 0 0 1; -fx-background-color: #1e1e1e; -fx-border-color: #fff;">
+               <children>
+                  <Label layoutX="21.0" layoutY="24.0" prefHeight="30.0" prefWidth="174.0" style="-fx-opacity: .6;" text="No. of Admins" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="noOfAdmins" layoutX="25.0" layoutY="45.0" prefHeight="39.0" prefWidth="174.0" text=" " textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </Label>
+               </children>
+            </Pane>
+
          </children>
       </Pane>
    </children>

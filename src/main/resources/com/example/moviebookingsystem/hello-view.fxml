@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -47,12 +49,12 @@
          <right>
             <HBox alignment="CENTER" prefHeight="72.0" prefWidth="285.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" onAction="#goToAdminLoginPage" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 5px;" text="Admin" textFill="WHITE">
+                  <Button fx:id="adminButton" mnemonicParsing="false" onAction="#goToAdminLoginPage" onMouseEntered="#onHover" onMouseExited="#onHover" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 5px;" text="Admin" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#onSignUp" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 5px;" text="Sign Up" textFill="WHITE">
+                  <Button fx:id="signUpButton" mnemonicParsing="false" onAction="#onSignUp" onMouseEntered="#onHover" onMouseExited="#onHover" prefHeight="37.0" prefWidth="90.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 5px;" text="Sign Up" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -60,7 +62,7 @@
                         <Insets left="20.0" right="20.0" />
                      </HBox.margin>
                   </Button>
-                  <Button layoutX="126.0" layoutY="59.0" mnemonicParsing="false" onAction="#onSignIn" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 5px;" text="Sign In" textFill="WHITE">
+                  <Button fx:id="signInButton" layoutX="126.0" layoutY="59.0" mnemonicParsing="false" onAction="#onSignIn" onMouseEntered="#onHover" onMouseExited="#onHover" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 5px;" text="Sign In" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -97,6 +99,13 @@
                </padding>
             </VBox>
          </left>
+         <right>
+            <ImageView fitHeight="586.0" fitWidth="1097.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\QabdetElHelaly.png" />
+               </image>
+            </ImageView>
+         </right>
       </BorderPane>
    </children>
 </VBox>
