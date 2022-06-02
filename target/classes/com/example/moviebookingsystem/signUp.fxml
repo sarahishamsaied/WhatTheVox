@@ -5,7 +5,11 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
@@ -16,25 +20,25 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="fullName" layoutX="76.0" layoutY="221.0" prefHeight="35.0" prefWidth="236.0" promptText="Full Name" />
+      <TextField fx:id="fullName" layoutX="76.0" layoutY="221.0" prefHeight="35.0" prefWidth="236.0" promptText="Full Name" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;" />
       <Label layoutX="74.0" layoutY="267.0" prefHeight="43.0" prefWidth="44.0" text="Age" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="age" layoutX="74.0" layoutY="310.0" prefHeight="35.0" prefWidth="232.0" promptText="Age" />
+      <TextField fx:id="age" layoutX="74.0" layoutY="310.0" prefHeight="35.0" prefWidth="232.0" promptText="Age" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;" />
       <Label layoutX="345.0" layoutY="184.0" prefHeight="31.0" prefWidth="50.0" text="Email" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="email" layoutX="345.0" layoutY="223.0" prefHeight="35.0" prefWidth="233.0" promptText="Email Address" />
+      <TextField fx:id="email" layoutX="345.0" layoutY="223.0" prefHeight="35.0" prefWidth="233.0" promptText="Email Address" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;" />
       <Label layoutX="345.0" layoutY="267.0" prefHeight="43.0" prefWidth="84.0" text="Password" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="password" layoutX="343.0" layoutY="307.0" prefHeight="35.0" prefWidth="232.0" promptText="Password" />
+      <TextField fx:id="password" layoutX="343.0" layoutY="307.0" prefHeight="35.0" prefWidth="232.0" promptText="Password" style="-fx-border-color: #fff; -fx-background-color: transparent; -fx-border-width: 0 0 1 0;" />
       <Label fx:id="errorMessage" layoutX="71.0" layoutY="486.0" prefHeight="42.0" prefWidth="524.0" textAlignment="CENTER" textFill="RED">
          <padding>
             <Insets top="10.0" />
@@ -58,5 +62,17 @@
             <Font name="Bauhaus 93" size="44.0" />
          </font>
       </Hyperlink>
+      <ImageView fitHeight="586.0" fitWidth="586.0" layoutX="527.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0" style="-fx-opacity: .9;">
+         <image>
+            <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\wvlogo.png" />
+         </image>
+         <effect>
+            <DropShadow height="243.25" radius="124.0625" spread="0.66" width="255.0">
+               <color>
+                  <Color red="0.1473684161901474" green="0.1473684161901474" blue="0.1473684161901474" />
+               </color>
+            </DropShadow>
+         </effect>
+      </ImageView>
    </children>
 </AnchorPane>

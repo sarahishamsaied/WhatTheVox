@@ -30,4 +30,15 @@ public class Counter  {
             return resultSet.getInt(1);
         return 0;
     }
+    public static double getIncome(int month,int year) throws SQLException {
+        PreparedStatement statement = dbConnection.prepareStatement("select SUM(amountPaid) as MonthlyIncome from purchaseHistory where MONTH(timeOfPurchase) = ? AND  YEAR(timeOfPurchase) = ?");
+        statement.setInt(1,month);
+        statement.setInt(2,year);
+        ResultSet resultSet = statement.executeQuery();
+        if (resultSet.next())
+        {
+            return Double.parseDouble(resultSet.getString("MonthlyIncome"));
+        }
+        return 0;
+    }
 }

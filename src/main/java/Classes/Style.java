@@ -20,10 +20,10 @@ public class Style {
     }
     public static void changeColorOnHover(Button button,String backgroundColorOnEnter,String backgroundColorOnLeave,String textColorOnEnter,String textColorOnLeave){
         button.setOnMouseEntered(event -> {
-            button.setStyle(String.format("-fx-background-color: %s; -fx-text-fill: %s;",backgroundColorOnEnter,textColorOnEnter));
+            button.setStyle(String.format("-fx-background-color: %s; -fx-text-fill: %s; -fx-border-color:%s; -fx-border-width: 0 0 0 1;",backgroundColorOnEnter,textColorOnEnter,textColorOnEnter));
         });
         button.setOnMouseExited(event -> {
-            button.setStyle(String.format("-fx-background-color: %s; -fx-text-fill: %s;",backgroundColorOnLeave,textColorOnLeave));
+            button.setStyle(String.format("-fx-background-color: %s; -fx-text-fill: %s;-fx-border-color:%s; -fx-border-width: 0 0 0 0;",backgroundColorOnLeave,textColorOnLeave,textColorOnEnter));
 
         });
     }

@@ -4,27 +4,29 @@
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="763.0" prefWidth="1385.0" style="-fx-background-color: #0F0F0F;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.AuthenticationController">
    <children>
-      <Label layoutX="88.0" layoutY="250.0" prefHeight="43.0" prefWidth="75.0" text="Email" textFill="WHITE">
+      <Label layoutX="87.0" layoutY="247.0" prefHeight="43.0" prefWidth="75.0" text="Email" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <TextField fx:id="signInEmail" layoutX="87.0" layoutY="300.0" prefHeight="35.0" prefWidth="651.0" promptText="Email Address" />
+      <TextField fx:id="signInEmail" layoutX="87.0" layoutY="300.0" prefHeight="35.0" prefWidth="651.0" promptText="Email Address" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #fff;" />
       <Label layoutX="83.0" layoutY="358.0" prefHeight="43.0" prefWidth="98.0" text="Password" textFill="WHITE">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <TextField fx:id="signInPassword" layoutX="83.0" layoutY="408.0" prefHeight="35.0" prefWidth="657.0" promptText="Password" />
-      <Button layoutX="79.0" layoutY="483.0" mnemonicParsing="false" onAction="#onSignIn" prefHeight="31.0" prefWidth="664.0" style="-fx-background-color: #ff4fa7; -fx-border-radius: 40;" text="Sign In" textAlignment="CENTER" textFill="WHITE">
+      <TextField fx:id="signInPassword" layoutX="83.0" layoutY="408.0" prefHeight="35.0" prefWidth="657.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #fff;" />
+      <Button layoutX="79.0" layoutY="483.0" mnemonicParsing="false" onAction="#onSignIn" prefHeight="44.0" prefWidth="664.0" style="-fx-background-color: #ff4fa7; -fx-border-radius: 40;" text="Sign In" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>
@@ -55,10 +57,17 @@
          </font>
       </Hyperlink>
       <Line endX="92.0" layoutX="212.0" layoutY="233.0" startX="-115.33333587646484" stroke="WHITE" />
-      <ImageView fitHeight="682.0" fitWidth="442.0" layoutX="864.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="586.0" fitWidth="586.0" layoutX="787.0" layoutY="122.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: .9;">
          <image>
-            <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\ملصق_فيلم_الرجل_الشرس.jpg" />
+            <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\wvlogo.png" />
          </image>
+         <effect>
+            <DropShadow height="243.25" radius="124.0625" spread="0.66" width="255.0">
+               <color>
+                  <Color red="0.1473684161901474" green="0.1473684161901474" blue="0.1473684161901474" />
+               </color>
+            </DropShadow>
+         </effect>
       </ImageView>
    </children>
 </AnchorPane>

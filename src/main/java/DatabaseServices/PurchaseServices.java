@@ -5,19 +5,19 @@ import Classes.Purchase;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 public class PurchaseServices  {
     static Connection dbConnection  = DatabaseConnection.getInstance().getDbConnection();
-    public static void sell(Purchase purchase) throws SQLException {
-        PreparedStatement sqlStatement = dbConnection.prepareStatement("insert into purchaseHistory(itemName,amountPaid,purchaseId,timeOfPurchase) values(?,?,?,?)");
+    public static void sell(Purchase purchase) throws SQLException, ParseException {
+        PreparedStatement sqlStatement = dbConnection.prepareStatement("insert into purchaseHistory(itemName,amountPaid,purchaseId) values(?,?,?)");
         sqlStatement.setString(1,purchase.getItemName());
         sqlStatement.setDouble(2,purchase.getAmountPaid());
         sqlStatement.setString(3,purchase.getPurchaseId());
-        sqlStatement.setString(4,purchase.getDateOfPurchase());
+//        Date date = new Date(new SimpleDateFormat("\"dd/MM/yyyy").parse(purchase.getDateOfPurchase()).getTime());
+//        sqlStatement.setDate(4,date);
         sqlStatement.executeUpdate();
     }
     public static ObservableList<Purchase> getPurchaseHistory() throws SQLException {

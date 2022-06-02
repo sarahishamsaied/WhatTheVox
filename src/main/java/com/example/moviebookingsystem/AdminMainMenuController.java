@@ -4,10 +4,13 @@ import DatabaseServices.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -19,6 +22,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.time.LocalDate;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
@@ -36,7 +42,7 @@ public class AdminMainMenuController implements Initializable,IValidate{
     @FXML
     TextField mealTitle,mealPrice,mealQuantity,soldMealQuantity,loginIdTF,adminPassTF,adminNameTF,adminAgeTF,confirmPassTF;
     @FXML
-    Pane dashboardPane,adminsMenuPane,usersMenuPane,ticketsMenuPane,foodMenuPane,addMealPane,mealsTable,sellMealPane,viewUsersReport,totalBalancePane,viewMealsPane,addAdminPane,viewAllAdminsPane,purchaseHistoryPane,purchaseHistoryPage;
+    Pane dashboardPane,adminsMenuPane,usersMenuPane,ticketsMenuPane,foodMenuPane,addMealPane,mealsTable,sellMealPane,viewUsersReport,viewMealsPane,addAdminPane,viewAllAdminsPane,purchaseHistoryPane,purchaseHistoryPage;
     @FXML
     TextArea mealDescription;
     @FXML
@@ -62,7 +68,9 @@ public class AdminMainMenuController implements Initializable,IValidate{
     @FXML
     Button usersNavLink,dashboardNavLink,adminsNavLink,ticketsNavLink,foodNavLink,addMeal,viewAllMealsButton,sellMeal;
     @FXML
-    Label errorMessage,totalBalance,availableBalance,welcomeMessage,adminStatusMessage,noOfAdmins,noOfUsers;
+    DatePicker calendar;
+    @FXML
+    Label errorMessage,totalBalance,availableBalance,welcomeMessage,adminStatusMessage,noOfAdmins,noOfUsers,incomeThisMonth;
     ObservableList <String> categoryComboBoxItems = FXCollections.observableArrayList("Food","Drink");
     @FXML
     TableView<Meal> allMealsTable;
@@ -71,7 +79,7 @@ public class AdminMainMenuController implements Initializable,IValidate{
     @FXML
     VBox cartItems;
     @FXML
-    public void onSellItems() throws IOException, JRException, SQLException {
+    public void onSellItems() throws IOException, JRException, SQLException, ParseException {
         DatabaseConnection db = DatabaseConnection.getInstance();
         db.Connect();
         Date date = new Date();
@@ -238,7 +246,8 @@ public class AdminMainMenuController implements Initializable,IValidate{
         System.out.println(adminPassTF.getText());
         if(comparePasswords(adminPassTF.getText(),confirmPassTF.getText()) && validatePassword(adminPassTF.getText()))
         {
-            adminStatusMessage.setText("");
+            adminStatusMessage.setText(adminNameTF.getText()+" was added as an admin.");
+            adminStatusMessage.setTextFill(Color.GREEN);
             AdminServices.addAdmin(adminNameTF.getText(),Integer.parseInt(adminAgeTF.getText()),loginIdTF.getText(),adminPassTF.getText());
         }
     }
@@ -263,6 +272,22 @@ public class AdminMainMenuController implements Initializable,IValidate{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Date date = new Date();
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        int currentMonth = cal.get(Calendar.MONTH)+1;
+        int currentYear = cal.get(Calendar.YEAR);
+        System.out.println(currentYear);
+        try {
+            if (Counter.getIncome(currentMonth-1,2022)>=Counter.getIncome(currentMonth,currentYear))
+                incomeThisMonth.setTextFill(Color.RED);
+            else
+                incomeThisMonth.setTextFill(Color.GREEN);
+            incomeThisMonth.setText(String.valueOf("$"+Counter.getIncome(currentMonth,currentYear)));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        calendar.setValue(LocalDate.now());
         try {
             noOfAdmins.setText(String.valueOf(Counter.noOfAdmins()));
             noOfUsers.setText(String.valueOf(Counter.noOfUsers()));
@@ -273,11 +298,9 @@ public class AdminMainMenuController implements Initializable,IValidate{
         Context ctx  = Context.getInstance();
         welcomeMessage.setText("Hello, "+ctx.getInstance().getCurrentAdmin().getName());
         Style.transition(viewUsersReport,2000.0);
-        Style.transition(totalBalancePane,2000.0);
         Style.transition(viewMealsPane,2000.0);
         Style.transition(purchaseHistoryPane,2000.0);
         Style.changeColorOnHover(viewUsersReport,"#000","#1e1e1e");
-        Style.changeColorOnHover(totalBalancePane,"#000","#1e1e1e");
         Style.changeColorOnHover(viewMealsPane,"#000","#1e1e1e");
         Style.changeColorOnHover(purchaseHistoryPane,"#000","#1e1e1e");
         viewMealsPane.setOnMouseClicked(e->{
