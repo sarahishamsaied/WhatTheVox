@@ -17,19 +17,19 @@
             <Font name="Bauhaus 93" size="61.0" />
          </font>
       </Label>
-      <TextField fx:id="adminLoginId" layoutX="42.0" layoutY="230.0" prefHeight="26.0" prefWidth="386.0" promptText="example@example.com" style="-fx-opacity: .5;" />
+      <TextField fx:id="adminLoginId" layoutX="42.0" layoutY="230.0" prefHeight="26.0" prefWidth="386.0" promptText="example@example.com" style="-fx-opacity: .5; -fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #fff;" />
       <Label layoutX="42.0" layoutY="182.0" text="Login ID" textFill="#ef0b74">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="adminLoginPassword" layoutX="42.0" layoutY="329.0" prefHeight="26.0" prefWidth="386.0" promptText="8 characters at least " style="-fx-opacity: .5;" />
+      <TextField fx:id="adminLoginPassword" layoutX="42.0" layoutY="329.0" prefHeight="26.0" prefWidth="386.0" promptText="8 characters at least " style="-fx-opacity: .5; -fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;" />
       <Label layoutX="42.0" layoutY="292.0" text="Password" textFill="#ef0b74">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Button layoutX="48.0" layoutY="406.0" mnemonicParsing="false" onAction="#onAdminLogin" prefHeight="30.0" prefWidth="386.0" style="-fx-background-color: #ef0b74;" text="Login" />
+      <Button layoutX="40.0" layoutY="406.0" mnemonicParsing="false" onAction="#onAdminLogin" prefHeight="30.0" prefWidth="394.0" style="-fx-background-color: #ef0b74;" text="Login" textFill="WHITE" />
       <Label fx:id="adminErrorMessage" layoutX="48.0" layoutY="478.0" prefHeight="18.0" prefWidth="990.0" text=" " textFill="#f80909" />
       <ImageView fitHeight="650.0" fitWidth="650.0" layoutX="480.0" layoutY="-41.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: .9;">
          <image>

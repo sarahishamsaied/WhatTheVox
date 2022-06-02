@@ -550,7 +550,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <BarChart layoutX="474.0" layoutY="232.0" legendSide="LEFT" title="Purchase History">
+            <BarChart fx:id="purchaseHistoryGraph" layoutX="474.0" layoutY="232.0" legendSide="LEFT" style="-fx-border-color: #000;" title="Purchase History">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
@@ -558,7 +558,7 @@
                 <NumberAxis side="LEFT" />
               </yAxis>
                <effect>
-                  <Glow />
+                  <DropShadow />
                </effect>
             </BarChart>
 

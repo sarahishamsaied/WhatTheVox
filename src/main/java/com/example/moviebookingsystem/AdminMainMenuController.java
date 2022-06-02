@@ -7,6 +7,8 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
@@ -45,6 +47,8 @@ public class AdminMainMenuController implements Initializable,IValidate{
     Pane dashboardPane,adminsMenuPane,usersMenuPane,ticketsMenuPane,foodMenuPane,addMealPane,mealsTable,sellMealPane,viewUsersReport,viewMealsPane,addAdminPane,viewAllAdminsPane,purchaseHistoryPane,purchaseHistoryPage;
     @FXML
     TextArea mealDescription;
+    @FXML
+    BarChart<?,?> purchaseHistoryGraph;
     @FXML
     ListView<String> mealsList;
     @FXML
@@ -272,6 +276,18 @@ public class AdminMainMenuController implements Initializable,IValidate{
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        XYChart.Series set1  = new XYChart.Series();
+        try {
+            for (Purchase purchase : PurchaseServices.getPurchaseHistory()){
+                System.out.println(purchase.getItemName());
+                set1.getData().add(new XYChart.Data<String,Double>(purchase.getItemName(),purchase.getAmountPaid()));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        purchaseHistoryGraph.getData().addAll(set1);
+
+
         Date date = new Date();
         Calendar cal = Calendar.getInstance();
         cal.setTime(date);
