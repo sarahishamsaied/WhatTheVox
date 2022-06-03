@@ -46,6 +46,7 @@ public class Movie {
         this.releaseDate = releaseDate;
     }
 
+
     public ArrayList<Actor> getCast() {
         return cast;
     }
