@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="663.0" prefWidth="1022.0" style="-fx-background-color: #171717;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.AddMovieForm">
+   <children>
+      <Pane fx:id="PaneOne" prefHeight="664.0" prefWidth="1022.0" style="-fx-background-color: #171717;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="46.0" layoutY="204.0" prefHeight="17.0" prefWidth="76.0" text="Movie Name" textFill="#f5f3f3" />
+            <Label layoutX="53.0" layoutY="262.0" text="Movie Date" textFill="#fffefe" />
+            <Label layoutX="58.0" layoutY="303.0" prefHeight="17.0" prefWidth="51.0" text="Duration" textFill="#fcfafa" />
+            <Label layoutX="53.0" layoutY="401.0" prefHeight="17.0" prefWidth="62.0" text="Language" textFill="#f8f7f7" />
+            <Label layoutX="58.0" layoutY="497.0" prefHeight="17.0" prefWidth="76.0" text="Description" textFill="WHITE" />
+            <TextField fx:id="AddDateTF" layoutX="129.0" layoutY="243.0" prefHeight="27.0" prefWidth="184.0" promptText="Add Date" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #fff;" />
+            <TextField fx:id="DurationTF" layoutX="122.0" layoutY="290.0" prefHeight="27.0" prefWidth="184.0" promptText="Add Duration" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;" />
+            <TextField fx:id="LanguageTF" layoutX="115.0" layoutY="387.0" prefHeight="27.0" prefWidth="184.0" promptText="Movie Language" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;" />
+            <Label layoutX="71.0" layoutY="346.0" text="Cast" textFill="#f5f2f2" />
+            <TextField fx:id="AddCastTF" layoutX="115.0" layoutY="333.0" prefHeight="26.0" prefWidth="184.0" promptText="Add Cast" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #fff;" />
+            <Label layoutX="416.0" layoutY="196.0" text="Category" textFill="#f8f8f8" />
+            <TextArea fx:id="DescriptionTF" layoutX="148.0" layoutY="450.0" prefHeight="112.0" prefWidth="350.0" />
+            <Button fx:id="NextButton" layoutX="503.0" layoutY="588.0" mnemonicParsing="false" onAction="#OnNext" prefHeight="30.0" prefWidth="133.0" style="-fx-background-color: #cc065f #cc065f;" text="Next" textFill="#fcfafa" />
+            <TextField fx:id="AddMovieTF" layoutX="129.0" layoutY="190.0" prefHeight="27.0" prefWidth="184.0" promptText="Add Movie" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #fff;" />
+            <ComboBox layoutX="475.0" layoutY="191.0" prefWidth="150.0" />
+            <Label layoutX="204.0" layoutY="72.0" prefHeight="43.0" prefWidth="239.0" text="Add Movie" textFill="#eee9e9">
+               <font>
+                  <Font name="Bodoni 72 Smallcaps Book" size="37.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="105.0" fitWidth="92.0" layoutX="46.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
+      <Pane fx:id="PaneTwo" layoutX="8.0" prefHeight="664.0" prefWidth="1022.0" style="-fx-background-color: #171717;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="SubmitButton" layoutX="436.0" layoutY="575.0" mnemonicParsing="false" onAction="#OnSubmitMovie" prefHeight="43.0" prefWidth="175.0" style="-fx-background-color: #cc065f;" text="Submit" textFill="#fcfcfc" />
+            <Label layoutX="65.0" layoutY="200.0" prefHeight="17.0" prefWidth="76.0" text="Rating" textFill="#eee9e9">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="ratingTF" layoutX="150.0" layoutY="195.0" promptText="Add Rating" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;">
+               <font>
+                  <Font name="System Font" size="15.0" />
+               </font>
+            </TextField>
+            <Label layoutX="52.0" layoutY="349.0" prefHeight="17.0" prefWidth="76.0" text="Add trailer" textFill="#eee9e9">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="AgeRatingTF" layoutX="154.0" layoutY="263.0" prefHeight="26.0" prefWidth="175.0" promptText="Pick rating" />
+            <Button fx:id="BackButton" layoutX="45.0" layoutY="574.0" mnemonicParsing="false" onAction="#OnBackMovie" prefHeight="43.0" prefWidth="175.0" style="-fx-background-color: #cc065f;" text="Back" textFill="#fcfcfc" />
+            <TextField fx:id="trailerTF" layoutX="150.0" layoutY="334.0" promptText="Trailer URL" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;">
+               <font>
+                  <Font name="System Font" size="15.0" />
+               </font>
+            </TextField>
+            <Label layoutX="52.0" layoutY="412.0" prefHeight="17.0" prefWidth="76.0" text="Add Poster" textFill="#eee9e9">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <TextField fx:id="PosterTF" layoutX="154.0" layoutY="397.0" promptText="Poster URL" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;">
+               <font>
+                  <Font name="System Font" size="15.0" />
+               </font>
+            </TextField>
+            <Label layoutX="54.0" layoutY="267.0" prefHeight="17.0" prefWidth="76.0" text="Age Rating" textFill="#eee9e9">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="154.0" layoutY="50.0" text="Add Movie" textFill="WHITE">
+               <font>
+                  <Font name="Bangla MN" size="36.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="105.0" fitWidth="92.0" layoutX="28.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
