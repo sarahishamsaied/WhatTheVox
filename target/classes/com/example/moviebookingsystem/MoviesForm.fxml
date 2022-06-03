@@ -10,42 +10,46 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="483.0" prefWidth="627.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.MoviesForm">
+<AnchorPane prefHeight="483.0" prefWidth="627.0" style="-fx-background-color: #171717;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.MoviesForm">
    <children>
-      <Button fx:id="ComingSoonButton" layoutX="13.0" layoutY="229.0" mnemonicParsing="false" onAction="#onNavClick" prefHeight="26.0" prefWidth="87.0" style="-fx-background-color: transparent;" text="coming soon" textOverrun="CLIP" />
-      <Button fx:id="PlayingNowButton" layoutX="13.0" layoutY="287.0" mnemonicParsing="false" onAction="#onNavClick" prefHeight="26.0" prefWidth="87.0" style="-fx-background-color: transparent;" text="playing now" />
-      <Button fx:id="TrendingButton" layoutX="9.0" layoutY="337.0" mnemonicParsing="false" onAction="#onNavClick" prefHeight="26.0" prefWidth="94.0" style="-fx-background-color: transparent;" text="Trending" />
-      <MenuButton fx:id="CategoryMenu" layoutX="12.0" layoutY="398.0" mnemonicParsing="false" onAction="#onNavClick" prefHeight="26.0" prefWidth="87.0" style="-fx-background-color: transparent;" text="Category">
+      <Pane fx:id="CategoryPage" layoutX="143.0" layoutY="76.0" prefHeight="376.0" prefWidth="469.0" style="-fx-background-color: #fff;" />
+      <Pane fx:id="PlayingNowPage" layoutX="142.0" layoutY="74.0" prefHeight="376.0" prefWidth="469.0" style="-fx-background-color: #1717;" />
+      <Button fx:id="ComingSoonButton" layoutX="4.0" layoutY="160.0" mnemonicParsing="false" onAction="#onNavClick" prefHeight="35.0" prefWidth="125.0" style="-fx-background-color: transparent;" text="coming soon" textFill="#f8f7f7" textOverrun="CLIP">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button fx:id="PlayingNowButton" layoutX="4.0" layoutY="217.0" mnemonicParsing="false" onAction="#onNavClick" prefHeight="35.0" prefWidth="125.0" style="-fx-background-color: transparent;" text="playing now" textFill="#f5eded">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <Button fx:id="TrendingButton" layoutX="11.0" layoutY="275.0" mnemonicParsing="false" onAction="#onNavClick" prefHeight="26.0" prefWidth="94.0" style="-fx-background-color: transparent;" text="Trending" textFill="#f5f3f3">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <MenuButton fx:id="CategoryMenu" layoutX="15.0" layoutY="335.0" mnemonicParsing="false" onAction="#onNavClick" prefHeight="35.0" prefWidth="125.0" style="-fx-background-color: transparent;" text="Category" textFill="#eee9e9">
         <items>
           <MenuItem mnemonicParsing="false" text="ACTION" />
           <MenuItem mnemonicParsing="false" text="COMEDY" />
             <MenuItem mnemonicParsing="false" text="habttt" />
         </items>
+         <font>
+            <Font size="18.0" />
+         </font>
       </MenuButton>
-      <TextField layoutX="102.0" layoutY="18.0" prefHeight="26.0" prefWidth="478.0" />
+      <TextField layoutX="135.0" layoutY="35.0" prefHeight="26.0" prefWidth="478.0" />
 <!--      <ImageView fitHeight="33.0" fitWidth="38.0" layoutX="66.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">-->
 <!--         <image>-->
-<!--            <Image url="@" />-->
+<!--            <Image url="@../../../../../../../../" />-->
 <!--         </image>-->
 <!--         <effect>-->
 <!--            <Glow level="0.52" />-->
 <!--         </effect>-->
 <!--      </ImageView>-->
-      <Pane fx:id="comingSoonPage" layoutX="159.0" layoutY="60.0" prefHeight="332.0" prefWidth="430.0">
-         <children>
-            <Pane fx:id="PlayingNowPage" layoutX="-5.0" layoutY="-5.0" prefHeight="341.0" prefWidth="440.0">
-               <children>
-                  <Pane fx:id="TrendingPage" prefHeight="341.0" prefWidth="440.0">
-                     <children>
-                        <Pane fx:id="CategoryPage" layoutY="8.0" prefHeight="326.0" prefWidth="440.0" />
-                     </children>
-                  </Pane>
-               </children>
-            </Pane>
-         </children>
-      </Pane>
-      <ImageView fitHeight="114.0" fitWidth="87.0" layoutX="14.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="96.0" fitWidth="87.0" layoutX="15.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" />
+      <Pane fx:id="comingSoonPage" layoutX="144.0" layoutY="75.0" prefHeight="376.0" prefWidth="469.0" style="-fx-background-color: #fff;" />
+      <Pane fx:id="TrendingPage" layoutX="142.0" layoutY="78.0" prefHeight="376.0" prefWidth="469.0" style="-fx-background-color: #fff;" />
    </children>
    <effect>
       <Blend />
