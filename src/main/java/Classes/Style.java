@@ -26,7 +26,16 @@ public class Style {
             button.setStyle(String.format("-fx-background-color: %s; -fx-text-fill: %s;-fx-border-color:%s; -fx-border-width: 0 0 0 0;",backgroundColorOnLeave,textColorOnLeave,textColorOnEnter));
 
         });
+    }    public static void changeColorOnHover(Button button,String backgroundColorOnEnter,String backgroundColorOnLeave,String textColorOnEnter,String textColorOnLeave,String borderColor,String borderWidth){
+        button.setOnMouseEntered(event -> {
+            button.setStyle(String.format("-fx-background-color: %s; -fx-text-fill: %s; -fx-border-color:%s; -fx-border-width: %s;",backgroundColorOnEnter,textColorOnEnter,textColorOnEnter,borderWidth));
+        });
+        button.setOnMouseExited(event -> {
+            button.setStyle(String.format("-fx-background-color: %s; -fx-text-fill: %s;-fx-border-color:%s; -fx-border-width: 0 0 0 0;",backgroundColorOnLeave,textColorOnLeave,borderColor));
+
+        });
     }
+
     public static void transition(Pane pane,Double duration){
         FadeTransition fadeTransition = new FadeTransition(Duration.millis(duration),pane);
         fadeTransition.setFromValue(0);

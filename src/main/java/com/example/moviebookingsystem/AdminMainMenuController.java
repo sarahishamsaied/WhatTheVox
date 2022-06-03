@@ -44,7 +44,7 @@ public class AdminMainMenuController implements Initializable,IValidate{
     @FXML
     TextField mealTitle,mealPrice,mealQuantity,soldMealQuantity,loginIdTF,adminPassTF,adminNameTF,adminAgeTF,confirmPassTF;
     @FXML
-    Pane dashboardPane,adminsMenuPane,usersMenuPane,ticketsMenuPane,foodMenuPane,addMealPane,mealsTable,sellMealPane,viewUsersReport,viewMealsPane,addAdminPane,viewAllAdminsPane,purchaseHistoryPane,purchaseHistoryPage;
+    Pane dashboardPane,adminsMenuPane,usersMenuPane,ticketsMenuPane,foodMenuPane,addMealPane,mealsTable,sellMealPane,viewUsersReport,viewMealsPane,addAdminPane,viewAllAdminsPane,purchaseHistoryPane,purchaseHistoryPage,removeAdminPane;
     @FXML
     TextArea mealDescription;
     @FXML
@@ -70,7 +70,7 @@ public class AdminMainMenuController implements Initializable,IValidate{
     @FXML
     TableColumn<Purchase,Double> AmntPaidColumn;
     @FXML
-    Button usersNavLink,dashboardNavLink,adminsNavLink,ticketsNavLink,foodNavLink,addMeal,viewAllMealsButton,sellMeal;
+    Button usersNavLink,dashboardNavLink,adminsNavLink,ticketsNavLink,foodNavLink,addMeal,viewAllMealsButton,sellMeal,goToViewAllAdmins,goToDeleteAdminForm,goToAddAdminForm;
     @FXML
     DatePicker calendar;
     @FXML
@@ -82,6 +82,11 @@ public class AdminMainMenuController implements Initializable,IValidate{
     TableView<Admin> allAdminsTable;
     @FXML
     VBox cartItems;
+    @FXML
+    public void goToTest() throws IOException {
+        Navigator navigator = new Navigator();
+        navigator.Navigate("MealsMenu.fxml","Meals");
+    }
     @FXML
     public void onSellItems() throws IOException, JRException, SQLException, ParseException {
         DatabaseConnection db = DatabaseConnection.getInstance();
@@ -112,11 +117,12 @@ public class AdminMainMenuController implements Initializable,IValidate{
     }
     @FXML
     public void onHover(){
-        Style.changeColorOnHover(dashboardNavLink,"#171717","#0f0f0f","#fff","b9b9b9");
-        Style.changeColorOnHover(usersNavLink,"#171717","#0f0f0f","#fff","b9b9b9");
-        Style.changeColorOnHover(adminsNavLink,"#171717","#0f0f0f","#fff","b9b9b9");
-        Style.changeColorOnHover(ticketsNavLink,"#171717","#0f0f0f","#fff","b9b9b9");
-        Style.changeColorOnHover(foodNavLink,"#171717","#0f0f0f","#fff","b9b9b9");
+
+        Style.changeColorOnHover(dashboardNavLink,"#171717","#0f0f0f","#fff","b9b9b9","#fff","0 0 0 1");
+        Style.changeColorOnHover(usersNavLink,"#171717","#0f0f0f","#fff","b9b9b9","#fff","0 0 0 1");
+        Style.changeColorOnHover(adminsNavLink,"#171717","#0f0f0f","#fff","b9b9b9","#fff","0 0 0 1");
+        Style.changeColorOnHover(ticketsNavLink,"#171717","#0f0f0f","#fff","b9b9b9","#fff","0 0 0 1");
+        Style.changeColorOnHover(foodNavLink,"#171717","#0f0f0f","#fff","b9b9b9","#fff","0 0 0 1");
     }
     @FXML
     public void onGoToCheckout() throws SQLException {
@@ -262,7 +268,7 @@ public class AdminMainMenuController implements Initializable,IValidate{
     }
     @FXML
     public void onDeleteAdmin(){
-
+        removeAdminPane.toFront();
     }
     @FXML
     public void onViewAllAdmins() throws SQLException {
@@ -319,6 +325,7 @@ public class AdminMainMenuController implements Initializable,IValidate{
         Style.changeColorOnHover(viewUsersReport,"#000","#1e1e1e");
         Style.changeColorOnHover(viewMealsPane,"#000","#1e1e1e");
         Style.changeColorOnHover(purchaseHistoryPane,"#000","#1e1e1e");
+        Style.changeColorOnHover(goToAddAdminForm,"#000","transparent","#fff","b9b9b9","#fff","1 1 1 1");
         viewMealsPane.setOnMouseClicked(e->{
             try {
                 onViewMealsReport();

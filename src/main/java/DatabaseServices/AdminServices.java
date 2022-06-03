@@ -34,14 +34,20 @@ public class AdminServices {
      * @return boolean
      * @throws SQLException*/
     public static boolean authenticateAdmin(String loginId,String password) throws SQLException {
-        String pass = "";
-        PreparedStatement statement = dbConnection.prepareStatement("select * from admins where adminLoginId = ?");
-        statement.setString(1,loginId);
-        ResultSet resultSet = statement.executeQuery();
-        while (resultSet.next()){
-          pass = resultSet.getString("adminPassword");
+        try{
+            String pass = "";
+            PreparedStatement statement = dbConnection.prepareStatement("select * from admins where adminLoginId = ?");
+            statement.setString(1,loginId);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()){
+                pass = resultSet.getString("adminPassword");
+            }
+            return password.equals(pass);
         }
-        return password.equals(pass);
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    return false;
     }
     public static Admin getAdmin(String loginId) throws SQLException {
         String id = "",name = "";

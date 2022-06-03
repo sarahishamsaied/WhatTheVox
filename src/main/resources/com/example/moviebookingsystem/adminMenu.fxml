@@ -334,9 +334,9 @@
       </Pane>
       <Pane fx:id="adminsMenuPane" layoutX="230.0" prefHeight="661.0" prefWidth="1010.0" style="-fx-background-color: #171717;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button layoutX="161.0" layoutY="305.0" mnemonicParsing="false" onAction="#onAddAdmin" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Add Admin" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="425.0" mnemonicParsing="false" onAction="#onDeleteAdmin" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Delete Admin" textFill="WHITE" />
-            <Button layoutX="164.0" layoutY="366.0" mnemonicParsing="false" onAction="#onViewAllAdmins" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="View All Admins" textFill="WHITE" />
+            <Button fx:id="goToAddAdminForm" layoutX="161.0" layoutY="305.0" mnemonicParsing="false" onAction="#onAddAdmin" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Add Admin" textFill="WHITE" />
+            <Button fx:id="goToDeleteAdminForm" layoutX="164.0" layoutY="425.0" mnemonicParsing="false" onAction="#onDeleteAdmin" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="Delete Admin" textFill="WHITE" />
+            <Button fx:id="goToViewAllAdmins" layoutX="164.0" layoutY="366.0" mnemonicParsing="false" onAction="#onViewAllAdmins" prefHeight="38.0" prefWidth="190.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-radius: 10;" text="View All Admins" textFill="WHITE" />
             <Label layoutX="133.0" layoutY="102.0" text="Admins Menu" textFill="WHITE">
                <font>
                   <Font name="Bauhaus 93" size="43.0" />
@@ -434,6 +434,22 @@
                </font>
             </Label>
             <TextField fx:id="mealQuantity" layoutX="223.0" layoutY="425.0" prefHeight="38.0" prefWidth="149.0" promptText="Quantity" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;" />
+         </children>
+      </Pane>
+      <Pane fx:id="removeAdminPane" layoutX="250.0" layoutY="10.0" prefHeight="650.0" prefWidth="1010.0" style="-fx-background-color: #171717;">
+         <children>
+            <Label layoutX="77.0" layoutY="124.0" text="Remove Admin" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="43.0" />
+               </font>
+            </Label>
+            <TextField layoutX="197.0" layoutY="234.0" prefHeight="35.0" prefWidth="299.0" promptText="Enter a valid ID" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;" />
+            <Label layoutX="77.0" layoutY="241.0" text="Admin ID" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Button layoutX="538.0" layoutY="241.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="111.0" style="-fx-background-color: #E11146; -fx-border-radius: 0;" text="Remove" textFill="WHITE" />
          </children>
       </Pane>
       <Pane fx:id="dashboardPane" layoutX="230.0" prefHeight="646.0" prefWidth="1010.0" style="-fx-background-color: #171717;">
@@ -537,7 +553,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label fx:id="incomeThisMonth" layoutX="724.0" layoutY="117.0" prefHeight="70.0" prefWidth="149.0" text="4" textAlignment="CENTER" textFill="WHITE">
+            <Label fx:id="incomeThisMonth" layoutX="724.0" layoutY="117.0" prefHeight="70.0" prefWidth="221.0" text="4" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="48.0" />
                </font>
@@ -550,7 +566,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <BarChart fx:id="purchaseHistoryGraph" layoutX="474.0" layoutY="232.0" legendSide="LEFT" style="-fx-border-color: #000;" title="Purchase History">
+            <BarChart fx:id="purchaseHistoryGraph" layoutX="474.0" layoutY="232.0" legendSide="LEFT" title="Purchase History">
               <xAxis>
                 <CategoryAxis side="BOTTOM" />
               </xAxis>
@@ -561,6 +577,7 @@
                   <DropShadow />
                </effect>
             </BarChart>
+            <Button layoutX="410.0" layoutY="59.0" mnemonicParsing="false" onAction="#goToTest" text="test" />
 
          </children>
       </Pane>

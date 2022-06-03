@@ -67,53 +67,65 @@ public class AuthenticationController implements IValidate {
         return UserServices.checkEmailExists(email);
     }
     @FXML
-    private void onAdminLogin() throws IOException, SQLException {
-        DatabaseConnection db = DatabaseConnection.getInstance();
-        db.Connect();
-        if(AdminServices.authenticateAdmin(adminLoginId.getText(),adminLoginPassword.getText()))
-        {
-            Context ctx = Context.getInstance();
-            ctx.setCurrentAdmin(AdminServices.getAdmin(adminLoginId.getText()));
-            navigator.Navigate("adminMenu.fxml","Admin Menu");
-        }
+    private void onAdminLogin() throws IOException,SQLException {
 
-        else
-            adminErrorMessage.setText("Login Id or password is incorrect");
+            DatabaseConnection db = DatabaseConnection.getInstance();
+            db.Connect();
+            if (db.getDbConnection()==null)
+            {
+                adminErrorMessage.setText("Unable to connect to database");
+                return;
+            }
+            if(AdminServices.authenticateAdmin(adminLoginId.getText(),adminLoginPassword.getText()))
+            {
+                Context ctx = Context.getInstance();
+                ctx.setCurrentAdmin(AdminServices.getAdmin(adminLoginId.getText()));
+                navigator.Navigate("adminMenu.fxml","Admin Menu");
+            }
+            else
+                adminErrorMessage.setText("Login Id or password is incorrect");
 
     }
     @FXML
-    void onSignUp(ActionEvent actionEvent) throws IOException, SQLException {
-        User user;
-        if(validateEmail(email.getText())){
-            if(validatePassword(password.getText()))
-                if(checkNumeric(age.getText()))
-                    if(!emailExists(email.getText()))
-                {
-                    UserServices.addUser(fullName.getText(),Integer.parseInt(age.getText()),email.getText(),password.getText());
-                    navigator.Navigate("adminMenu.fxml","Users Table");
-                }
-            else
-                    {
+    void onSignUp(ActionEvent actionEvent) throws IOException {
+        try{
+            User user;
+            if(validateEmail(email.getText())){
+                if(validatePassword(password.getText()))
+                    if(checkNumeric(age.getText()))
+                        if(!emailExists(email.getText()))
+                        {
+                            UserServices.addUser(fullName.getText(),Integer.parseInt(age.getText()),email.getText(),password.getText());
+                            navigator.Navigate("adminMenu.fxml","Users Table");
+                        }
+                        else
+                        {
 
+                            errorFlag = true;
+                            errorMessage.setText("Email already exists!");
+                        }
+                    else
+                    {
                         errorFlag = true;
-                        errorMessage.setText("Email already exists!");
+                        errorMessage.setText("Age must be numeric");
                     }
-            else
-                {
+                else {
                     errorFlag = true;
-                    errorMessage.setText("Age must be numeric");
+                    errorMessage.setText("Password must be at least 8 characters");
                 }
-            else {
-                errorFlag = true;
-                errorMessage.setText("Password must be at least 8 characters");
             }
+            else{
+                errorFlag = true;
+                errorMessage.setText("Please enter a valid email format");
+            }
+            if(!errorFlag) {user = new User(fullName.getText(),Integer.parseInt(age.getText()),email.getText(),password.getText());
+                System.out.println("hii");}
+            else return;
         }
-        else{
-            errorFlag = true;
-            errorMessage.setText("Please enter a valid email format");
+        catch (Exception e)
+        {
+            errorMessage.setText("Unable to connect to database");
         }
-        if(!errorFlag) {user = new User(fullName.getText(),Integer.parseInt(age.getText()),email.getText(),password.getText());
-            System.out.println("hii");}
-        else return;
+
     }
 }

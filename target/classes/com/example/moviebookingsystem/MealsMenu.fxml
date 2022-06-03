@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="936.0" prefWidth="1408.0" style="-fx-background-color: #171717;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.MealsMenu">
+   <children>
+      <ScrollPane fx:id="usersMealsView" layoutX="62.0" layoutY="34.0" prefHeight="891.0" prefWidth="1312.0" style="-fx-background-color: transparent;">
+         <content>
+            <FlowPane fx:id="mealsFlowPane" prefHeight="892.0" prefWidth="1307.0" style="-fx-background-color: #171717;">
+               <children>
+                  <Label prefHeight="71.0" prefWidth="1306.0" text="All Meals" textFill="WHITE">
+                     <font>
+                        <Font size="49.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </FlowPane>
+         </content>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </ScrollPane>
+   </children>
+</AnchorPane>
