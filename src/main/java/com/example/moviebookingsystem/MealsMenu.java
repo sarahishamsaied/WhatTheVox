@@ -44,7 +44,14 @@ public class MealsMenu implements Initializable {
                 imageView.setFitWidth(300);
                 imageView.setFitHeight(350);
                 imageView.setImage(img);
-                Label title = new Label(meal.getMealTitle());
+                Label title;
+                if (meal.getQuantity()<=0) {
+                    title = new Label(meal.getMealTitle()+" (Out of stock)");
+                    title.setTextFill(Color.RED);
+                    title.setBackground(Background.fill(Color.rgb(255,0,0,.4)));
+                }
+                else title = new Label(meal.getMealTitle());
+                title.setPadding(new Insets(10,0,10,0));
                 Label price = new Label("$"+meal.getPrice());
                 price.setFont(new Font("Arial",20));
                 price.setTextFill(Color.WHITE);
