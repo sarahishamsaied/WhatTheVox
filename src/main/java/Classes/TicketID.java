@@ -8,7 +8,6 @@ public class TicketID implements IdFactory{
     public final String hostName;
     public final long creationTimeMillis;
 
-
     public TicketID() throws UnknownHostException {
         this.hostName = InetAddress.getLocalHost().getHostName();
         System.out.println(hostName+" ");

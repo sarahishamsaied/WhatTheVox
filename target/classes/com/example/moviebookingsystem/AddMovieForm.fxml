@@ -13,31 +13,6 @@
 
 <AnchorPane prefHeight="663.0" prefWidth="1022.0" style="-fx-background-color: linear-gradient(to top, #000 0%, #171717 74%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.AddMovieForm">
    <children>
-      <Pane fx:id="PaneOne" prefHeight="664.0" prefWidth="1022.0" style="-fx-background-color: linear-gradient(to top, #000 0%, #171717 74%);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Label layoutX="676.0" layoutY="208.0" prefHeight="17.0" prefWidth="84.0" text="Schedule" textFill="#f5f3f3" />
-            <Label layoutX="37.0" layoutY="257.0" prefHeight="17.0" prefWidth="76.0" text="Release Date" textFill="#fffefe" />
-            <Label layoutX="40.0" layoutY="303.0" prefHeight="17.0" prefWidth="69.0" text="Duration" textFill="#fcfafa" />
-            <Label layoutX="38.0" layoutY="352.0" prefHeight="17.0" prefWidth="76.0" text="Language" textFill="#f8f7f7" />
-            <Label layoutX="37.0" layoutY="456.0" prefHeight="17.0" prefWidth="76.0" text="Description" textFill="WHITE" />
-            <TextField fx:id="DurationTF" layoutX="129.0" layoutY="290.0" prefHeight="27.0" prefWidth="493.0" promptText="Add Duration" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;" />
-            <TextField fx:id="LanguageTF" layoutX="127.0" layoutY="347.0" prefHeight="27.0" prefWidth="495.0" promptText="Movie Language" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;" />
-            <Label layoutX="46.0" layoutY="408.0" text="Category" textFill="#f8f8f8" />
-            <TextArea fx:id="DescriptionTF" layoutX="127.0" layoutY="449.0" prefHeight="112.0" prefWidth="503.0" />
-            <Button fx:id="NextButton" layoutX="490.0" layoutY="587.0" mnemonicParsing="false" onAction="#OnNext" prefHeight="30.0" prefWidth="133.0" style="-fx-background-color: #cc065f #cc065f;" text="Next" textFill="#fcfafa" />
-            <TextField fx:id="AddMovieTF" layoutX="129.0" layoutY="190.0" prefHeight="27.0" prefWidth="486.0" promptText="Add Movie" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #fff;" />
-            <Label layoutX="37.0" layoutY="72.0" prefHeight="54.0" prefWidth="406.0" text="Add Movie" textFill="#eee9e9">
-               <font>
-                  <Font name="Bodoni 72 Smallcaps Book" size="37.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="105.0" fitWidth="92.0" layoutX="46.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
-            <DatePicker fx:id="ReleaseDP" layoutX="130.0" layoutY="253.0" onAction="#onChangeDate" prefHeight="25.0" prefWidth="187.0" promptText="Enter release date" />
-            <ChoiceBox fx:id="CategoryBox" layoutX="131.0" layoutY="404.0" prefHeight="25.0" prefWidth="193.0" />
-            <ChoiceBox fx:id="ScheduleBox" layoutX="775.0" layoutY="209.0" prefWidth="150.0" />
-            <Label layoutX="31.0" layoutY="208.0" prefHeight="17.0" prefWidth="84.0" text="Movie Name" textFill="#f5f3f3" />
-         </children>
-      </Pane>
       <Pane fx:id="PaneTwo" layoutX="8.0" prefHeight="664.0" prefWidth="1022.0" style="-fx-background-color: linear-gradient(to top, #000 0%, #171717 74%);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Button fx:id="SubmitButton" layoutX="436.0" layoutY="575.0" mnemonicParsing="false" onAction="#OnSubmitMovie" prefHeight="43.0" prefWidth="175.0" style="-fx-background-color: #cc065f;" text="Submit" textFill="#fcfcfc" />
@@ -100,6 +75,31 @@
                   <Font size="16.0" />
                </font>
             </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="PaneOne" prefHeight="664.0" prefWidth="1022.0" style="-fx-background-color: linear-gradient(to top, #000 0%, #171717 74%);" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="676.0" layoutY="208.0" prefHeight="17.0" prefWidth="84.0" text="Schedule" textFill="#f5f3f3" />
+            <Label layoutX="37.0" layoutY="257.0" prefHeight="17.0" prefWidth="76.0" text="Release Date" textFill="#fffefe" />
+            <Label layoutX="40.0" layoutY="303.0" prefHeight="17.0" prefWidth="69.0" text="Duration" textFill="#fcfafa" />
+            <Label layoutX="38.0" layoutY="352.0" prefHeight="17.0" prefWidth="76.0" text="Language" textFill="#f8f7f7" />
+            <Label layoutX="37.0" layoutY="456.0" prefHeight="17.0" prefWidth="76.0" text="Description" textFill="WHITE" />
+            <TextField fx:id="DurationTF" layoutX="129.0" layoutY="290.0" prefHeight="27.0" prefWidth="493.0" promptText="Add Duration" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;" />
+            <TextField fx:id="LanguageTF" layoutX="127.0" layoutY="347.0" prefHeight="27.0" prefWidth="495.0" promptText="Movie Language" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;" />
+            <Label layoutX="46.0" layoutY="408.0" text="Category" textFill="#f8f8f8" />
+            <TextArea fx:id="DescriptionTF" layoutX="127.0" layoutY="449.0" prefHeight="112.0" prefWidth="503.0" />
+            <Button fx:id="NextButton" layoutX="490.0" layoutY="587.0" mnemonicParsing="false" onAction="#OnNext" prefHeight="30.0" prefWidth="133.0" style="-fx-background-color: #cc065f #cc065f;" text="Next" textFill="#fcfafa" />
+            <TextField fx:id="AddMovieTF" layoutX="129.0" layoutY="190.0" prefHeight="27.0" prefWidth="486.0" promptText="Add Movie" style="-fx-background-color: transparent; -fx-border-width: 0 0 1 0; -fx-border-color: #fff;" />
+            <Label layoutX="37.0" layoutY="72.0" prefHeight="54.0" prefWidth="406.0" text="Add Movie" textFill="#eee9e9">
+               <font>
+                  <Font name="Bodoni 72 Smallcaps Book" size="37.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="105.0" fitWidth="92.0" layoutX="46.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" />
+            <DatePicker fx:id="ReleaseDP" layoutX="130.0" layoutY="253.0" onAction="#onChangeDate" prefHeight="25.0" prefWidth="187.0" promptText="Enter release date" />
+            <ChoiceBox fx:id="CategoryBox" layoutX="131.0" layoutY="404.0" prefHeight="25.0" prefWidth="193.0" />
+            <ChoiceBox fx:id="ScheduleBox" layoutX="775.0" layoutY="209.0" prefWidth="150.0" />
+            <Label layoutX="31.0" layoutY="208.0" prefHeight="17.0" prefWidth="84.0" text="Movie Name" textFill="#f5f3f3" />
          </children>
       </Pane>
    </children>

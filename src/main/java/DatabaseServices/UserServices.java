@@ -106,6 +106,16 @@ public final class UserServices  {
         }
         return user;
     }
+    public static void updateUser(String oldEmail,String email,String userName,String password) throws SQLException {
+        PreparedStatement statement = dbConnection.prepareStatement("update users set email = ?, name = ?, password = ? where email = ?");
+        statement.setString(1,oldEmail);
+        statement.setString(2,userName);
+        statement.setString(3,password);
+        statement.setString(4,email);
+        statement.executeUpdate();
+
+    }
+
 
 
 }

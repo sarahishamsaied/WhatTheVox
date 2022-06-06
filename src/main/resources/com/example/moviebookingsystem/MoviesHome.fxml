@@ -35,11 +35,11 @@
             <Font name="Bauhaus 93" size="52.0" />
          </font>
       </Label>
-      <Pane fx:id="comingSoonPane" layoutX="249.0" prefHeight="674.0" prefWidth="975.0" style="-fx-background-color: linear-gradient(to left, #170B2D, #0E0224);">
+      <Pane fx:id="carmenFaridPane" layoutX="226.0" prefHeight="674.0" prefWidth="998.0" style="-fx-background-color: linear-gradient(to top, #000 0%, #171717 74%);">
          <children>
-            <ScrollPane layoutX="10.0" layoutY="1.0" prefHeight="643.0" prefWidth="954.0" style="-fx-background-color: linear-gradient(to top, #000 0%, #171717 74%);">
+            <ScrollPane layoutX="-11.0" layoutY="1.0" prefHeight="674.0" prefWidth="975.0" style="-fx-background-color: linear-gradient(to top, #000 0%, #171717 74%);">
                <content>
-                  <FlowPane fx:id="comingSoonFlowPane" prefHeight="629.0" prefWidth="952.0" style="-fx-background-color: linear-gradient(to top, #000 0%, #171717 74%); -fx-border-color: transparent;">
+                  <FlowPane fx:id="carmenFaridFlowPane" prefHeight="674.0" prefWidth="979.0" style="-fx-background-color: linear-gradient(to top, #000 0%, #171717 74%); -fx-border-color: transparent;">
                      <children>
                         <Label prefHeight="109.0" prefWidth="946.0" text="COMING SOON" textFill="WHITE">
                            <font>
@@ -50,43 +50,6 @@
                   </FlowPane>
                </content>
             </ScrollPane>
-         </children>
-      </Pane>
-      <Pane fx:id="settingsPane" layoutX="259.0" layoutY="10.0" prefHeight="674.0" prefWidth="975.0" style="-fx-background-color: linear-gradient(to top, #000 0%, #171717 74%);">
-         <children>
-            <Label layoutX="65.0" layoutY="72.0" text="SETTINGS" textFill="WHITE">
-               <font>
-                  <Font size="33.0" />
-               </font>
-            </Label>
-            <Label layoutX="69.0" layoutY="272.0" text="Username" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="72.0" layoutY="341.0" prefHeight="27.0" prefWidth="62.0" text="Email" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label layoutX="65.0" layoutY="404.0" prefHeight="27.0" prefWidth="90.0" text="Password" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <TextField fx:id="updatedUserNameTF" layoutX="203.0" layoutY="262.0" prefHeight="37.0" prefWidth="527.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;" />
-            <TextField fx:id="updatedEmailTF" layoutX="202.0" layoutY="327.0" prefHeight="37.0" prefWidth="532.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;" />
-            <TextField fx:id="updatedPasswordTF" layoutX="204.0" layoutY="390.0" prefHeight="37.0" prefWidth="527.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;" />
-            <Button layoutX="63.0" layoutY="486.0" mnemonicParsing="false" onAction="#onViewLastBookedTicket" prefHeight="44.0" prefWidth="186.0" style="-fx-background-color: #EE6186;" text="View last booked ticket" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
-            <Button layoutX="528.0" layoutY="560.0" mnemonicParsing="false" onAction="#onSubmitChanges" prefHeight="44.0" prefWidth="186.0" style="-fx-background-color: #EE6186;" text="Submit Changes" textFill="WHITE">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Button>
          </children>
       </Pane>
       <ImageView fitHeight="33.0" fitWidth="26.0" layoutX="918.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
@@ -207,7 +170,7 @@
          </image>
       </ImageView>
       <Label layoutX="29.0" layoutY="172.0" text="MENU" textFill="#ffffffd2" />
-      <Button fx:id="comingSoonButton" alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="326.0" mnemonicParsing="false" onAction="#handleMenuClick" prefHeight="44.0" prefWidth="230.0" style="-fx-background-color: transparent;" text="COMING SOON" textFill="WHITE">
+      <Button fx:id="carmenFaridButton" alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="326.0" mnemonicParsing="false" onAction="#handleMenuClick" prefHeight="44.0" prefWidth="230.0" style="-fx-background-color: transparent;" text="CARMEN FARID" textFill="WHITE">
          <padding>
             <Insets left="30.0" />
          </padding>
@@ -509,6 +472,48 @@
                </font>
             </Label>
             <Hyperlink fx:id="trailerLinkMD" layoutX="173.0" layoutY="505.0" prefHeight="23.0" prefWidth="485.0" text="Hyperlink" />
+         </children>
+      </Pane>
+      <Pane fx:id="settingsPane" layoutX="259.0" layoutY="10.0" prefHeight="674.0" prefWidth="975.0" style="-fx-background-color: linear-gradient(to top, #000 0%, #171717 74%);">
+         <children>
+            <Label layoutX="65.0" layoutY="72.0" text="SETTINGS" textFill="WHITE">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Label>
+            <Label layoutX="69.0" layoutY="272.0" text="Username" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="72.0" layoutY="341.0" prefHeight="27.0" prefWidth="62.0" text="Email" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="65.0" layoutY="404.0" prefHeight="27.0" prefWidth="90.0" text="Password" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="updatedUserNameTF" layoutX="203.0" layoutY="262.0" prefHeight="37.0" prefWidth="527.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;" />
+            <TextField fx:id="updatedEmailTF" layoutX="202.0" layoutY="327.0" prefHeight="37.0" prefWidth="532.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;" />
+            <TextField fx:id="updatedPasswordTF" layoutX="204.0" layoutY="390.0" prefHeight="37.0" prefWidth="527.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;" />
+            <Button layoutX="63.0" layoutY="486.0" mnemonicParsing="false" onAction="#onViewLastBookedTicket" prefHeight="44.0" prefWidth="186.0" style="-fx-background-color: #EE6186;" text="View last booked ticket" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="528.0" layoutY="560.0" mnemonicParsing="false" onAction="#onSubmitChanges" prefHeight="44.0" prefWidth="186.0" style="-fx-background-color: #EE6186;" text="Submit Changes" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="settingsStatusMessage" layoutX="57.0" layoutY="568.0" prefHeight="27.0" prefWidth="435.0" text=" " textFill="#29f778">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <Pane fx:id="whatsOnPane" layoutX="217.0" prefHeight="687.0" prefWidth="1019.0" style="-fx-background-color: linear-gradient(to top, #000 0%, #171717 74%);">

@@ -44,7 +44,7 @@ public class AddMovieForm implements Initializable {
 
     @FXML
     private ChoiceBox<String> CategoryBox;
-    public String[] cBOX={"ROMANCE","DRAMA","THRILLER","COMEDY","ACTION","SCIENCE FICTION","WAR","OLDIES"};
+    public String[] cBOX={"ROMANCE","DRAMA","THRILLER","COMEDY","ACTION","SCIENCE FICTION","WAR","OLDIES","CARMEN FARID"};
 
     @FXML
     private TextField PosterTF;

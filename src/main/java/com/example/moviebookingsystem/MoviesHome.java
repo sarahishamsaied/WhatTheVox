@@ -1,10 +1,7 @@
 package com.example.moviebookingsystem;
 
 import Classes.*;
-import DatabaseServices.MovieServices;
-import DatabaseServices.PurchaseServices;
-import DatabaseServices.ReportServices;
-import DatabaseServices.TicketServices;
+import DatabaseServices.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,15 +26,16 @@ import java.util.ResourceBundle;
 import java.util.Set;
 
 public class MoviesHome implements Initializable {
+    Context ctx = Context.getInstance();
 
     @FXML
-    private Button comingSoonButton;
+    private Button carmenFaridButton;
 
     @FXML
-    private FlowPane comingSoonFlowPane;
+    private FlowPane carmenFaridFlowPane;
 
     @FXML
-    private Pane comingSoonPane;
+    private Pane carmenFaridPane;
 
     @FXML
     private Button logoutButton;
@@ -87,7 +85,7 @@ public class MoviesHome implements Initializable {
     @FXML
     private GridPane seatsGridPane;
     @FXML
-    private Label ErrorLabel;
+    private Label ErrorLabel,settingsStatusMessage;
 
     @FXML
     private ChoiceBox<String> HallBox;
@@ -149,6 +147,7 @@ public class MoviesHome implements Initializable {
             TicketServices.addTicket(myTicket.getTicketNo(),ctx.getCurrentUser().getUserId(),ctx.getMovie().getMovieId(), myTicket.getTicketType(), myTicket.getSeatNo(),myTicket.getTicketPrice(),ctx.getMovie().getMovieName());
             ReportServices.printTicket("ticket3.jrxml",myTicket.getTicketNo());
             PurchaseServices.sell(new Purchase(ctx.getMovie().getMovieName(),myTicket.getTicketPrice(),new PurchaseID().generateUniqueId()));
+            ctx.getCurrentUser().setTicketId(myTicket.getTicketNo());
         }
         SelectedLabel.setText(x);
         if (event.getSource()==CalculateButton){
@@ -263,7 +262,7 @@ public class MoviesHome implements Initializable {
         }
     }
     @FXML
-    void handleMenuClick(ActionEvent event) {
+    void handleMenuClick(ActionEvent event) throws SQLException {
         if (event.getSource() == whatsOnButton)
             whatsOnPane.toFront();
         if (event.getSource() == oldiesButton)
@@ -271,20 +270,87 @@ public class MoviesHome implements Initializable {
             oldiesPane.toFront();
             setOldiesPaneItems();
         }
-        if (event.getSource() == comingSoonButton)
-            comingSoonPane.toFront();
+        if (event.getSource() == carmenFaridButton)
+        {
+            carmenFaridPane.toFront();
+            carmenFaridMovies();
+        }
         if (event.getSource() == settingsButton)
+        {
             settingsPane.toFront();
+            initSettingsPane();
+        }
+
     }
-
+    public void initSettingsPane() throws SQLException {
+        User user = UserServices.getUser(ctx.getCurrentUser().getEmail());
+        updatedEmailTF.setText(user.getEmail());
+        updatedUserNameTF.setText(user.getName());
+        updatedPasswordTF.setText(user.getPassword());
+    }
     @FXML
-    void onSubmitChanges(ActionEvent event) {
-
+    void onSubmitChanges(ActionEvent event) throws SQLException {
+        UserServices.updateUser(ctx.getCurrentUser().getEmail(),updatedEmailTF.getText(),updatedUserNameTF.getText(),updatedPasswordTF.getText());
+        settingsStatusMessage.setText("Updated user info successfully");
     }
 
     @FXML
     void onViewLastBookedTicket(ActionEvent event) {
+        if(ctx.getCurrentUser().getTicketId() == null)
+        {
+            settingsStatusMessage.setText("You don't have any booked tickets right now");
+            settingsStatusMessage.setTextFill(Color.RED);
+        }
 
+    }
+    public void carmenFaridMovies(){
+        try {
+            carmenFaridFlowPane.getChildren().clear();
+            for (Movie movie : MovieServices.filterMovies("CARMEN FARID")){
+                VBox vBox = new VBox();
+                Label title = new Label(movie.getMovieName());
+                Label category = new Label(movie.getCategory());
+                Button button = new Button("Book Now");
+                Button checkDetailsButton = new Button("Check Details");
+                Image image = new Image(movie.getImageUrl());
+                System.out.println(movie.getImageUrl());
+                ImageView poster = new ImageView();
+                poster.setImage(image);
+                poster.setFitHeight(400);
+                poster.setFitWidth(300);
+                vBox.setPadding(new Insets(30,30,30,30));
+                category.setTextFill(Color.WHITE);
+                button.setBackground(Background.fill(Color.web("#EE6186")));
+                checkDetailsButton.setBackground(Background.fill(Color.web("#EE6186")));
+                button.setTextFill(Color.WHITE);
+                checkDetailsButton.setTextFill(Color.WHITE);
+                vBox.setSpacing(10);
+                title.setTextFill(Color.WHITE);
+                title.setFont(new Font("Arial",28));
+                vBox.getChildren().addAll(poster,title,category,button,checkDetailsButton);
+                carmenFaridFlowPane.getChildren().add(vBox);
+                button.setOnAction(e->{
+                    seatsPane2.toFront();
+                    selectedImage.setImage(new Image(movie.getImageUrl()));
+                    Context ctx = Context.getInstance();
+                    ctx.setMovie(movie);
+
+                });
+                checkDetailsButton.setOnAction(e->{
+                    movieNameMD.setText(movie.getMovieName());
+                    ratingMD.setText(String.valueOf(movie.getRating()));
+                    ageRatingMD.setText(movie.getAgeRating());
+                    movieDurationMD.setText(movie.getDuration());
+                    movieLanguageMD.setText(movie.getLanguage());
+                    trailerLinkMD.setText(movie.getTrailer());
+                    movieOverviewMD.setText(movie.getOverview());
+                    movieImageMD.setImage(new Image(movie.getImageUrl()));
+                    MovieDetailsPane.toFront();
+                });
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

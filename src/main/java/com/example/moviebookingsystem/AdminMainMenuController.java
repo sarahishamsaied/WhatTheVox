@@ -346,6 +346,7 @@ public class AdminMainMenuController implements Initializable,IValidate{
         }
         Context ctx  = Context.getInstance();
         welcomeMessage.setText("Hello, "+ctx.getInstance().getCurrentAdmin().getName());
+
         Style.transition(viewUsersReport,2000.0);
         Style.transition(viewMealsPane,2000.0);
         Style.transition(purchaseHistoryPane,2000.0);
