@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.CubicCurve?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="1202.0" style="-fx-background-color: linear-gradient(to top, #000 0%, #171717 74%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.MoviesHome">
+   <children>
+      <Label layoutX="263.0" layoutY="71.0" text="movies" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="52.0" />
+         </font>
+      </Label>
+      <Pane fx:id="comingSoonPane" layoutX="249.0" prefHeight="674.0" prefWidth="975.0" style="-fx-background-color: linear-gradient(to left, #170B2D, #0E0224);">
+         <children>
+            <ScrollPane layoutX="10.0" layoutY="1.0" prefHeight="643.0" prefWidth="954.0" style="-fx-background-color: linear-gradient(to top, #000 0%, #171717 74%);">
+               <content>
+                  <FlowPane fx:id="comingSoonFlowPane" prefHeight="629.0" prefWidth="952.0" style="-fx-background-color: linear-gradient(to top, #000 0%, #171717 74%); -fx-border-color: transparent;">
+                     <children>
+                        <Label prefHeight="109.0" prefWidth="946.0" text="COMING SOON" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold Italic" size="40.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </FlowPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </Pane>
+      <Pane fx:id="settingsPane" layoutX="259.0" layoutY="10.0" prefHeight="674.0" prefWidth="975.0" style="-fx-background-color: linear-gradient(to top, #000 0%, #171717 74%);">
+         <children>
+            <Label layoutX="65.0" layoutY="72.0" text="SETTINGS" textFill="WHITE">
+               <font>
+                  <Font size="33.0" />
+               </font>
+            </Label>
+            <Label layoutX="69.0" layoutY="272.0" text="Username" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="72.0" layoutY="341.0" prefHeight="27.0" prefWidth="62.0" text="Email" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="65.0" layoutY="404.0" prefHeight="27.0" prefWidth="90.0" text="Password" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="updatedUserNameTF" layoutX="203.0" layoutY="262.0" prefHeight="37.0" prefWidth="527.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;" />
+            <TextField fx:id="updatedEmailTF" layoutX="202.0" layoutY="327.0" prefHeight="37.0" prefWidth="532.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;" />
+            <TextField fx:id="updatedPasswordTF" layoutX="204.0" layoutY="390.0" prefHeight="37.0" prefWidth="527.0" style="-fx-background-color: transparent; -fx-border-color: #fff; -fx-border-width: 0 0 1 0;" />
+            <Button layoutX="63.0" layoutY="486.0" mnemonicParsing="false" onAction="#onViewLastBookedTicket" prefHeight="44.0" prefWidth="186.0" style="-fx-background-color: #EE6186;" text="View last booked ticket" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="528.0" layoutY="560.0" mnemonicParsing="false" onAction="#onSubmitChanges" prefHeight="44.0" prefWidth="186.0" style="-fx-background-color: #EE6186;" text="Submit Changes" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <ImageView fitHeight="33.0" fitWidth="26.0" layoutX="918.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\mental-health.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="964.0" layoutY="38.0" text="USERNAME" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Pane fx:id="seatsPane2" layoutX="220.0" layoutY="-1.0" prefHeight="694.0" prefWidth="1016.0" style="-fx-background-color: linear-gradient(to top, #000 0%, #171717 74%);">
+         <children>
+            <DatePicker fx:id="datePicker" layoutX="170.0" layoutY="283.0" onAction="#OnDate" prefHeight="33.0" prefWidth="196.0" promptText="Enter a Date" />
+            <Label layoutX="27.0" layoutY="341.0" prefHeight="23.0" prefWidth="113.0" text="NO.OF SEATS" textFill="#f8f6f6">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="SelectSeatbutton" layoutX="692.0" layoutY="583.0" mnemonicParsing="false" onAction="#OnClick" prefHeight="30.0" prefWidth="134.0" style="-fx-background-color: #cc065f #cc065f;" text="Select your seat" textFill="#fcf7f7">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Spinner fx:id="SeatSpinner" editable="true" layoutX="170.0" layoutY="338.0" prefHeight="33.0" prefWidth="196.0" />
+            <Label fx:id="priceLabel" layoutX="612.0" layoutY="584.0" prefHeight="34.0" prefWidth="98.0" text="0" textFill="WHITE">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <Label layoutX="26.0" layoutY="406.0" text="Time" textFill="#f5f2f2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="27.0" layoutY="530.0" prefHeight="17.0" prefWidth="98.0" text="Hall Type" textFill="#f5f2f2">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="288.0" prefHeight="17.0" prefWidth="68.0" text="Date" textFill="#f8f7f7">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="TimeBox" layoutX="167.0" layoutY="400.0" prefHeight="33.0" prefWidth="200.0" />
+            <ChoiceBox fx:id="HallBox" layoutX="166.0" layoutY="527.0" prefHeight="33.0" prefWidth="200.0" />
+            <Button fx:id="CalculateButton" layoutX="493.0" layoutY="589.0" mnemonicParsing="false" onAction="#OnClick" prefHeight="27.0" prefWidth="85.0" style="-fx-background-color: #cc065f #cc065f #cc065f #cc065f;" text="Calculate" textFill="#f8f6f6">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <ChoiceBox fx:id="PayBox" layoutX="166.0" layoutY="469.0" prefHeight="33.0" prefWidth="200.0" />
+            <Label layoutX="27.0" layoutY="472.0" prefHeight="17.0" prefWidth="98.0" text="Payment" textFill="#f5f2f2">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="33.0" layoutY="186.0" text="Select your seats" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="32.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="697.0" layoutX="-4.0" layoutY="-2.0" stroke="TRANSPARENT" strokeType="INSIDE" width="228.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.020912280306220055" green="0.0028070176485925913" blue="0.06315789371728897" opacity="0.550000011920929" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.13684210181236267" green="0.13684210181236267" blue="0.13684210181236267" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+         <effect>
+            <Shadow height="135.69" radius="87.22999999999999" width="215.23">
+               <color>
+                  <Color opacity="0.8579027652740479" />
+               </color>
+            </Shadow>
+         </effect></Rectangle>
+      <Button fx:id="whatsOnButton" alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="214.0" mnemonicParsing="false" onAction="#handleMenuClick" prefHeight="44.0" prefWidth="231.0" style="-fx-background-color: transparent;" text="WHATS ON" textFill="#ffffffd7">
+         <padding>
+            <Insets left="30.0" />
+         </padding>
+         <graphic>
+            <ImageView fitHeight="14.0" fitWidth="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\home-5-512.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="oldiesButton" alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="271.0" mnemonicParsing="false" onAction="#handleMenuClick" prefHeight="44.0" prefWidth="230.0" style="-fx-background-color: transparent;" text="OLDIES" textFill="WHITE">
+         <padding>
+            <Insets left="30.0" />
+         </padding>
+         <graphic>
+            <ImageView fitHeight="14.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\arrow-149-512.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ImageView fitHeight="82.0" fitWidth="82.0" layoutX="24.0" layoutY="57.0">
+         <image>
+            <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\wvlogo.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="29.0" layoutY="172.0" text="MENU" textFill="#ffffffd2" />
+      <Button fx:id="comingSoonButton" alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="326.0" mnemonicParsing="false" onAction="#handleMenuClick" prefHeight="44.0" prefWidth="230.0" style="-fx-background-color: transparent;" text="COMING SOON" textFill="WHITE">
+         <padding>
+            <Insets left="30.0" />
+         </padding>
+         <graphic>
+            <ImageView fitHeight="14.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\time-5-512.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Line endX="92.60002136230469" layoutX="125.0" layoutY="205.0" startX="-114.59999084472656" stroke="#ffffff66" />
+      <Label layoutX="32.0" layoutY="407.0" text="GENERAL" textFill="#ffffffd2" />
+      <Line endX="92.60002136230469" layoutX="128.0" layoutY="440.0" startX="-114.59999084472656" stroke="#ffffff66" />
+      <Button fx:id="settingsButton" alignment="BASELINE_LEFT" layoutX="-5.0" layoutY="471.0" mnemonicParsing="false" onAction="#handleMenuClick" prefHeight="44.0" prefWidth="230.0" style="-fx-background-color: transparent;" text="SETTINGS" textFill="WHITE">
+         <padding>
+            <Insets left="30.0" />
+         </padding>
+         <graphic>
+            <ImageView fitHeight="14.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\time-5-512.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="logoutButton" alignment="BASELINE_LEFT" layoutX="-4.0" layoutY="531.0" mnemonicParsing="false" onAction="#handleMenuClick" prefHeight="44.0" prefWidth="230.0" style="-fx-background-color: transparent;" text="LOGOUT" textFill="WHITE">
+         <padding>
+            <Insets left="30.0" />
+         </padding>
+         <graphic>
+            <ImageView fitHeight="14.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\time-5-512.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Pane fx:id="oldiesPane" layoutX="239.0" layoutY="10.0" prefHeight="654.0" prefWidth="975.0" style="-fx-background-color: linear-gradient(to left, #170B2D, #0E0224);">
+         <children>
+            <ScrollPane layoutX="-4.0" layoutY="-1.0" prefHeight="665.0" prefWidth="994.0" style="-fx-background-color: linear-gradient(to top, #000 0%, #171717 74%);">
+               <content>
+                  <FlowPane fx:id="oldiesFlowPane" prefHeight="661.0" prefWidth="986.0" style="-fx-background-color: linear-gradient(to top, #000 0%, #171717 74%); -fx-border-color: transparent;">
+                     <children>
+                        <Label prefHeight="109.0" prefWidth="946.0" text="OLDIES" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold Italic" size="40.0" />
+                           </font>
+                           <padding>
+                              <Insets left="30.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </FlowPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </Pane>
+      <Pane fx:id="seatsPane" layoutX="224.0" layoutY="-45.0" prefHeight="735.0" prefWidth="1015.0" style="-fx-background-color: linear-gradient(to top, #000 0%, #171717 74%);">
+         <children>
+            <Label layoutX="94.0" layoutY="183.0" prefHeight="84.0" prefWidth="169.0" text="Screen" textFill="#f5f2f2">
+               <font>
+                  <Font name="Bauhaus 93" size="57.0" />
+               </font>
+            </Label>
+            <Label layoutX="402.0" layoutY="313.0" text="5" textFill="#ff2e5f">
+               <font>
+                  <Font name="Bauhaus 93" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="353.0" layoutY="312.0" text="4" textFill="#ff2e5f">
+               <font>
+                  <Font name="Bauhaus 93" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="307.0" layoutY="312.0" text="3" textFill="#ff2e5f">
+               <font>
+                  <Font name="Bauhaus 93" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="211.0" layoutY="313.0" prefHeight="17.0" prefWidth="7.0" text="1" textFill="#ff2e5f">
+               <font>
+                  <Font name="Bauhaus 93" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="256.0" layoutY="313.0" text="2" textFill="#ff2e5f">
+               <font>
+                  <Font name="Bauhaus 93" size="25.0" />
+               </font>
+            </Label>
+            <Button fx:id="GoBackButton" layoutX="771.0" layoutY="617.0" mnemonicParsing="false" onAction="#OnBack" prefHeight="33.0" prefWidth="74.0" style="-fx-background-color: #cc065f #cc065f #cc065f #cc065f;" text="Back" textFill="#f8f6f6">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Line endX="3.5" endY="333.3333740234375" layoutX="656.0" layoutY="342.0" startX="-4.52862548828125" startY="-250.13333129882812">
+               <stroke>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.07894736528396606" green="0.07894736528396606" blue="0.07894736528396606" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </stroke>
+            </Line>
+            <CubicCurve controlX1="-66.10540771484375" controlX2="369.2047119140625" controlY1="-44.0" controlY2="115.86665344238281" endX="771.199951171875" endY="19.866653442382812" fill="TRANSPARENT" layoutX="239.0" layoutY="86.0" startX="-239.0" startY="11.333328247070312">
+               <stroke>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.40789473056793213" green="0.4041179418563843" blue="0.4041179418563843" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </stroke>
+            </CubicCurve>
+            <ImageView fx:id="selectedImage" fitHeight="376.0" fitWidth="274.0" layoutX="713.0" layoutY="177.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="767.0" layoutY="566.0" text="Selected seats" textFill="#f5f5f5">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="SelectedLabel" layoutX="877.0" layoutY="566.0" text="0" textFill="#f5f5f5">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="SubmitT" layoutX="876.0" layoutY="618.0" mnemonicParsing="false" onAction="#OnClick" prefHeight="37.0" prefWidth="85.0" style="-fx-background-color: #cc065f #cc065f #cc065f #cc065f;" text="Submit" textFill="#f8f6f6">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Label fx:id="ErrorLabel" layoutX="8.0" layoutY="366.0" prefHeight="23.0" prefWidth="365.0" textFill="RED">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <GridPane fx:id="seatsGridPane" layoutX="213.0" layoutY="343.0" prefHeight="227.0" prefWidth="230.0">
+              <columnConstraints>
+                <ColumnConstraints />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <CheckBox fx:id="A1" mnemonicParsing="false" onAction="#OnChange" stylesheets="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\CSS\Style.css" GridPane.columnIndex="1" />
+                  <CheckBox fx:id="A2" mnemonicParsing="false" onAction="#OnChange" GridPane.columnIndex="2" />
+                  <CheckBox fx:id="A3" mnemonicParsing="false" onAction="#OnChange" GridPane.columnIndex="3" />
+                  <CheckBox fx:id="A4" mnemonicParsing="false" onAction="#OnChange" GridPane.columnIndex="4" />
+                  <CheckBox fx:id="A5" mnemonicParsing="false" onAction="#OnChange" GridPane.columnIndex="5" />
+                  <CheckBox fx:id="B1" mnemonicParsing="false" onAction="#OnChange" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <CheckBox fx:id="B2" mnemonicParsing="false" onAction="#OnChange" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <CheckBox fx:id="B3" mnemonicParsing="false" onAction="#OnChange" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <CheckBox fx:id="B4" mnemonicParsing="false" onAction="#OnChange" GridPane.columnIndex="4" GridPane.rowIndex="1" />
+                  <CheckBox fx:id="B5" mnemonicParsing="false" onAction="#OnChange" GridPane.columnIndex="5" GridPane.rowIndex="1" />
+                  <CheckBox fx:id="C1" mnemonicParsing="false" onAction="#OnChange" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <CheckBox fx:id="C2" mnemonicParsing="false" onAction="#OnChange" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <CheckBox fx:id="C3" mnemonicParsing="false" onAction="#OnChange" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <CheckBox fx:id="C4" mnemonicParsing="false" onAction="#OnChange" GridPane.columnIndex="4" GridPane.rowIndex="2" />
+                  <CheckBox fx:id="C5" mnemonicParsing="false" onAction="#OnChange" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+                  <CheckBox fx:id="D1" mnemonicParsing="false" onAction="#OnChange" prefHeight="11.0" prefWidth="18.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <CheckBox fx:id="D2" mnemonicParsing="false" onAction="#OnChange" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <CheckBox fx:id="D3" mnemonicParsing="false" onAction="#OnChange" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <CheckBox fx:id="D4" mnemonicParsing="false" onAction="#OnChange" GridPane.columnIndex="4" GridPane.rowIndex="3" />
+                  <CheckBox fx:id="D5" mnemonicParsing="false" onAction="#OnChange" GridPane.columnIndex="5" GridPane.rowIndex="3" />
+                  <CheckBox fx:id="E1" mnemonicParsing="false" onAction="#OnChange" prefHeight="11.0" prefWidth="18.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <CheckBox fx:id="E2" mnemonicParsing="false" onAction="#OnChange" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                  <CheckBox fx:id="E3" mnemonicParsing="false" onAction="#OnChange" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                  <CheckBox fx:id="E4" mnemonicParsing="false" onAction="#OnChange" GridPane.columnIndex="4" GridPane.rowIndex="4" />
+                  <CheckBox fx:id="E5" mnemonicParsing="false" onAction="#OnChange" GridPane.columnIndex="5" GridPane.rowIndex="4" />
+               </children>
+            </GridPane>
+            <VBox layoutX="167.0" layoutY="348.0" prefHeight="209.0" prefWidth="28.0" spacing="15.0">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="A" textFill="#ff2e5f">
+                     <font>
+                        <Font name="Bauhaus 93" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="B" textFill="#ff2e5f">
+                     <font>
+                        <Font name="Bauhaus 93" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="C" textFill="#ff2e5f">
+                     <font>
+                        <Font name="Bauhaus 93" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="26.0" prefWidth="18.0" text="D" textFill="#ff2e5f">
+                     <font>
+                        <Font name="Bauhaus 93" size="25.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" contentDisplay="CENTER" text="E" textFill="#ff2e5f">
+                     <font>
+                        <Font name="Bauhaus 93" size="25.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane fx:id="MovieDetailsPane" layoutX="227.0" layoutY="10.0" prefHeight="687.0" prefWidth="1019.0" style="-fx-background-color: linear-gradient(to top, #000 0%, #171717 74%);">
+         <children>
+            <Label layoutX="45.0" layoutY="100.0" text="Movie Details" textFill="WHITE">
+               <font>
+                  <Font name="Bauhaus 93" size="48.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="movieImageMD" fitHeight="573.0" fitWidth="406.0" layoutX="573.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="movieNameMD" layoutX="173.0" layoutY="227.0" prefHeight="49.0" prefWidth="380.0" text="BATMAN" textFill="#ffffffad">
+               <font>
+                  <Font name="Arial" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="45.0" layoutY="227.0" prefHeight="49.0" prefWidth="134.0" text="Movie Name" textFill="WHITE">
+               <font>
+                  <Font name="Impact" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="45.0" layoutY="284.0" prefHeight="49.0" prefWidth="134.0" text="Rating" textFill="WHITE">
+               <font>
+                  <Font name="Impact" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="45.0" layoutY="492.0" prefHeight="49.0" prefWidth="134.0" text="Trailer" textFill="WHITE">
+               <font>
+                  <Font name="Impact" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="45.0" layoutY="345.0" prefHeight="49.0" prefWidth="134.0" text="Age Rating" textFill="WHITE">
+               <font>
+                  <Font name="Impact" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="45.0" layoutY="394.0" prefHeight="49.0" prefWidth="134.0" text="Duration" textFill="WHITE">
+               <font>
+                  <Font name="Impact" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="45.0" layoutY="443.0" prefHeight="49.0" prefWidth="134.0" text="Language" textFill="WHITE">
+               <font>
+                  <Font name="Impact" size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="45.0" layoutY="553.0" prefHeight="49.0" prefWidth="134.0" text="Overview" textFill="WHITE">
+               <font>
+                  <Font name="Impact" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="ratingMD" layoutX="173.0" layoutY="284.0" prefHeight="49.0" prefWidth="85.0" text="BATMAN" textFill="#ffffffad">
+               <font>
+                  <Font name="Arial" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="ageRatingMD" layoutX="173.0" layoutY="345.0" prefHeight="49.0" prefWidth="87.0" text="BATMAN" textFill="#ffffffad">
+               <font>
+                  <Font name="Arial" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="movieDurationMD" layoutX="171.0" layoutY="394.0" prefHeight="49.0" prefWidth="90.0" text="BATMAN" textFill="#ffffffad">
+               <font>
+                  <Font name="Arial" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="movieLanguageMD" layoutX="171.0" layoutY="443.0" prefHeight="49.0" prefWidth="90.0" text="BATMAN" textFill="#ffffffad">
+               <font>
+                  <Font name="Arial" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="movieOverviewMD" layoutX="173.0" layoutY="553.0" prefHeight="103.0" prefWidth="618.0" text="BATMAN" textFill="#ffffffad">
+               <font>
+                  <Font name="Arial" size="20.0" />
+               </font>
+            </Label>
+            <Hyperlink fx:id="trailerLinkMD" layoutX="173.0" layoutY="505.0" prefHeight="23.0" prefWidth="485.0" text="Hyperlink" />
+         </children>
+      </Pane>
+      <Pane fx:id="whatsOnPane" layoutX="217.0" prefHeight="687.0" prefWidth="1019.0" style="-fx-background-color: linear-gradient(to top, #000 0%, #171717 74%);">
+         <children>
+            <ScrollPane layoutX="10.0" layoutY="13.0" prefHeight="664.0" prefWidth="998.0" style="-fx-background-color: linear-gradient(to top, #000 0%, #171717 74%);">
+               <content>
+                  <FlowPane fx:id="whatsOnFlowPane" prefHeight="662.0" prefWidth="994.0" style="-fx-background-color: linear-gradient(to top, #000 0%, #171717 74%); -fx-border-color: transparent;">
+                     <children>
+                        <Label prefHeight="109.0" prefWidth="946.0" text="WHAT'S ON" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold Italic" size="40.0" />
+                           </font>
+                           <FlowPane.margin>
+                              <Insets left="30.0" />
+                           </FlowPane.margin>
+                        </Label>
+                     </children>
+                  </FlowPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

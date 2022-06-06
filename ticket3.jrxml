@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ticket3" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6b9df5db-8ee1-4314-92c8-4123e08fcd01">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (18)"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT `seatNo`, `ticketId`,`ticketType`,`amountPaid`,`paymentId`,`movieName` from `tickets`]]>
+	</queryString>
+	<field name="seatNo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="seatNo"/>
+		<property name="com.jaspersoft.studio.field.label" value="seatNo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tickets"/>
+	</field>
+	<field name="ticketId" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ticketId"/>
+		<property name="com.jaspersoft.studio.field.label" value="ticketId"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tickets"/>
+	</field>
+	<field name="ticketType" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ticketType"/>
+		<property name="com.jaspersoft.studio.field.label" value="ticketType"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tickets"/>
+	</field>
+	<field name="amountPaid" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="amountPaid"/>
+		<property name="com.jaspersoft.studio.field.label" value="amountPaid"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tickets"/>
+	</field>
+	<field name="paymentId" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="paymentId"/>
+		<property name="com.jaspersoft.studio.field.label" value="paymentId"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tickets"/>
+	</field>
+	<field name="movieName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="movieName"/>
+		<property name="com.jaspersoft.studio.field.label" value="movieName"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tickets"/>
+	</field>
+	<group name="seatNo">
+		<groupExpression><![CDATA[$F{seatNo}]]></groupExpression>
+	</group>
+	<group name="ticketId">
+		<groupExpression><![CDATA[$F{ticketId}]]></groupExpression>
+	</group>
+	<group name="ticketType">
+		<groupExpression><![CDATA[$F{ticketType}]]></groupExpression>
+	</group>
+	<group name="amountPaid">
+		<groupExpression><![CDATA[$F{amountPaid}]]></groupExpression>
+	</group>
+	<group name="paymentId">
+		<groupExpression><![CDATA[$F{paymentId}]]></groupExpression>
+	</group>
+	<group name="movieName">
+		<groupExpression><![CDATA[$F{movieName}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="193" splitType="Stretch">
+			<image>
+				<reportElement x="550" y="-10" width="200" height="198" uuid="80a463ac-8518-411f-b4e3-725d62abc20f"/>
+				<imageExpression><![CDATA["C:/Users/Sarah/Desktop/wvlogo.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="30" y="140" width="269" height="46" uuid="cd5ad28a-21d8-44ee-a90f-dc7b19064ad8"/>
+				<imageExpression><![CDATA["C:/Users/Sarah/Desktop/حسابك يا وحش.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="571" y="156" width="149" height="32" forecolor="rgba(0, 0, 0, 0.6431373)" uuid="4b700a68-d783-4fa2-94ae-6a868ee3b7cb"/>
+				<textElement markup="html">
+					<font fontName="Century Gothic" size="22"/>
+				</textElement>
+				<text><![CDATA[WhatTheVox]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="70" width="269" height="62" forecolor="rgba(0, 0, 0, 0.6431373)" uuid="a8892869-210c-4d35-8b41-55078f97968a"/>
+				<textElement markup="html">
+					<font fontName="Century Gothic" size="40"/>
+				</textElement>
+				<text><![CDATA[Ticket]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="197" splitType="Stretch">
+			<textField>
+				<reportElement x="20" y="92" width="440" height="90" uuid="2f4e48af-f404-4252-a34a-db653a05a635"/>
+				<textElement>
+					<font fontName="Bauhaus 93" size="60"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{movieName}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="30" y="60" width="340" height="32" forecolor="rgba(0, 0, 0, 0.52156866)" uuid="10ae53d2-4cc8-4730-a67c-cd0f2fc60204"/>
+				<textElement>
+					<font fontName="Century Gothic" size="22"/>
+				</textElement>
+				<text><![CDATA[Movie]]></text>
+			</staticText>
+			<line>
+				<reportElement x="30" y="10" width="750" height="1" uuid="640dc12b-5ea0-4fb7-8665-ad3f456c806f"/>
+				<graphicElement>
+					<pen lineStyle="Dashed" lineColor="rgba(0, 0, 0, 0.47058824)"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="66" splitType="Stretch">
+			<textField>
+				<reportElement x="134" y="9" width="166" height="30" forecolor="rgba(0, 0, 0, 0.5058824)" uuid="0a090c47-2112-4b90-a069-8ab489fc93d5"/>
+				<textElement>
+					<font size="22"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{seatNo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="30" y="9" width="104" height="32" forecolor="rgba(0, 0, 0, 0.6431373)" uuid="331a9d9a-50c1-4451-bc64-3f7594ae6b7e"/>
+				<textElement markup="html">
+					<font fontName="Century Gothic" size="22"/>
+				</textElement>
+				<text><![CDATA[SEATNO.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="8" width="149" height="32" forecolor="rgba(0, 0, 0, 0.6431373)" uuid="92ff9175-3e55-4a7a-9049-171ee4456457"/>
+				<textElement markup="html">
+					<font fontName="Century Gothic" size="22"/>
+				</textElement>
+				<text><![CDATA[CINEMATYPE]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="549" y="8" width="185" height="30" forecolor="rgba(0, 0, 0, 0.5058824)" uuid="127e53d3-076a-4672-9cfc-43202dfd1770"/>
+				<textElement>
+					<font size="22"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ticketType}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<textField>
+				<reportElement x="115" y="0" width="185" height="30" forecolor="rgba(0, 0, 0, 0.5058824)" uuid="bfaf7571-bc29-420e-be22-9c21d52cc097"/>
+				<textElement>
+					<font size="22"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{paymentId}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="30" y="5" width="69" height="32" forecolor="rgba(0, 0, 0, 0.63529414)" uuid="2df357b3-b40b-43b7-b92b-ac9ceb89766e"/>
+				<textElement>
+					<font fontName="Century Gothic" size="22"/>
+				</textElement>
+				<text><![CDATA[TIME]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="550" y="7" width="185" height="30" forecolor="rgba(0, 0, 0, 0.5058824)" uuid="fbe51bcc-b4e4-452d-9d3c-1dfa04d4039b"/>
+				<textElement>
+					<font size="22"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{amountPaid}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="400" y="5" width="149" height="32" forecolor="rgba(0, 0, 0, 0.6431373)" uuid="c5c92ace-2da3-4df1-95b5-524f718a92c9"/>
+				<textElement markup="html">
+					<font fontName="Century Gothic" size="22"/>
+				</textElement>
+				<text><![CDATA[AMNTPAID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="740" y="7" width="69" height="32" forecolor="rgba(0, 0, 0, 0.6431373)" uuid="b0b4d87c-c23f-4731-ade9-e22b90167e82"/>
+				<textElement markup="html">
+					<font fontName="Century Gothic" size="22"/>
+				</textElement>
+				<text><![CDATA[$]]></text>
+			</staticText>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

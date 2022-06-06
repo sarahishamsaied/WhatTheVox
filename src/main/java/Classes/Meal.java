@@ -7,6 +7,25 @@ public class Meal {
     String description;
     String category;
     Double price;
+    String imageURL;
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
+    public Meal(String mealTitle, String description, String category, Double price, int quantity,String imageURL) {
+        this.mealTitle = mealTitle;
+        this.description = description;
+        this.category = category;
+        this.price = price;
+        this.imageURL = imageURL;
+        this.quantity = quantity;
+    }
+
     int quantity;
     public String getCategory() {
         return category;

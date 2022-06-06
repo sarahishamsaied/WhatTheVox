@@ -3,13 +3,40 @@ package Classes;
 import java.util.Date;
 
 public class Ticket {
+    String ticketId;
     String seatNo;
     String ticketNo;
     String ticketType;
     Double ticketPrice;
-//    Movie movie;
-    Payment payment;
-    Date currentDate;
+    String paymentMethod;
+    Movie movieId;
+    String currentDate;
+
+    public String getTicketId() {
+        return ticketId;
+    }
+
+    public void setTicketId(String ticketId) {
+        this.ticketId = ticketId;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
+
+    public Movie getMovieId() {
+        return movieId;
+    }
+
+    public void setMovieId(Movie movieId) {
+        this.movieId = movieId;
+    }
+
     public void printTicket(){
 
     }
@@ -45,28 +72,20 @@ public class Ticket {
         this.ticketPrice = ticketPrice;
     }
 
-    public Payment getPayment() {
-        return payment;
-    }
-
-    public void setPayment(Payment payment) {
-        this.payment = payment;
-    }
-
-    public Date getCurrentDate() {
+    public String getCurrentDate() {
         return currentDate;
     }
 
-    public void setCurrentDate(Date currentDate) {
+    public void setCurrentDate(String currentDate) {
         this.currentDate = currentDate;
     }
 
-    public Ticket(String seatNo, String ticketNo, String ticketType, Double ticketPrice, Payment payment, Date currentDate) {
+    public Ticket(String seatNo, String ticketNo, String ticketType, Double ticketPrice, String currentDate,String paymentMethod) {
         this.seatNo = seatNo;
         this.ticketNo = ticketNo;
         this.ticketType = ticketType;
         this.ticketPrice = ticketPrice;
-        this.payment = payment;
         this.currentDate = currentDate;
+        this.paymentMethod = paymentMethod;
     }
 }

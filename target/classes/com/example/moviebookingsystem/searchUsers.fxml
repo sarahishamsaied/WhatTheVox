@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="688.0" prefWidth="1198.0" style="-fx-background-color: #171717;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.searchUsersController">
+    <children>
+        <Label layoutX="63.0" layoutY="33.0" prefHeight="40.0" prefWidth="199.0" text="Search Users" textFill="WHITE">
+            <font>
+                <Font name="Bauhaus 93" size="35.0" />
+            </font>
+        </Label>
+        <ComboBox fx:id="filterComboBox" layoutX="63.0" layoutY="93.0" prefWidth="150.0" promptText="Search By" />
+        <TableView fx:id="searchResultsTable" layoutX="59.0" layoutY="142.0" prefHeight="430.0" prefWidth="1043.0">
+            <columns>
+                <TableColumn fx:id="UserNameColumn" prefWidth="366.0" text="User Name" />
+                <TableColumn fx:id="UserEmailColumn" prefWidth="547.0" text="User Email" />
+                <TableColumn fx:id="UserAgeColumn" minWidth="0.0" prefWidth="100.0" text="User Age" />
+            </columns>
+        </TableView>
+        <TextField fx:id="searchField" layoutX="447.0" layoutY="93.0" prefHeight="10.0" prefWidth="230.0" promptText="Search Users" />
+        <Label layoutX="398.0" layoutY="97.0" text="Search" textFill="WHITE" />
+        <Button layoutX="694.0" layoutY="93.0" mnemonicParsing="false" onAction="#onSearchClicked" text="Search" />
+    </children>
+</AnchorPane>

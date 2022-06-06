@@ -1,12 +1,34 @@
 package Classes;
 
+import javafx.scene.control.TextField;
+
 import java.util.ArrayList;
 import java.util.Locale;
 
 public class User extends Person {
+    String userId;
     String email;
+
+    public User(String email, String password) {
+    }
+
+    public String getTicketId() {
+        return ticketId;
+    }
+
+    public void setTicketId(String ticketId) {
+        this.ticketId = ticketId;
+    }
+
     String password;
-    ArrayList<Ticket> tickets;
+    String ticketId;
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
     public void setEmail(String email) {
         this.email = email;
     }
@@ -27,19 +49,13 @@ public class User extends Person {
         this.email = "";
         this.password = "00000000";
     }
-    public User(String name, int age,String email, String password, ArrayList<Ticket> tickets) {
+    public User(String name, int age,String email, String password, String ticketId) {
         super(name,age);
         this.email = email.toLowerCase();
         this.password = password.toLowerCase();
-        this.tickets = tickets;
+        this.ticketId = ticketId;
     }
 
-    public ArrayList<Ticket> getTickets() {
-        return tickets;
-    }
-    public void setTickets(ArrayList<Ticket> tickets) {
-        this.tickets = tickets;
-    }
     public User(String name,int age,String email, String password) {
         super(name,age);
         this.email = email;

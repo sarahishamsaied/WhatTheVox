@@ -1,0 +1,13 @@
+.check-box .box{
+-fx-background-color:"#fff";
+-fx-border-color:grey;
+-fx-border-radius:3px;
+-fx-padding:8px;
+
+}
+.check-box:selected .mark{
+ -fx-shape: "M1.73,12.91 8.1,19.28 22.79,4.59 22.79,1.59 8.1,16.28 1.73,9.91";
+-fx-background-color:white;
+}.check-box:selected .box{
+-fx-background-color:"#D5133A";
+}

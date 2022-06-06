@@ -1,14 +1,217 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.CubicCurve?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.moviebookingsystem.TicketForm"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="RadioB2" prefHeight="650.0" prefWidth="1202.0" style="-fx-background-color: #ff;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.TicketForm">
+   <children>
+      <Pane fx:id="Page1" prefHeight="650.0" prefWidth="1022.0" style="-fx-background-color: #000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <DatePicker fx:id="datePicker" layoutX="24.0" layoutY="54.0" onAction="#OnDate" prefHeight="26.0" prefWidth="258.0" promptText="Enter a Date" />
+            <Label layoutX="52.0" layoutY="119.0" prefHeight="23.0" prefWidth="113.0" text="NO.OF SEATS" textFill="#f8f6f6">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="SelectSeatbutton" layoutX="424.0" layoutY="322.0" mnemonicParsing="false" onAction="#OnClick" prefHeight="26.0" prefWidth="136.0" style="-fx-background-color: #cc065f #cc065f;" text="Select your seat" textFill="#fcf7f7">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Spinner fx:id="SeatSpinner" editable="true" layoutX="21.0" layoutY="155.0" prefHeight="26.0" prefWidth="200.0" />
+            <Label fx:id="priceLabel" layoutX="153.0" layoutY="248.0" prefHeight="34.0" prefWidth="98.0" text="0" textFill="WHITE">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <Label layoutX="430.0" layoutY="14.0" text="Time" textFill="#f5f2f2">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+            <Label layoutX="410.0" layoutY="107.0" prefHeight="17.0" prefWidth="98.0" text="Hall Type" textFill="#f5f2f2">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="108.0" layoutY="16.0" prefHeight="17.0" prefWidth="68.0" text="Date" textFill="#f8f7f7">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="TimeBox" layoutX="384.0" layoutY="54.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="HallBox" layoutX="384.0" layoutY="149.0" prefWidth="150.0" />
+            <Button fx:id="CalculateButton" layoutX="36.0" layoutY="248.0" mnemonicParsing="false" onAction="#OnClick" prefHeight="27.0" prefWidth="85.0" style="-fx-background-color: #cc065f #cc065f #cc065f #cc065f;" text="Calculate" textFill="#f8f6f6">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <ChoiceBox fx:id="PayBox" layoutX="384.0" layoutY="249.0" prefWidth="150.0" />
+            <Label layoutX="402.0" layoutY="208.0" prefHeight="17.0" prefWidth="98.0" text="Payment" textFill="#f5f2f2">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="Page2" layoutY="-55.0" prefHeight="705.0" prefWidth="1202.0" style="-fx-background-color: #000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-55.0">
+         <children>
+            <Label layoutX="107.0" layoutY="534.0" text="E" textFill="#cd6363">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="94.0" layoutY="183.0" prefHeight="84.0" prefWidth="169.0" text="Screen" textFill="#f5f2f2">
+               <font>
+                  <Font name="Bauhaus 93" size="57.0" />
+               </font>
+            </Label>
+            <Label layoutX="406.0" layoutY="302.0" text="5" textFill="#cd6363">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="359.0" layoutY="302.0" text="4" textFill="#cd6363">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <CheckBox fx:id="C5" layoutX="401.0" layoutY="442.0" mnemonicParsing="false" onAction="#OnChange" />
+            <CheckBox fx:id="C4" layoutX="353.0" layoutY="442.0" mnemonicParsing="false" onAction="#OnChange" />
+            <CheckBox fx:id="C3" layoutX="307.0" layoutY="441.0" mnemonicParsing="false" onAction="#OnChange" />
+            <CheckBox fx:id="C1" layoutX="211.0" layoutY="441.0" mnemonicParsing="false" onAction="#OnChange" />
+            <CheckBox fx:id="C2" layoutX="259.0" layoutY="441.0" mnemonicParsing="false" onAction="#OnChange" />
+            <CheckBox fx:id="A1" layoutX="211.0" layoutY="345.0" mnemonicParsing="false" onAction="#OnChange" stylesheets="@../../../../../CSS/Style.css" />
+            <CheckBox fx:id="B3" layoutX="307.0" layoutY="392.0" mnemonicParsing="false" onAction="#OnChange" />
+            <CheckBox fx:id="B1" layoutX="211.0" layoutY="392.0" mnemonicParsing="false" onAction="#OnChange" />
+            <CheckBox fx:id="A2" layoutX="259.0" layoutY="344.0" mnemonicParsing="false" onAction="#OnChange" />
+            <CheckBox fx:id="A5" layoutX="401.0" layoutY="346.0" mnemonicParsing="false" onAction="#OnChange" />
+            <CheckBox fx:id="B4" layoutX="353.0" layoutY="393.0" mnemonicParsing="false" onAction="#OnChange" />
+            <CheckBox fx:id="B5" layoutX="401.0" layoutY="394.0" mnemonicParsing="false" onAction="#OnChange" />
+            <CheckBox fx:id="B2" layoutX="259.0" layoutY="392.0" mnemonicParsing="false" onAction="#OnChange" />
+            <CheckBox fx:id="A3" layoutX="307.0" layoutY="344.0" mnemonicParsing="false" onAction="#OnChange" />
+            <CheckBox fx:id="A4" layoutX="353.0" layoutY="345.0" mnemonicParsing="false" onAction="#OnChange" />
+            <Label layoutX="312.0" layoutY="301.0" text="3" textFill="#cd6363">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="106.0" layoutY="383.0" text="B" textFill="#cd6363">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="216.0" layoutY="301.0" prefHeight="17.0" prefWidth="7.0" text="1" textFill="#e15757">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="264.0" layoutY="301.0" text="2" textFill="#cd6363">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="104.0" layoutY="432.0" text="C" textFill="#cd6363">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="102.0" layoutY="334.0" prefHeight="26.0" prefWidth="18.0" text="A" textFill="#cd6363">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="103.0" layoutY="480.0" text="D" textFill="#cd6363">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <CheckBox fx:id="D5" layoutX="401.0" layoutY="492.0" mnemonicParsing="false" onAction="#OnChange" />
+            <CheckBox fx:id="D4" layoutX="353.0" layoutY="492.0" mnemonicParsing="false" onAction="#OnChange" />
+            <CheckBox fx:id="D3" layoutX="307.0" layoutY="491.0" mnemonicParsing="false" onAction="#OnChange" />
+            <CheckBox fx:id="D1" layoutX="211.0" layoutY="491.0" mnemonicParsing="false" onAction="#OnChange" prefHeight="11.0" prefWidth="18.0" />
+            <CheckBox fx:id="D2" layoutX="259.0" layoutY="491.0" mnemonicParsing="false" onAction="#OnChange" />
+            <CheckBox fx:id="E5" layoutX="401.0" layoutY="545.0" mnemonicParsing="false" onAction="#OnChange" />
+            <CheckBox fx:id="E4" layoutX="353.0" layoutY="545.0" mnemonicParsing="false" onAction="#OnChange" />
+            <CheckBox fx:id="E3" layoutX="307.0" layoutY="544.0" mnemonicParsing="false" onAction="#OnChange" />
+            <CheckBox fx:id="E1" layoutX="211.0" layoutY="545.0" mnemonicParsing="false" onAction="#OnChange" prefHeight="11.0" prefWidth="18.0" />
+            <CheckBox fx:id="E2" layoutX="259.0" layoutY="544.0" mnemonicParsing="false" onAction="#OnChange" />
+            <Button fx:id="GoBackButton" layoutX="930.0" layoutY="626.0" mnemonicParsing="false" onAction="#OnBack" prefHeight="33.0" prefWidth="74.0" style="-fx-background-color: #cc065f #cc065f #cc065f #cc065f;" text="Back" textFill="#f8f6f6">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Line endX="3.5" endY="333.3333740234375" layoutX="717.0" layoutY="343.0" startX="-4.52862548828125" startY="-250.13333129882812">
+               <stroke>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.07894736528396606" green="0.07894736528396606" blue="0.07894736528396606" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </stroke>
+            </Line>
+            <CubicCurve controlX1="-66.10540771484375" controlX2="369.2047119140625" controlY1="-44.0" controlY2="115.86665344238281" endX="932.4052734375" endY="-10.000007629394531" layoutX="239.0" layoutY="86.0" startX="-239.0" startY="11.333328247070312">
+               <stroke>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.40789473056793213" green="0.4041179418563843" blue="0.4041179418563843" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </stroke>
+            </CubicCurve>
+            <ImageView fx:id="posterImage" fitHeight="488.0" fitWidth="390.0" layoutX="783.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="926.0" layoutY="575.0" text="Selected seats" textFill="#f5f5f5">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="SelectedLabel" layoutX="1036.0" layoutY="575.0" text="0" textFill="#f5f5f5">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="SubmitT" layoutX="1035.0" layoutY="627.0" mnemonicParsing="false" onAction="#OnClick" prefHeight="37.0" prefWidth="85.0" style="-fx-background-color: #cc065f #cc065f #cc065f #cc065f;" text="Submit" textFill="#f8f6f6">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Label fx:id="ErrorLabel" layoutX="8.0" layoutY="366.0" prefHeight="23.0" prefWidth="365.0" textFill="RED">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
 </AnchorPane>

@@ -1,25 +1,34 @@
 package Classes;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class Movie {
+    String movieId;
     String movieName;
-    Date releaseDate;
-    ArrayList<Actor> cast;
-    ArrayList<String> category;
+    String releaseDate;
+    String category;
     Double rating;
     String trailer;
     String duration;
     String language;
-    ArrayList<Schedule> schedule;
-    int ageRating;
+    String schedule;
+    String imageUrl;
+    String ageRating;
     String overview;
 
-    public Movie(String movieName, Date releaseDate, ArrayList<Actor> cast, ArrayList<String> category, Double rating, String trailer, String duration, String language, ArrayList<Schedule> schedule, int ageRating, String overview) {
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+
+    public Movie(String movieId, String movieName, String releaseDate, String category, Double rating, String trailer, String duration, String language, String schedule, String ageRating, String overview,String imageUrl) {
+        this.movieId = movieId;
         this.movieName = movieName;
         this.releaseDate = releaseDate;
-        this.cast = cast;
         this.category = category;
         this.rating = rating;
         this.trailer = trailer;
@@ -28,7 +37,21 @@ public class Movie {
         this.schedule = schedule;
         this.ageRating = ageRating;
         this.overview = overview;
+        this.imageUrl = imageUrl;
     }
+
+
+
+    public String getMovieId() {
+        return movieId;
+    }
+
+    public void setMovieId(String movieId) {
+        this.movieId = movieId;
+    }
+
+
+//
 
     public String getMovieName() {
         return movieName;
@@ -38,28 +61,19 @@ public class Movie {
         this.movieName = movieName;
     }
 
-    public Date getReleaseDate() {
+    public String getReleaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(Date releaseDate) {
+    public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
     }
 
-
-    public ArrayList<Actor> getCast() {
-        return cast;
-    }
-
-    public void setCast(ArrayList<Actor> cast) {
-        this.cast = cast;
-    }
-
-    public ArrayList<String> getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(ArrayList<String> category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 
@@ -95,19 +109,19 @@ public class Movie {
         this.language = language;
     }
 
-    public ArrayList<Schedule> getSchedule() {
+    public String getSchedule() {
         return schedule;
     }
 
-    public void setSchedule(ArrayList<Schedule> schedule) {
+    public void setSchedule(String schedule) {
         this.schedule = schedule;
     }
 
-    public int getAgeRating() {
+    public String getAgeRating() {
         return ageRating;
     }
 
-    public void setAgeRating(int ageRating) {
+    public void setAgeRating(String ageRating) {
         this.ageRating = ageRating;
     }
 

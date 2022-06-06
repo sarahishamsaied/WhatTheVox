@@ -50,13 +50,17 @@ public class AuthenticationController implements IValidate {
     private void goToSignUpPage() throws IOException {
         navigator.Navigate("signUp.fxml","Sign Up");
     }
+
     @FXML
     void onSignIn(ActionEvent actionEvent) throws SQLException, IOException {
         DatabaseConnection db = DatabaseConnection.getInstance();
         db.Connect();
         if(UserServices.checkUserExists(signInEmail.getText(),signInPassword.getText()))
         {
-            navigator.Navigate("adminMenu.fxml","Admin Menu");
+
+            Context ctx = Context.getInstance();
+            ctx.setCurrentUser(UserServices.getUser(signInEmail.getText()));
+            navigator.Navigate("UsersMenu.fxml","User");
         }
         else
          signInErrorMessage.setText("Email or password is incorrect");
@@ -95,8 +99,12 @@ public class AuthenticationController implements IValidate {
                     if(checkNumeric(age.getText()))
                         if(!emailExists(email.getText()))
                         {
-                            UserServices.addUser(fullName.getText(),Integer.parseInt(age.getText()),email.getText(),password.getText());
-                            navigator.Navigate("adminMenu.fxml","Users Table");
+                            Context ctx = Context.getInstance();
+                            ctx.setCurrentUser(new User(fullName.getText(),Integer.parseInt(age.getText()),email.getText(),password.getText()));
+                            UserID id = new UserID();
+                            String uuid = id.generateUniqueId();
+                            UserServices.addUser(fullName.getText(),Integer.parseInt(age.getText()),email.getText(),password.getText(),uuid);
+                            navigator.Navigate("adminMenu.fxml","Admin");
                         }
                         else
                         {

@@ -29,7 +29,7 @@ public class UsersMenu implements Initializable {
     @FXML
     public void onGoToFood() throws IOException {
         Navigator navigator = new Navigator();
-        navigator.Navigate("Meals.fxml","Meals");
+        navigator.Navigate("MealsMenu.fxml","Meals");
     }
     @FXML
     public void onClick(){
@@ -37,6 +37,11 @@ public class UsersMenu implements Initializable {
             maxPane.toFront();
         if(waysToWatch.getValue() == "GOLD")
             goldPane.toFront();
+    }
+    @FXML
+    public void onGoToMovies() throws IOException {
+        Navigator navigator = new Navigator();
+        navigator.Navigate("MoviesHome.fxml","Movies");
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

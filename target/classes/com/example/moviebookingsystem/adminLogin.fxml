@@ -7,10 +7,9 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="1106.0" style="-fx-background-color: #0F0F0F;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.AuthenticationController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="1106.0" style="-fx-background-color: linear-gradient(to top, #000 0%, #171717 74%);" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.AuthenticationController">
    <children>
       <Label layoutX="48.0" layoutY="44.0" text="Admin Login" textFill="WHITE">
          <font>
@@ -36,11 +35,7 @@
             <Image url="C:\Users\Sarah\IdeaProjects\demo6\movie-booking-system\Images\wvlogo.png" />
          </image>
          <effect>
-            <DropShadow height="243.25" radius="124.0625" spread="0.66" width="255.0">
-               <color>
-                  <Color red="0.1473684161901474" green="0.1473684161901474" blue="0.1473684161901474" />
-               </color>
-            </DropShadow>
+            <DropShadow height="252.07" radius="126.2675" spread="0.66" width="255.0" />
          </effect>
       </ImageView>
    </children>

@@ -42,9 +42,9 @@ public class AdminMainMenuController implements Initializable,IValidate{
     @FXML
     ComboBox <String> categoryComboBox;
     @FXML
-    TextField mealTitle,mealPrice,mealQuantity,soldMealQuantity,loginIdTF,adminPassTF,adminNameTF,adminAgeTF,confirmPassTF;
+    TextField mealTitle,mealPrice,mealQuantity,soldMealQuantity,loginIdTF,adminPassTF,adminNameTF,adminAgeTF,confirmPassTF,mealImageUrl;
     @FXML
-    Pane dashboardPane,adminsMenuPane,usersMenuPane,ticketsMenuPane,foodMenuPane,addMealPane,mealsTable,sellMealPane,viewUsersReport,viewMealsPane,addAdminPane,viewAllAdminsPane,purchaseHistoryPane,purchaseHistoryPage,removeAdminPane;
+    Pane dashboardPane,adminsMenuPane,usersMenuPane,ticketsMenuPane,foodMenuPane,addMealPane,mealsTable,sellMealPane,viewUsersReport,viewMealsPane,addAdminPane,viewAllAdminsPane,purchaseHistoryPane,purchaseHistoryPage,removeAdminPane,moviesPane,moviesTablePane;
     @FXML
     TextArea mealDescription;
     @FXML
@@ -70,7 +70,13 @@ public class AdminMainMenuController implements Initializable,IValidate{
     @FXML
     TableColumn<Purchase,Double> AmntPaidColumn;
     @FXML
-    Button usersNavLink,dashboardNavLink,adminsNavLink,ticketsNavLink,foodNavLink,addMeal,viewAllMealsButton,sellMeal,goToViewAllAdmins,goToDeleteAdminForm,goToAddAdminForm;
+    TableColumn <Movie,String> TitleColumn,CategoryColumn,DurationColumn,LanguageColumn,AgeRatingColumn,ScheduleColumn,ReleaseDateColumn,MovieIDColumn;
+    @FXML
+    TableColumn<Movie,Double> RatingColumn;
+    @FXML
+    TableView allMoviesTable;
+    @FXML
+    Button usersNavLink,dashboardNavLink,adminsNavLink,ticketsNavLink,foodNavLink,addMeal,viewAllMealsButton,sellMeal,goToViewAllAdmins,goToDeleteAdminForm,goToAddAdminForm,moviesNavLink;
     @FXML
     DatePicker calendar;
     @FXML
@@ -88,6 +94,24 @@ public class AdminMainMenuController implements Initializable,IValidate{
         navigator.Navigate("MealsMenu.fxml","Meals");
     }
     @FXML
+    public void onViewAllMovies() throws SQLException {
+        for (Movie movie : MovieServices.getAllMovies()){
+            System.out.println(movie.getDuration());
+        }
+        moviesTablePane.toFront();
+        allMoviesTable.setItems(MovieServices.getAllMovies());
+        TitleColumn.setCellValueFactory(new PropertyValueFactory<Movie,String>("movieName"));
+        CategoryColumn.setCellValueFactory(new PropertyValueFactory<Movie,String>("category"));
+        DurationColumn.setCellValueFactory(new PropertyValueFactory<Movie,String>("duration"));
+        LanguageColumn.setCellValueFactory(new PropertyValueFactory<Movie,String>("language"));
+        RatingColumn.setCellValueFactory(new PropertyValueFactory<Movie,Double>("rating"));
+        AgeRatingColumn.setCellValueFactory(new PropertyValueFactory<Movie,String>("ageRating"));
+        ScheduleColumn.setCellValueFactory(new PropertyValueFactory<Movie,String>("schedule"));
+        ReleaseDateColumn.setCellValueFactory(new PropertyValueFactory<Movie,String>("releaseDate"));
+        MovieIDColumn.setCellValueFactory(new PropertyValueFactory<Movie,String>("movieId"));
+
+    }
+    @FXML
     public void onSellItems() throws IOException, JRException, SQLException, ParseException {
         DatabaseConnection db = DatabaseConnection.getInstance();
         db.Connect();
@@ -101,28 +125,29 @@ public class AdminMainMenuController implements Initializable,IValidate{
         Cart.clearCart();
     }
     @FXML
-    public void onAnalyzeData() throws JRException, SQLException {
-        ReportServices.ConnectReport("purchaseHistoryData.jrxml");
-
+    public void goToAddMovieForm() throws IOException {
+        Navigator navigator = new Navigator();
+        navigator.Navigate("AddMovieForm.fxml","Add Movie");
     }
     @FXML
     public void onViewMealsReport() throws JRException, SQLException {
-        ReportServices.ConnectReport("Invoice.jrxml");
+        ReportServices.ConnectReport("mealsReport.jrxml");
     }
     @FXML
     public void onUsersReport() throws JRException, SQLException {
         DatabaseConnection db = DatabaseConnection.getInstance();
         db.Connect();
-        ReportServices.ConnectReport("Invoice_4.jrxml");
+        ReportServices.ConnectReport("usersReport.jrxml");
     }
     @FXML
     public void onHover(){
 
-        Style.changeColorOnHover(dashboardNavLink,"#171717","#0f0f0f","#fff","b9b9b9","#fff","0 0 0 1");
-        Style.changeColorOnHover(usersNavLink,"#171717","#0f0f0f","#fff","b9b9b9","#fff","0 0 0 1");
-        Style.changeColorOnHover(adminsNavLink,"#171717","#0f0f0f","#fff","b9b9b9","#fff","0 0 0 1");
-        Style.changeColorOnHover(ticketsNavLink,"#171717","#0f0f0f","#fff","b9b9b9","#fff","0 0 0 1");
-        Style.changeColorOnHover(foodNavLink,"#171717","#0f0f0f","#fff","b9b9b9","#fff","0 0 0 1");
+        Style.changeColorOnHover(dashboardNavLink,"#171717","#000","#fff","b9b9b9","#fff","0 0 0 1");
+        Style.changeColorOnHover(usersNavLink,"#171717","#000","#fff","b9b9b9","#fff","0 0 0 1");
+        Style.changeColorOnHover(adminsNavLink,"#171717","#000","#fff","b9b9b9","#fff","0 0 0 1");
+        Style.changeColorOnHover(ticketsNavLink,"#171717","#000","#fff","b9b9b9","#fff","0 0 0 1");
+        Style.changeColorOnHover(foodNavLink,"#171717","#000","#fff","b9b9b9","#fff","0 0 0 1");
+        Style.changeColorOnHover(moviesNavLink,"#171717","#000","#fff","b9b9b9","#fff","0 0 0 1");
     }
     @FXML
     public void onGoToCheckout() throws SQLException {
@@ -159,7 +184,7 @@ public class AdminMainMenuController implements Initializable,IValidate{
         System.out.println(Cart.getCartItems().size());
     }
     @FXML
-    public void handleNavLinkClick(ActionEvent e){
+    public void handleNavLinkClick(ActionEvent e) throws IOException {
         if(e.getSource() == usersNavLink)
             usersMenuPane.toFront();
         if(e.getSource() == dashboardNavLink)
@@ -170,6 +195,8 @@ public class AdminMainMenuController implements Initializable,IValidate{
             ticketsMenuPane.toFront();
         if(e.getSource() == foodNavLink)
             foodMenuPane.toFront();
+        if(e.getSource() == moviesNavLink)
+            moviesPane.toFront();
 
     }
     @FXML
@@ -220,7 +247,7 @@ public class AdminMainMenuController implements Initializable,IValidate{
     private void onSubmitMealForm() throws SQLException, FileNotFoundException {
         DatabaseConnection db = DatabaseConnection.getInstance();
         db.Connect();
-        MealServices.addMeal(mealTitle.getText(),mealDescription.getText(),categoryComboBox.getValue(),Double.parseDouble(mealPrice.getText()),Integer.parseInt(mealQuantity.getText()));
+        MealServices.addMeal(mealTitle.getText(),mealDescription.getText(),categoryComboBox.getValue(),Double.parseDouble(mealPrice.getText()),Integer.parseInt(mealQuantity.getText()),mealImageUrl.getText());
     }
     @FXML
     public void onViewAllUsers() throws IOException {
@@ -322,10 +349,9 @@ public class AdminMainMenuController implements Initializable,IValidate{
         Style.transition(viewUsersReport,2000.0);
         Style.transition(viewMealsPane,2000.0);
         Style.transition(purchaseHistoryPane,2000.0);
-        Style.changeColorOnHover(viewUsersReport,"#000","#1e1e1e");
-        Style.changeColorOnHover(viewMealsPane,"#000","#1e1e1e");
-        Style.changeColorOnHover(purchaseHistoryPane,"#000","#1e1e1e");
-        Style.changeColorOnHover(goToAddAdminForm,"#000","transparent","#fff","b9b9b9","#fff","1 1 1 1");
+        Style.changeColorOnHover(viewUsersReport,"#000","#171717");
+        Style.changeColorOnHover(viewMealsPane,"#000","#171717");
+        Style.changeColorOnHover(purchaseHistoryPane,"#000","#171717");
         viewMealsPane.setOnMouseClicked(e->{
             try {
                 onViewMealsReport();

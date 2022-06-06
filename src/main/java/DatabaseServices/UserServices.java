@@ -1,5 +1,6 @@
 package DatabaseServices;
 
+import Classes.Context;
 import Classes.DatabaseConnection;
 import Classes.User;
 import javafx.collections.FXCollections;
@@ -59,13 +60,23 @@ public final class UserServices  {
         ResultSet resultSet = statement.executeQuery();
         return resultSet.next()?true:false;
     }
-    public static void addUser(String name,int age,String email,String password) throws SQLException {
-        PreparedStatement statement = dbConnection.prepareStatement("insert into users(name,age,email,password)values(?,?,?,?)");
+    public static void addUser(String name,int age,String email,String password,String userId) throws SQLException {
+        PreparedStatement statement = dbConnection.prepareStatement("insert into users(name,age,email,password,userId)values(?,?,?,?,?)");
         statement.setString(1,name);
         statement.setInt(2,age);
         statement.setString(3,email);
         statement.setString(4,password);
+        statement.setString(5,userId);
         statement.executeUpdate();
+    }
+    public static String getUserId(String email) throws SQLException {
+        String id = "";
+        PreparedStatement statement = dbConnection.prepareStatement("select * from users where email = ?");
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()){
+            id = resultSet.getString("userId");
+        }
+        return id;
     }
     public static boolean deleteUser(String id) {
         try{
@@ -79,8 +90,22 @@ public final class UserServices  {
             e.printStackTrace();
             System.out.println("cannot find id");
         }
-
         return true;
     }
+    public static User getUser(String email) throws SQLException {
+        User user = new User();
+        PreparedStatement statement = dbConnection.prepareStatement("select * from users where email = ?");
+        statement.setString(1,email);
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()){
+            user.setName(resultSet.getString("name"));
+            user.setAge(resultSet.getInt("age"));
+            user.setUserId(resultSet.getString("userId"));
+            user.setPassword(resultSet.getString("password"));
+            user.setEmail(resultSet.getString("email"));
+        }
+        return user;
+    }
+
 
 }

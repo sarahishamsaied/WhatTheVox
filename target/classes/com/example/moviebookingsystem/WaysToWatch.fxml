@@ -8,10 +8,10 @@
 <AnchorPane prefHeight="550.0" prefWidth="806.0" style="-fx-background-color: #000;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.moviebookingsystem.WaysToWatch">
    <children>
       <Label layoutX="363.0" layoutY="103.0" prefHeight="18.0" prefWidth="224.0" text="Label" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="289.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="C:\Users\Dell\Downloads\MAX-banner-880x440-C_1483954482.jpg" />
-         </image>
-      </ImageView>
+<!--      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="289.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">-->
+<!--         <image>-->
+<!--            <Image url="C:\Users\Dell\Downloads\MAX-banner-880x440-C_1483954482.jpg" />-->
+<!--         </image>-->
+<!--      </ImageView>-->
    </children>
 </AnchorPane>

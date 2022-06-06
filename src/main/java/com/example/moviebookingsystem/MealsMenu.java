@@ -40,7 +40,7 @@ public class MealsMenu implements Initializable {
                 VBox.setMargin(vBox,new Insets(50,50,50,50));
                 vBox.setPadding(new Insets(30,30,30,30));
                 ImageView imageView = new ImageView();
-                Image img = new Image("https://i5.walmartimages.com/asr/b1e20ef5-d087-4376-a9b5-a2c916432b63.f55fec47df272d798116a3f344b57e11.jpeg");
+                Image img = new Image(meal.getImageURL());
                 imageView.setFitWidth(300);
                 imageView.setFitHeight(350);
                 imageView.setImage(img);

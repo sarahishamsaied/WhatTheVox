@@ -16,7 +16,6 @@ public class ReportServices {
     public static void ConnectReport(String reportName) throws JRException, SQLException {
         JasperReport jr = JasperCompileManager.compileReport("C:\\Users\\Sarah\\IdeaProjects\\demo6\\movie-booking-system\\"+reportName);
         JasperPrint jp = JasperFillManager.fillReport(jr,null,dbConnection);
-
         JasperViewer.viewReport(jp,false);
 //        dbConnection.close();
     }
@@ -30,4 +29,15 @@ public class ReportServices {
         JasperPrint jp = JasperFillManager.fillReport(jr,null,dbConnection);
         JasperViewer.viewReport(jp,false);
     }
+    public static void printTicket(String invoicePath,String ID) throws JRException{
+        JasperDesign jd = JRXmlLoader.load(invoicePath);
+        JRDesignQuery newQuery = new JRDesignQuery();
+        String statement = "select * from tickets where ticketId = '"+ID+"'";
+        newQuery.setText(statement);
+        jd.setQuery(newQuery);
+        JasperReport jr =  JasperCompileManager.compileReport(jd);
+        JasperPrint jp = JasperFillManager.fillReport(jr,null,dbConnection);
+        JasperViewer.viewReport(jp,false);
+    }
+
 }

@@ -6,11 +6,9 @@ import javafx.collections.ObservableList;
 import java.sql.*;
 
 
-public  class DatabaseConnection {
+public class DatabaseConnection {
    protected static Connection dbConnection;
-   static DatabaseConnection db;
-    final String getAllUsersStatement = "select * from users";
-    final String searchStatement = "select * from users where ";
+    static DatabaseConnection db;
     private  DatabaseConnection(){
 
     }
@@ -25,11 +23,6 @@ public  class DatabaseConnection {
             String user = "root";
             String password = "";
             dbConnection = DriverManager.getConnection("jdbc:mysql://localhost:3307/moviebookingsystem",user,password);
-//            Statement testStatement = dbConnection.createStatement();
-//            ResultSet testRes = testStatement.executeQuery("select * from users");
-//            while(testRes.next()){
-//                System.out.println(testRes.getString("name")+" "+testRes.getString("email"));
-//            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -10,7 +10,7 @@ import java.io.IOException;
 public class Navigator {
     public void Navigate(String URL,String title) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(URL));
-        Scene scene = new Scene(fxmlLoader.load(), 1240, 650);
+        Scene scene = new Scene(fxmlLoader.load(), 1202, 650);
         Stage stage = new Stage();
         stage.setTitle(title);
         stage.setScene(scene);

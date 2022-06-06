@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ticket" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7532f224-6707-482e-9af7-c5ea298ac0b4">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (15)"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT `seatNo`, `ticketId`,`ticketType`,`amountPaid`,`paymentId` from `tickets`]]>
+	</queryString>
+	<field name="seatNo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="seatNo"/>
+		<property name="com.jaspersoft.studio.field.label" value="seatNo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tickets"/>
+	</field>
+	<field name="ticketId" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ticketId"/>
+		<property name="com.jaspersoft.studio.field.label" value="ticketId"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tickets"/>
+	</field>
+	<field name="ticketType" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ticketType"/>
+		<property name="com.jaspersoft.studio.field.label" value="ticketType"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tickets"/>
+	</field>
+	<field name="amountPaid" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="amountPaid"/>
+		<property name="com.jaspersoft.studio.field.label" value="amountPaid"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tickets"/>
+	</field>
+	<field name="paymentId" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="paymentId"/>
+		<property name="com.jaspersoft.studio.field.label" value="paymentId"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tickets"/>
+	</field>
+	<group name="seatNo">
+		<groupExpression><![CDATA[$F{seatNo}]]></groupExpression>
+	</group>
+	<group name="ticketId">
+		<groupExpression><![CDATA[$F{ticketId}]]></groupExpression>
+	</group>
+	<group name="ticketType">
+		<groupExpression><![CDATA[$F{ticketType}]]></groupExpression>
+	</group>
+	<group name="amountPaid">
+		<groupExpression><![CDATA[$F{amountPaid}]]></groupExpression>
+	</group>
+	<group name="paymentId">
+		<groupExpression><![CDATA[$F{paymentId}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="227" splitType="Stretch">
+			<image>
+				<reportElement x="290" y="-10" width="230" height="230" uuid="0c4cca9b-1dc6-43ab-a5c0-0de4e38325e2"/>
+				<imageExpression><![CDATA["C:/Users/Sarah/Desktop/wvlogo.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="333" y="190" width="127" height="30" uuid="158df130-d915-4c36-a460-9b518e4632e2"/>
+				<textElement>
+					<font fontName="Bauhaus 93" size="20"/>
+				</textElement>
+				<text><![CDATA[WhatTheVox!]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="140" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="-37" width="790" height="106" uuid="562174cb-515a-42d5-9d9e-f8d3b5b8c78f"/>
+				<textElement textAlignment="Center">
+					<font fontName="Bauhaus 93" size="72" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Your  Ticket
+]]></text>
+			</staticText>
+			<line direction="BottomUp">
+				<reportElement x="21" y="110" width="760" height="1" uuid="4cb3632f-e833-4d7d-bf91-dfd64b57cacd"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Dashed" lineColor="rgba(0, 0, 0, 0.21176471)"/>
+				</graphicElement>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="69" splitType="Stretch">
+			<textField>
+				<reportElement x="30" y="30" width="220" height="30" uuid="3878c5db-5e99-4062-92f9-4ed3a90bf6ac"/>
+				<textElement>
+					<font fontName="Candara Light" size="22"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{seatNo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="260" y="30" width="300" height="30" uuid="1a982ef3-5c13-4206-a24e-bffb984a7ca7"/>
+				<textElement>
+					<font fontName="Candara Light" size="22"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ticketId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="600" y="30" width="150" height="30" uuid="247c7688-f46d-401d-82bf-1240788db279"/>
+				<textElement>
+					<font fontName="Candara Light" size="22"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ticketType}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="30" y="0" width="100" height="30" uuid="fac75455-b946-42fb-9e4a-3b4be2d69a4a"/>
+				<textElement>
+					<font fontName="Leelawadee UI" size="20"/>
+				</textElement>
+				<text><![CDATA[SEATNO.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="260" y="0" width="100" height="30" uuid="5f85cd84-a929-4723-b8a5-1aa606c802d1"/>
+				<textElement>
+					<font fontName="Leelawadee UI" size="20"/>
+				</textElement>
+				<text><![CDATA[TICKET ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="600" y="-10" width="206" height="30" uuid="7a3d62e0-6d73-4d03-866a-b42e8b05addc"/>
+				<textElement>
+					<font fontName="Leelawadee UI" size="20"/>
+				</textElement>
+				<text><![CDATA[TICKET TYPE]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="127" splitType="Stretch">
+			<line direction="BottomUp">
+				<reportElement x="10" y="126" width="760" height="1" uuid="bb099edc-bdd3-44e3-a0bd-526a329ec6a7"/>
+				<graphicElement>
+					<pen lineWidth="2.0" lineStyle="Dashed" lineColor="rgba(0, 0, 0, 0.21176471)"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="65" splitType="Stretch">
+			<staticText>
+				<reportElement x="30" y="10" width="200" height="30" uuid="1b0d7669-aebc-464a-bb95-8bb3c7f9572e"/>
+				<textElement>
+					<font fontName="Leelawadee UI" size="20"/>
+				</textElement>
+				<text><![CDATA[AMNT. PAID]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="30" y="42" width="210" height="22" uuid="c74ae0fe-70c0-40b1-8e34-fef89e84b075"/>
+				<textElement>
+					<font fontName="Candara Light" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{amountPaid}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="580" y="0" width="200" height="30" uuid="bead722e-02bc-4a6d-a68e-4afc8ecc934c"/>
+				<textElement>
+					<font fontName="Leelawadee UI" size="20"/>
+				</textElement>
+				<text><![CDATA[TIME]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="580" y="35" width="210" height="30" uuid="f0ddf19b-b1be-44d5-bf91-bfce8a4f6333"/>
+				<textElement>
+					<font fontName="Candara Light" size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{paymentId}]]></textFieldExpression>
+			</textField>
+<!--			<componentElement>-->
+<!--				<reportElement  x="210" y="17" width="350" height="30" uuid="42a254cb-d9d1-4037-aad7-a01c74587701">-->
+<!--					<property name="com.jaspersoft.studio.unit.barWidth" value="px"/>-->
+<!--					<property name="com.jaspersoft.studio.unit.barHeight" value="pixel"/>-->
+<!--				</reportElement>-->
+<!--				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="2of7" drawText="false" checksumRequired="false" barWidth="4">-->
+<!--					<jr:codeExpression><![CDATA["12345678910111213141516"]]></jr:codeExpression>-->
+<!--				</jr:barbecue>-->
+<!--			</componentElement>-->
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
