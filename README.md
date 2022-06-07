@@ -3,9 +3,7 @@
   <img src="https://user-images.githubusercontent.com/71923204/172295349-db075192-86fa-4820-8fa8-18941761f51b.png"  width="400" >
 </p>
 
-# Project Quick Overview
-
-***Check out [Project Details](project-details)***
+# Quick Overview
 
 ***WhatTheVox!*** is a Java system that mainly focuses on dealing with users, managing cinema halls and printing movie tickets. This project handles multi-layered access levels (Admin/User).
 
@@ -25,7 +23,7 @@
 
 ## First off, ***The Admin***
 
-Admins have full control over everything in the system where they have access the ***[Dashboard](#the-dashboard)***. 
+Admins have full control over everything in the system where they have access the ***[Dashboard](#dashboard-features)***. 
 
 Every admin has a login ID and password (which are passed to an authentication system).
 
@@ -44,14 +42,14 @@ In order for the user to have full access to the ***[features](#user-features)**
 
 Every user has an email, password (which are passed to an authentication system).
 
-# The Dashboard Features
+# Dashboard Features
 
- - ***Analytics*** 
+  ## Analytics
  
  
 ![dashboard](https://user-images.githubusercontent.com/71923204/172298186-988781ee-4fdb-4494-a513-a2d1b877c6f0.JPG)
 
- - ***Generating Reports*** 
+ ## Generating Reports 
 
 <p align = "center">
   <img src="https://user-images.githubusercontent.com/71923204/172298667-2a0b64bd-04fa-43e1-9dd1-6254de24b83c.png"  width="500" >
@@ -61,7 +59,7 @@ Every user has an email, password (which are passed to an authentication system)
 
 --------
 
- - ***Full Control over all Users***
+ # Full Control over all Users
 
 <p align = "left">
   <img src="https://user-images.githubusercontent.com/71923204/172299916-0a9c843d-aadb-4c4c-aed1-7af55de3a7d2.png"  width="500" >
@@ -75,7 +73,7 @@ Every user has an email, password (which are passed to an authentication system)
 
 --------
 
- - ***Meals***
+  ## Meals
 <p align = "left">
   <img src="https://user-images.githubusercontent.com/71923204/172301790-d2835bae-543c-4379-bb26-7c165c163517.png"  width="500" >
     <img src="https://user-images.githubusercontent.com/71923204/172302020-0d326c62-69d1-44b9-b93b-21756d79278a.png"  width="500" >
@@ -85,12 +83,28 @@ Every user has an email, password (which are passed to an authentication system)
   <img src="https://user-images.githubusercontent.com/71923204/172321069-4031ecbe-47f0-4c70-ad94-c86d5e431e45.png"  width="500" >
     <img src="https://user-images.githubusercontent.com/71923204/172321097-9441bdb7-e505-47ce-bc08-067b41f4ad15.png"  width="500" >
 </p>
+
 <!-- ![Screenshot (258)](https://user-images.githubusercontent.com/71923204/172321069-4031ecbe-47f0-4c70-ad94-c86d5e431e45.png)
+
 ![Screenshot (257)](https://user-images.githubusercontent.com/71923204/172321097-9441bdb7-e505-47ce-bc08-067b41f4ad15.png) -->
 
-![Screenshot (259)](https://user-images.githubusercontent.com/71923204/172321204-a9bbcaf6-8cea-4ee1-9a44-6e04071a07c1.png)
+<p align = "center">
+  <img src="https://user-images.githubusercontent.com/71923204/172480205-624c3268-1d3b-4c88-9e26-ed84a99933cb.png"  width="900" >
+  <img src="https://user-images.githubusercontent.com/71923204/172321204-a9bbcaf6-8cea-4ee1-9a44-6e04071a07c1.png"  width="800" >
+</p>
 
 ------------------
+  ## Movies
+
+ <p align = "left">
+  <img src="https://user-images.githubusercontent.com/71923204/172478734-dec35298-5e83-41c8-9e9e-b30a4beba393.png"  width="500" >
+    <img src="https://user-images.githubusercontent.com/71923204/172478759-ab7b707b-e79f-4ade-99cc-b56a7685c694.png"  width="500" >
+</p>
+
+ <p align = "left">
+  <img src="https://user-images.githubusercontent.com/71923204/172478785-0066307c-21e0-4112-a490-f0ebfef84c16.png"  width="500" >
+    <img src="https://user-images.githubusercontent.com/71923204/172478809-9db892a8-2b5b-4c2f-b413-6f79ab2d6a34.png"  width="500" >
+</p>
 
 ## User Features
 
