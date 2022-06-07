@@ -124,7 +124,9 @@ A user can:
 ## UML
 
 Click on the image for high quality
-![cinemaBookingSystem](https://user-images.githubusercontent.com/71923204/168705203-c038cb3d-fd61-4753-8904-ae60c00c06f1.png)
+
+
+![Untitled Diagram drawio (3)](https://user-images.githubusercontent.com/71923204/172483117-cb6a2c0d-6338-45b6-bb3a-8287a11e59d4.png)
 
 ---------------------------------------------------------------------------------
 
