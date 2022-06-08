@@ -42,10 +42,14 @@ Admins have full control over everything in the system where they have access th
 Every admin has a login ID and password (which are passed to an authentication system).
 
  - ### Admin Authentication & Validation
+ 
+ 
+![admin](https://user-images.githubusercontent.com/71923204/172589618-16b68028-c1e0-4b40-b937-e53ef58e4247.png)
 
-![adminSignUp](https://user-images.githubusercontent.com/71923204/172297259-5034f56c-e5f9-47a8-bb05-bcafb77c59c2.JPG)
 
-![Screenshot (222)](https://user-images.githubusercontent.com/71923204/172297359-7ba2f999-5a9b-4b18-ba19-707631514fbf.png)
+<!-- ![adminSignUp](https://user-images.githubusercontent.com/71923204/172297259-5034f56c-e5f9-47a8-bb05-bcafb77c59c2.JPG)
+
+![Screenshot (222)](https://user-images.githubusercontent.com/71923204/172297359-7ba2f999-5a9b-4b18-ba19-707631514fbf.png) -->
 
 
 ## The User
@@ -75,15 +79,7 @@ Every user has an email, password (which are passed to an authentication system)
 
  # Full Control over all Users
 
-<p align = "left">
-  <img src="https://user-images.githubusercontent.com/71923204/172299916-0a9c843d-aadb-4c4c-aed1-7af55de3a7d2.png"  width="500" >
-    <img src="https://user-images.githubusercontent.com/71923204/172299916-0a9c843d-aadb-4c4c-aed1-7af55de3a7d2.png"  width="500" >
-</p>
-
-<p align = "left">
-  <img src="https://user-images.githubusercontent.com/71923204/172301117-caf5af93-4baf-4dfa-9b2e-b0a3ce471bb4.png"  width="500" >
-    <img src="https://user-images.githubusercontent.com/71923204/172301376-24d4f4db-f316-4a21-b7bb-44f4649ee147.png"  width="500" >
-</p>
+![users](https://user-images.githubusercontent.com/71923204/172596238-f737f297-2076-4701-9414-416345816176.png)
 
 --------
 
@@ -109,18 +105,15 @@ Every user has an email, password (which are passed to an authentication system)
 
 ------------------
   ## Movies
+  
+  ![movies1](https://user-images.githubusercontent.com/71923204/172587668-1b27132c-f21f-427f-9b41-4881ae9eb56e.png)
 
- <p align = "left">
-  <img src="https://user-images.githubusercontent.com/71923204/172478734-dec35298-5e83-41c8-9e9e-b30a4beba393.png"  width="500" >
-    <img src="https://user-images.githubusercontent.com/71923204/172478759-ab7b707b-e79f-4ade-99cc-b56a7685c694.png"  width="500" >
-</p>
-
- <p align = "left">
-  <img src="https://user-images.githubusercontent.com/71923204/172478785-0066307c-21e0-4112-a490-f0ebfef84c16.png"  width="500" >
-    <img src="https://user-images.githubusercontent.com/71923204/172478809-9db892a8-2b5b-4c2f-b413-6f79ab2d6a34.png"  width="500" >
-</p>
 
 ## User Features
+
+
+![signUpsignIn](https://user-images.githubusercontent.com/71923204/172585525-a5f8f615-f5a5-4ec9-89af-8e3fc71a5838.png)
+
 
 A user can:
 
