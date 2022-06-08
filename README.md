@@ -3,6 +3,20 @@
   <img src="https://user-images.githubusercontent.com/71923204/172295349-db075192-86fa-4820-8fa8-18941761f51b.png"  width="400" >
 </p>
 
+<div align = "center">
+  
+  ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
+![IntelliJ IDEA](https://img.shields.io/badge/IntelliJIDEA-000000.svg?style=for-the-badge&logo=intellij-idea&logoColor=white)
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
+![Apache Tomcat](https://img.shields.io/badge/apache%20tomcat-%23F8DC75.svg?style=for-the-badge&logo=apache-tomcat&logoColor=black)
+ [![Maven Central](https://img.shields.io/maven-central/v/com.github.almasb/fxgl.svg)]()
+
+  
+</div>
+
+
+
+
 # Quick Overview
 
 ***WhatTheVox!*** is a Java system that mainly focuses on dealing with users, managing cinema halls and printing movie tickets. This project handles multi-layered access levels (Admin/User).
