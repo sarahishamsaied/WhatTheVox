@@ -91,13 +91,13 @@ Every user has an email, password (which are passed to an authentication system)
 
   ## Meals
 <p align = "left">
-  <img src="https://user-images.githubusercontent.com/71923204/172301790-d2835bae-543c-4379-bb26-7c165c163517.png"  width="500" >
-    <img src="https://user-images.githubusercontent.com/71923204/172302020-0d326c62-69d1-44b9-b93b-21756d79278a.png"  width="500" >
+  <img src="https://user-images.githubusercontent.com/71923204/172301790-d2835bae-543c-4379-bb26-7c165c163517.png"  width="450" >
+    <img src="https://user-images.githubusercontent.com/71923204/172302020-0d326c62-69d1-44b9-b93b-21756d79278a.png"  width="450" >
 </p>
 
 <p align = "left">
-  <img src="https://user-images.githubusercontent.com/71923204/172321069-4031ecbe-47f0-4c70-ad94-c86d5e431e45.png"  width="500" >
-    <img src="https://user-images.githubusercontent.com/71923204/172321097-9441bdb7-e505-47ce-bc08-067b41f4ad15.png"  width="500" >
+  <img src="https://user-images.githubusercontent.com/71923204/172321069-4031ecbe-47f0-4c70-ad94-c86d5e431e45.png"  width="450" >
+    <img src="https://user-images.githubusercontent.com/71923204/172321097-9441bdb7-e505-47ce-bc08-067b41f4ad15.png"  width="450" >
 </p>
 
 <!-- ![Screenshot (258)](https://user-images.githubusercontent.com/71923204/172321069-4031ecbe-47f0-4c70-ad94-c86d5e431e45.png)
