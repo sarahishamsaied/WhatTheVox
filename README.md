@@ -1,7 +1,13 @@
-<h1 align = "center">WhatTheVox!</h1> 
+<h1 align = "center">
+  
+![WhatTheVox!](https://user-images.githubusercontent.com/71923204/172602063-d2051ae6-7aaf-4c16-9c25-416f1c72ed37.png)
+
+</h1>
 <p align = "center">
   <img src="https://user-images.githubusercontent.com/71923204/172295349-db075192-86fa-4820-8fa8-18941761f51b.png"  width="400" >
 </p>
+
+
 
 <div align = "center">
   
@@ -138,8 +144,6 @@ Click on the image for high quality
 ---------------------------------------------------------------------------------
 
 ********
-# Project Details
-
 
  
  
