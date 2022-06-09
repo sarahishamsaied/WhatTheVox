@@ -121,23 +121,23 @@ Every user has an email, password (which are passed to an authentication system)
 
 ## User Features
 
+![home1](https://user-images.githubusercontent.com/71923204/172803874-e433bf40-ec75-448f-93a7-12e826871a39.jpg)
+
+ - ***User Authentication.***
+
 
 ![signUpsignIn](https://user-images.githubusercontent.com/71923204/172585525-a5f8f615-f5a5-4ec9-89af-8e3fc71a5838.png)
 
 
+- ***View/Book Movies*** 
 
 
-A user can:
 
-1 - Buy tickets.
+ - ***Pre-order food.***
+ 
 
-2 - Sign up/ sign in. 
+ - ***View movie details.***
 
-3 - Pre-order food.
-
-4 - View movie details.
-
-5 - Pick seats.
 
 
 
