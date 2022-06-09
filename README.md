@@ -25,7 +25,7 @@
 
 # Quick Overview
 
-***WhatTheVox!*** is a Java system that mainly focuses on dealing with users, managing cinema halls and printing movie tickets. This project handles multi-layered access levels (Admin/User).
+***WhatTheVox!*** is cinema management system that is developed using Java. It mainly focuses on dealing with users, managing cinema halls and printing movie tickets. This project handles multi-layered access levels (Admin/User).
 
 
 ## Tools
