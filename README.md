@@ -95,10 +95,7 @@ Every user has an email, password (which are passed to an authentication system)
     <img src="https://user-images.githubusercontent.com/71923204/172302020-0d326c62-69d1-44b9-b93b-21756d79278a.png"  width="450" >
 </p>
 
-<p align = "left">
-  <img src="https://user-images.githubusercontent.com/71923204/172321069-4031ecbe-47f0-4c70-ad94-c86d5e431e45.png"  width="450" >
-    <img src="https://user-images.githubusercontent.com/71923204/172321097-9441bdb7-e505-47ce-bc08-067b41f4ad15.png"  width="450" >
-</p> -->
+
 
 
 ![meals](https://user-images.githubusercontent.com/71923204/172699592-88a0beb2-a79b-4998-87e1-3fef00df90ce.png)
@@ -131,8 +128,14 @@ Every user has an email, password (which are passed to an authentication system)
 
 - ***View/Book Movies*** 
 
-![Screenshot (246)](https://user-images.githubusercontent.com/71923204/172805391-c473c902-f69d-4469-b11d-bc712ba4a4cd.png)
+<!-- ![Screenshot (246)](https://user-images.githubusercontent.com/71923204/172805391-c473c902-f69d-4469-b11d-bc712ba4a4cd.png)
 
+![Screenshot (268)](https://user-images.githubusercontent.com/71923204/172830293-23c75edf-958f-426e-ba27-bf2ab9407c6a.png) -->
+
+<p align = "left">
+  <img src="https://user-images.githubusercontent.com/71923204/172805391-c473c902-f69d-4469-b11d-bc712ba4a4cd.png"  width="450" >
+    <img src="https://user-images.githubusercontent.com/71923204/172830293-23c75edf-958f-426e-ba27-bf2ab9407c6a.png"  width="450" >
+</p> 
 
  - ***Pre-order food.***
  
