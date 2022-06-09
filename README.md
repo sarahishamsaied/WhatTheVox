@@ -131,6 +131,7 @@ Every user has an email, password (which are passed to an authentication system)
 
 - ***View/Book Movies*** 
 
+![Screenshot (246)](https://user-images.githubusercontent.com/71923204/172805391-c473c902-f69d-4469-b11d-bc712ba4a4cd.png)
 
 
  - ***Pre-order food.***
