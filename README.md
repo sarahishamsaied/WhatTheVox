@@ -76,8 +76,8 @@ Every user has an email, password (which are passed to an authentication system)
  ## Generating Reports 
 
 <p align = "center">
-  <img src="https://user-images.githubusercontent.com/71923204/172298667-2a0b64bd-04fa-43e1-9dd1-6254de24b83c.png"  width="500" >
-    <img src="https://user-images.githubusercontent.com/71923204/172299044-033d0239-dcd3-40e8-aa8c-64b55464a484.png"  width="483" >
+  <img src="https://user-images.githubusercontent.com/71923204/172298667-2a0b64bd-04fa-43e1-9dd1-6254de24b83c.png"  width="400" >
+    <img src="https://user-images.githubusercontent.com/71923204/172299044-033d0239-dcd3-40e8-aa8c-64b55464a484.png"  width="383" >
 
 </p>
 
